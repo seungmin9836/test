@@ -39,11 +39,12 @@
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.jsp" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
-				<a class="nav-link" href="adduser.jsp" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
-				<a class="nav-link" href="wishlist.jsp" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
-				<a class="nav-link" href="mypage.jsp" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
-				<a class="nav-link" href="serviceCenter.jsp" style="color:white;">고객센터 <i class="fa-solid fa-house-user"></i></a>
+				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
+				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
+				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
+				<a class="nav-link" href="orderpageCategory.do" style="color:white;">주문조회 <i class="fa-solid fa-circle-user"></i></a>
+				<a class="nav-link" href="serviceCenter.do" style="color:white;">고객센터 <i class="fa-solid fa-house-user"></i></a>
 				
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -64,15 +65,15 @@
 							data-bs-toggle="dropdown" aria-expanded="false"> 전체 카테고리 </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarScrollingDropdown">
-								<li><a class="dropdown-item" href="#"> 상품 전체보기</a></li>
+								<li><a class="dropdown-item" href="allCategory.do"> 상품 전체보기</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#"> 학생용 의자</a></li>
+								<li><a class="dropdown-item" href="studentCategory.do"> 학생용 의자</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#"> 사무용 의자</a></li>
+								<li><a class="dropdown-item" href="officeCategory.do"> 사무용 의자</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#"> 인테리어 의자 </a></li>
+								<li><a class="dropdown-item" href="interiorCategory.do"> 인테리어 의자 </a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#"> 스툴 / 좌식의자 </a></li>
+								<li><a class="dropdown-item" href="stoolCategory.do"> 스툴 / 좌식의자 </a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link active"
