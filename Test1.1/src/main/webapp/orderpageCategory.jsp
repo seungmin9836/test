@@ -96,30 +96,102 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-		
-				
-	<h2>나의 주문 정보</h2>
+	<div class="container mt-5">
+	<h2>나의 주문 정보</h2>	
+	</div>
+	<div class="container mt-5">
+
 	<form action="reviewWritepage.do" method="post">
-	<table>
-	<tr align="left">
+	<table class="table">
+		<thead>
+	    <tr>
+	      <th scope="col">상품사진</th>
+	      <th scope="col">상품명</th>
+	      <th scope="col">상품수량</th>
+	      <th scope="col">상품가격</th>
+	      <th scope="col">배송여부</th>
+	      <th scope="col">리뷰쓰기</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<!-- <c:forEach> -->
 		
-		<td> ${content_view.pImg_main}</td>
+			<tr scope="row">
 		
-		<td> ${content_view.pName } </td>
+			<td><img src="img/img_main/main_img1.jpg" width="200"></td><!-- 상품사진 -->
+			
+			<td> 상품명 1 </td><!-- 상품명 -->
+			
+			<td> 1개 </td><!-- 상품수량 -->
 		
-		<td> ${content_view.oQuantity } </td>
+			<td><h5><i class="fa-solid fa-won-sign"></i>100,000</h5></td><!-- 상품가격 -->
+			
+			<td><h5>베송중</h5></td><!-- 구매확정 -->
+			
+			<!-- 상품사진 <td><img src=" ${content_view.pImg_main}" width="50"></td>
 	
-		<td>${content_view.oPrice }  </td>
+			상품명 <td> ${content_view.pName } </td>
+			
+
+			상품수량 <td> ${content_view.oQuantity } </td>
 		
-		<td>${content_view.oDecision } </td>
+			<td>${content_view.oPrice }  </td>
+			
+			<td>${content_view.oDecision } </td>-->
+		
+			<td><input type="submit" value="리뷰작성"></td>
 	
+			</tr>
+			<tr scope="row">
 		
-		<td><input type="submit" value="리뷰쓰기"></td></tr>
+			<td><img src="img/img_main/main_img2.jpg" width="200"></td><!-- 상품사진 -->
+			
+			<td> 상품명 2 </td><!-- 상품명 -->
+			
+			<td> 1개 </td><!-- 상품수량 -->
+		
+			<td><h5><i class="fa-solid fa-won-sign"></i>100,000</h5></td><!-- 상품가격 -->
+			
+			<td><h5>배송완료</h5></td><!-- 구매확정 -->
+			
+			<!-- 상품사진 <td><img src=" ${content_view.pImg_main}" width="50"></td>
+			
+			상품명 <td> ${content_view.pName } </td>
+			
+			상품수량 <td> ${content_view.oQuantity } </td>
+		
+			<td>${content_view.oPrice }  </td>
+			
+			<td>${content_view.oDecision } </td>-->
+		
+			<td><input type="submit" value="리뷰작성"></td>
+	
+			</tr>
+		<!-- </c:forEach> -->
+		</tbody>
 	</table>
-	
-	
-	
-	 --%>
+</div>
+<div class="row" style="margin-top: 5rem; marign-bottom : 5rem;">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
 	
 	<!-- End -->
 	

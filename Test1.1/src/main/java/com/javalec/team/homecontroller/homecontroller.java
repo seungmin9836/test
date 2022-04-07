@@ -16,6 +16,7 @@ import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
+import com.javalec.team.command.ServiceCenterWrite_Command;
 
 /**
  * Servlet implementation class homecontroller
@@ -92,7 +93,7 @@ public class homecontroller extends HttpServlet {
 			break;
 			
 		case("/serviceCenterWriteFinish.do")://Write.jsp에서 폼으로 보내기
-			command = new ServiceCenter1vs1Detail_Command();
+			command = new ServiceCenterWrite_Command();
 			command.execute(request, response);
 			viewPage = "serviceCenter1vs1.do";
 			break;

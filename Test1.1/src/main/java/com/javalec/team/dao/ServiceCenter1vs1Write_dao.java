@@ -25,13 +25,14 @@ public class ServiceCenter1vs1Write_dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into inquire (iCode, user_uId, user_uEmail, iTitle, iContent) value (?,?,?,?,?)"; 
+			String query = "insert into inquire (iCode, user_uId, user_uEmail, iTitle, iContent, iDate, iReply) values (?,?,?,?,?,now(),'답변중')"; 
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, iCode);
 			preparedStatement.setString(2, user_uId);
 			preparedStatement.setString(3, user_uEmail);
 			preparedStatement.setString(4, iTitle);
 			preparedStatement.setString(5, iContent);
+			
 			
 			preparedStatement.executeUpdate();
 			
