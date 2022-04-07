@@ -95,7 +95,7 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	
+	<h2>리뷰 카테고리</h2> 
 	<!-- End -->
 	
 	<!-- Footer start -->

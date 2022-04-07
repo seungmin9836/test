@@ -96,6 +96,54 @@
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 	
+	<form action="mpchange.do" method="post">
+	<table>
+	<tr align="right">
+		<td><h2>나의 정보</h2> </td>
+		<td></td></tr>
+	<tr align="left">
+		<td> 사용자ID : </td>
+		<td> <input type="text" name="uId" size="12" value="${content_view.uId }" readonly="readonly"></td></tr>
+		<tr align="left">
+		<td>성명 : </td>
+		<td> <input type="text" name="uName" size="12" value="${content_view.uName }"readonly="readonly" ></td></tr>
+		<tr align="left">
+		<td>이메일 : </td>
+		<td><input type="text" name="uEmail" size="20" value="${content_view.uEmail }" ></td>></tr>
+		<tr align="left">
+		<td>휴대폰 번호 :</td> 
+		<td>010-<input type="text" name="uPhone1" size="4" value="${content_view.uPhone1 }" >-<input type="text" name="uPhone2" size="4" value="${content_view.uPhone2 }" ></td></tr>
+		<tr align="left">
+		<td>주소 :</td> 
+		<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" ></td></tr>
+		<tr align="left">
+		<td>계좌 :</td> 
+		<td>
+		<select name="uBank">
+		<option  selected="selected">${content_view.uBank }</option>
+		<option>국민</option>
+		<option>신한</option>
+		<option>농협</option>
+		<option>하나</option>
+		<option>기업</option>
+		</select>
+		<input type="text" name="uAccount" size="20" value="${content_view.uAccount }" ></td></tr>
+		<tr align="left">
+		<td>비밀번호 :</td> 
+		<td><input type="text" name="uPw" size="20" value="${content_view.uPw }" ></td></tr>
+		<tr><td></td>
+		<td><input type="submit" value="변경하기"></td></tr>
+	</table>
+	</form>
+	<form action="mpdelete.do" method="post">
+	<input type="hidden" name="uId" size="12" value="${content_view.uId }">
+		<table><tr><td><input type="submit" value="탈퇴하기"></td>
+	</tr></table>
+	</form>
+	
+	
+
+	
 	<!-- End -->
 	
 	<!-- Footer start -->

@@ -95,6 +95,30 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+		
+				
+	<h2>나의 주문 정보</h2>
+	<form action="reviewWritepage.do" method="post">
+	<table>
+	<tr align="left">
+		
+		<td> ${content_view.pImg_main}</td>
+		
+		<td> ${content_view.pName } </td>
+		
+		<td> ${content_view.oQuantity } </td>
+	
+		<td>${content_view.oPrice }  </td>
+		
+		<td>${content_view.oDecision } </td>
+	
+		
+		<td><input type="submit" value="리뷰쓰기"></td></tr>
+	</table>
+	
+	
+	
+	 --%>
 	
 	<!-- End -->
 	
