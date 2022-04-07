@@ -96,7 +96,24 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	
+		<h1 class="cart">장바구니</h1>
+		<a href="#" class="abutton">전체 선택</a>
+				
+		<c:forEach items="${wishlist}" var="dto">
+			<tr>
+				<td>${dto.pName }</td>
+				<td>${dto.pColor }</td>
+				<td>${dto.pQuantity }</td>
+				<td>${dto.sPrice }</td>
+				<td><a href="Delete.do?aId=${dto.aId}">X</a></td>
+			</tr>	
+				
+		</c:forEach>	
+					
+					총 주문 금액 sum 
+				
+		<a href = "payment.do">결제하기</a>		
+			
 	<!-- End -->
 	
 	<!-- Footer start -->

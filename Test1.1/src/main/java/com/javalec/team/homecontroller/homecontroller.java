@@ -128,6 +128,27 @@ public class homecontroller extends HttpServlet {
 		//제품(가슬)끝
 		
 		//장바구니(은애누나) 시작
+		case("/wishlist.do")://전체 내용 보여주기
+//			command = new Wishlist_Command();
+//			command.execute(request, response);
+			viewPage = "wishlist.jsp";
+			break;									
+		
+		case("/delete.do")://장바구니삭제
+//			command = new Delete_Command();
+//			command.execute(request, response);
+			viewPage = "wishlist.do";
+			break;
+		case("/payment.do")://결제
+//			command = new Payment_Command();
+//			command.execute(request, response);
+			viewPage = "payment.jsp";
+			break;
+		case("/paymentrevise.do")://결제에서 물품 수정하기
+//			command = new Paymentrevise_Command();
+//			command.execute(request, response);
+			viewPage = "payment.jsp";
+			break;
 		//장바구니(은애누나) 끝
 			
 		

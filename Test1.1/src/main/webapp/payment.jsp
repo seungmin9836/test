@@ -96,7 +96,56 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	
+	<h1>결제</h1>
+
+<h2>배송과 수령방법</h2>
+
+<p>어디로 배송할까요?</p>
+<form action="form" id="form" method="post">
+<div id="list"></div>
+<div id="callBackDiv"></div>	
+														<!-- value="" -->
+<div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
+<div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
+<div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
+<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
+<button type="button" onClick="goPopup();"> 주소찾기</button></div>
+ <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="주소를 입력해주세요."/></div>
+</div>			
+<p>배송지 유형이 어떻게 되나요?</p>
+
+<div><input type="radio" name="delivery" value= "door">문 앞</div>
+<div><input type="radio" name="delivery" value="security">경비실</div>
+<div><input type="radio" name="delivery" value="mailbox">택배함</div>
+<div><input type="radio" name="delivery" value="ect">기타사항</div>
+<div style="padding-left: 1.2em"><div><textarea rows="5" cols="20">간략하게 입력하세요.</textarea></div></div>
+</form>
+
+
+
+<form action="paymentmethod.jsp" method="post">
+<div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
+
+</form>
+
+<script>
+
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	 
+}
+
+function jusoCallBack(zipNo,roadFullAddr){
+			var zipNoEl = document.querySelector("#zipNo");
+			var addressEl = document.querySelector("#address");
+			zipNoEl.value=zipNo;
+			addressEl.value=roadFullAddr;
+		
+}
+
+</script>
 	<!-- End -->
 	
 	<!-- Footer start -->
