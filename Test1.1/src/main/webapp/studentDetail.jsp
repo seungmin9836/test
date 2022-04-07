@@ -71,7 +71,7 @@
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="mainpage.do">Home</a></li>
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
+							class="nav-link dropdown-toggle"
 							id="navbarScrollingDropdown" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 전체 카테고리 </a>
 							<ul class="dropdown-menu"

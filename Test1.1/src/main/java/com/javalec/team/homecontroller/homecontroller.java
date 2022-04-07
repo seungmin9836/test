@@ -9,14 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.javalec.team.command.AllCategory_Command;
+import com.javalec.team.command.AllDetail_Command;
+import com.javalec.team.command.InteriorCategory_Command;
+import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.MPchange_Command;
 import com.javalec.team.command.MPdelete_Command;
 import com.javalec.team.command.MPinformation_Command;
+import com.javalec.team.command.OfficeCategory_Command;
+import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
+import com.javalec.team.command.StoolCategory_Command;
+import com.javalec.team.command.StoolDetail_Command;
+import com.javalec.team.command.StudentCategory_Command;
+import com.javalec.team.command.StudentDetail_Command;
 
 /**
  * Servlet implementation class homecontroller
@@ -126,7 +136,77 @@ public class homecontroller extends HttpServlet {
 		//마이페이지(수연누나) 끝
 		
 		//제품(가슬)시작
+		// allcategory.do
 		
+				case("/allCategory.do"): 
+					command = new AllCategory_Command();
+					command.execute(request, response);
+					viewPage = "allCategory.jsp";
+					break;
+					
+					
+					
+				case("/studentCategory.do"): 
+					command = new StudentCategory_Command();
+					command.execute(request, response);
+					viewPage = "studentCategory.jsp";
+					break;
+					
+					
+				case("/officeCategory.do"): 
+					command = new OfficeCategory_Command();
+					command.execute(request, response);
+					viewPage = "officeCategory.jsp";
+					break;
+					
+				case("/interiorCategory.do"): 
+					command = new InteriorCategory_Command();
+					command.execute(request, response);
+					viewPage = "interiorCategory.jsp";
+					break;
+					
+				case("/stoolCategory.do"): 
+					command = new StoolCategory_Command();
+					command.execute(request, response);
+					viewPage = "stoolCategory.jsp";
+					break;
+					//category.do - end
+					
+					
+					
+					//DetailPage.do
+					
+				case("/allDetail.do"): 
+					command = new AllDetail_Command();
+					command.execute(request, response);
+					viewPage = "alldetail.jsp";
+					break;
+					
+				case("/studentDetail.do"): 
+					command = new StudentDetail_Command();
+					command.execute(request, response);
+					viewPage = "studentDetail.jsp";
+					break;
+					
+					
+				case("/officeDetail.do"): 
+					command = new OfficeDetail_Command();
+					command.execute(request, response);
+					viewPage = "officeDetail.jsp";
+					break;
+					
+				case("/interiorDetail.do"): 
+					command = new InteriorDetail_Command();
+					command.execute(request, response);
+					viewPage = "interiorDetail.jsp";
+					break;
+					
+				case("/stoolDetail.do"): 
+					command = new StoolDetail_Command();
+					command.execute(request, response);
+					viewPage = "stoolDetail.jsp";
+					break;
+					//DetailPage.do - end
 		//제품(가슬)끝
 		
 		//장바구니(은애누나) 시작
