@@ -16,7 +16,7 @@ public class MPinformation_Command implements PCommand {
 		//값을 받아와야 함String uId =request.getParameter("uId");
 		
 		MPinformation_dao dao = new MPinformation_dao();
-		MPinformation_dto dto = dao.contentView("d");
+		MPinformation_dto dto = dao.contentView("aaaaa");
 		request.setAttribute("content_view", dto);
 	}
 
