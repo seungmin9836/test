@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,8 +118,8 @@
 </script> 
 
 <form name="form">
+	<table>
 	<c:forEach items="${list }" var="dto">	
-
 	<tr>
 	<td><input type="button" name="button" value="전체 선택" onClick="this.value=check(this.form.checkbox)"></td>
 	<td><input name="checkbox" type="checkbox" value=""><img src="${dto.pImg_main}" width="300"></td>
@@ -127,8 +128,9 @@
 				<td>가격</td>
 				<td><a href="Delete.do?pCode=${dto.pCode}">X</a></td>
 	</tr>	
-				
 	</c:forEach>	
+	</table>
+				
 </form>
 				합계 : ?
 				
