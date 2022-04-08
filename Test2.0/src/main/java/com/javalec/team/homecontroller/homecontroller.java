@@ -24,6 +24,7 @@ import com.javalec.team.command.OfficeCategory_Command;
 import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
+import com.javalec.team.command.ReviewWritepage_Command;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
@@ -169,11 +170,21 @@ public class homecontroller extends HttpServlet {
 			viewPage = "mainpage.jsp"; //do로 해서 다시 케이스1에 들어가도록!! jsp 아님!!!!!
 			break;
 			
-		case ("/orderpageCategory.do"): //나의정보 보여주기
+		case ("/orderpageCategory.do"): //나의주문정보
 			command = new OrderpageCategory_Command(); 
 			command.execute(request, response);
 			viewPage ="orderpageCategory.jsp";
-		break;
+			break;
+		
+		case ("/reviewWritepage.do"): //리뷰쓰는페이지 이동
+			viewPage="reviewWritepage.jsp";
+			break;
+	
+		case("/reviewWrite.do")://리뷰디비에 저장
+			command = new ReviewWritepage_Command();
+			command.execute(request, response);
+			viewPage = "mainpage.jsp"; //do로 해서 다시 케이스1에 들어가도록!! jsp 아님!!!!!
+			break;
 		//마이페이지(수연누나) 끝
 		
 		//제품(가슬)시작

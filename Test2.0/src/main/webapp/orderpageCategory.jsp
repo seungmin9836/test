@@ -96,81 +96,57 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	<div class="container mt-5">
-	<h2>나의 주문 정보</h2>	
-	</div>
-	<div class="container mt-5">
+<!-- 여기부터 넣으시면 됩니다 Start -->
+		
+				
+	   <!-- 여기부터 넣으시면 됩니다 Start -->
+   <div class="container mt-5">
+   <h2>나의 주문 정보</h2>   
+   </div>
+   <div class="container mt-5">
 
-	<form action="reviewWritepage.do" method="post">
-	<table class="table">
-		<thead>
-	    <tr>
-	      <th scope="col">상품사진</th>
-	      <th scope="col">상품명</th>
-	      <th scope="col">상품수량</th>
-	      <th scope="col">상품가격</th>
-	      <th scope="col">배송여부</th>
-	      <th scope="col">리뷰쓰기</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-		<!-- <c:forEach> -->
-		
-			<tr scope="row">
-		
-			<td><img src="img/img_main/main_img1.jpg" width="200"></td><!-- 상품사진 -->
-			
-			<td> 상품명 1 </td><!-- 상품명 -->
-			
-			<td> 1개 </td><!-- 상품수량 -->
-		
-			<td><h5><i class="fa-solid fa-won-sign"></i>100,000</h5></td><!-- 상품가격 -->
-			
-			<td><h5>베송중</h5></td><!-- 구매확정 -->
-			
-			<!-- 상품사진 <td><img src=" ${content_view.pImg_main}" width="50"></td>
-	
-			상품명 <td> ${content_view.pName } </td>
-			
-
-			상품수량 <td> ${content_view.oQuantity } </td>
-		
-			<td>${content_view.oPrice }  </td>
-			
-			<td>${content_view.oDecision } </td>-->
-		
-			<td><input type="submit" value="리뷰작성"></td>
-	
-			</tr>
-			<tr scope="row">
-		
-			<td><img src="img/img_main/main_img2.jpg" width="200"></td><!-- 상품사진 -->
-			
-			<td> 상품명 2 </td><!-- 상품명 -->
-			
-			<td> 1개 </td><!-- 상품수량 -->
-		
-			<td><h5><i class="fa-solid fa-won-sign"></i>100,000</h5></td><!-- 상품가격 -->
-			
-			<td><h5>배송완료</h5></td><!-- 구매확정 -->
-			
-			<!-- 상품사진 <td><img src=" ${content_view.pImg_main}" width="50"></td>
-			
-			상품명 <td> ${content_view.pName } </td>
-			
-			상품수량 <td> ${content_view.oQuantity } </td>
-		
-			<td>${content_view.oPrice }  </td>
-			
-			<td>${content_view.oDecision } </td>-->
-		
-			<td><input type="submit" value="리뷰작성"></td>
-	
-			</tr>
-		<!-- </c:forEach> -->
-		</tbody>
-	</table>
+   <table class="table">
+      <thead>
+       <tr>
+         <th scope="col">상품사진</th>
+         <th scope="col">상품명</th>
+         <th scope="col">상품수량</th>
+         <th scope="col">상품가격</th>
+         <th scope="col">배송여부</th>
+         <th scope="col">리뷰쓰기</th>
+       </tr>
+     </thead>
+     <tbody>
+ 		
+    
+      <c:forEach items="${list}" var="dto">
+         
+         <tr >
+      
+         <td><img src="${dto.pImg_main}" width="200"></td><!-- 상품사진 -->
+         
+         <td>${dto.pName}  </td><!— 상품명 —>
+         
+         <td> ${dto.oQuantity }</td><!— 상품수량 —>
+      
+         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.oPrice } </h5></td><!— 상품가격 —>
+         
+         <td><h5>${dto.oDecision }</h5></td><!— 구매확정 —>
+         <td><a href="reviewWritepage.do?oCode=${dto.oCode}&pName=${dto.pName}">리뷰작성</a></td>
+   
+         </tr>
+     <%
+ 
+     String uId ="c";
+     session.setAttribute("UID",uId);
+     %>
+ 
+         </c:forEach> 
+      
+      </tbody>
+   </table>
 </div>
+	<!-- 여기부터 넣으시면 됩니다 End -->
 <div class="row" style="margin-top: 5rem; marign-bottom : 5rem;">
 					<nav aria-label="Page navigation example">
 					  <ul class="pagination justify-content-center">
