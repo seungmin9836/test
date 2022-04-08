@@ -77,7 +77,6 @@ public class homecontroller extends HttpServlet {
 //		System.out.println(conPath);
 //		System.out.println(com);
 		switch(com) {
-		
 		case("/mainpage.do"): 
 			command = new Login_Command();
 			command.execute(request, response);
