@@ -15,7 +15,7 @@ public class Login_dao {
 	public Login_dao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/teamproject1");
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/1teamp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
