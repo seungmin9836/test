@@ -14,6 +14,7 @@ import com.javalec.team.command.AllCategory_Command;
 import com.javalec.team.command.AllDetail_Command;
 import com.javalec.team.command.Finduserid_Command;
 import com.javalec.team.command.Finduserpw_Command;
+import com.javalec.team.command.InsertCart_Command;
 import com.javalec.team.command.InteriorCategory_Command;
 import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.Login_Command;
@@ -32,6 +33,7 @@ import com.javalec.team.command.StoolCategory_Command;
 import com.javalec.team.command.StoolDetail_Command;
 import com.javalec.team.command.StudentCategory_Command;
 import com.javalec.team.command.StudentDetail_Command;
+import com.javalec.team.command.Wishlist_Command;
 
 /**
  * Servlet implementation class homecontroller
@@ -224,8 +226,6 @@ public class homecontroller extends HttpServlet {
 					break;
 					//category.do - end
 					
-					
-					
 					//DetailPage.do
 					
 				case("/allDetail.do"): 
@@ -259,39 +259,44 @@ public class homecontroller extends HttpServlet {
 					viewPage = "stoolDetail.jsp";
 					break;
 					//DetailPage.do - end
+				case("/cartin.do"): 
+					command = new InsertCart_Command();
+					command.execute(request, response);
+					viewPage = "wishlist.do";
+					break;
 		//제품(가슬)끝
 		
 		//장바구니(은애누나) 시작
-		case("/wishlist.do")://전체 내용 보여주기
-//			command = new Wishlist_Command();
-//			command.execute(request, response);
-			viewPage = "wishlist.jsp";
-			break;									
-		
-		case("/delete.do")://장바구니삭제
-//			command = new Delete_Command();
-//			command.execute(request, response);
-			viewPage = "wishlist.do";
-			break;
-		case("/payment.do")://결제
-//			command = new Payment_Command();
-//			command.execute(request, response);
-			viewPage = "payment.jsp";
-			break;
-		case("/paymentrevise.do")://결제에서 물품 수정하기
-//			command = new Paymentrevise_Command();
-//			command.execute(request, response);
-			viewPage = "payment.jsp";
-			break;
-		//장바구니(은애누나) 끝
-			
-		
-		case("/naver_login.do"):
-			viewPage = "naver_login.jsp";
-			break;
-		case("/savelogin.do"):
-			viewPage = "mainpage.do";
-			break;
+				case("/wishlist.do")://전체 내용 보여주기
+					command = new Wishlist_Command();
+					command.execute(request, response);
+					viewPage = "wishlist.jsp";
+					break;									
+				
+				case("/delete.do")://장바구니삭제
+		//			command = new Delete_Command();
+		//			command.execute(request, response);
+					viewPage = "wishlist.do";
+					break;
+				case("/payment.do")://결제
+		//			command = new Payment_Command();
+		//			command.execute(request, response);
+					viewPage = "payment.jsp";
+					break;
+				case("/paymentrevise.do")://결제에서 물품 수정하기
+		//			command = new Paymentrevise_Command();
+		//			command.execute(request, response);
+					viewPage = "payment.jsp";
+					break;
+				//장바구니(은애누나) 끝
+					
+				
+				case("/naver_login.do"):
+					viewPage = "naver_login.jsp";
+					break;
+				case("/savelogin.do"):
+					viewPage = "mainpage.do";
+					break;
 		
 		} // switch(com)
 

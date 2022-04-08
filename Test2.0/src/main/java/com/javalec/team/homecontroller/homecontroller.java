@@ -259,9 +259,12 @@ public class homecontroller extends HttpServlet {
 					viewPage = "stoolDetail.jsp";
 					break;
 					//DetailPage.do - end
+				
+				
 		//제품(가슬)끝
 		
 		//장바구니(은애누나) 시작
+					
 		case("/wishlist.do")://전체 내용 보여주기
 //			command = new Wishlist_Command();
 //			command.execute(request, response);

@@ -97,24 +97,46 @@
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 		<h1 class="cart">장바구니</h1>
-		<a href="#" class="abutton">전체 선택</a>
-				
-		<c:forEach items="${wishlist}" var="dto">
-			<tr>
+	
+<script>
+	
+	var checkflag = "false";
+	function check(field) {
+	if (checkflag == "false") {
+	for (i = 0; i < field.length; i++) {
+	field[i].checked = true;}
+	checkflag = "true";
+	return "Uncheck All"; }
+	else {
+	for (i = 0; i < field.length; i++) {
+	field[i].checked = false; }
+	checkflag = "false";
+	return "Check All"; }
+	}
+
+</script> 
+
+<form name="form">
+	<c:forEach items="${list }" var="dto">	
+
+	<tr>
+	<td><input type="button" name="button" value="전체 선택" onClick="this.value=check(this.form.checkbox)"></td>
+	<td><input name="checkbox" type="checkbox" value=""><img src="${dto.pImg_main}" width="300"></td>
 				<td>${dto.pName }</td>
-				<td>${dto.pColor }</td>
-				<td>${dto.pQuantity }</td>
-				<td>${dto.sPrice }</td>
-				<td><a href="Delete.do?aId=${dto.aId}">X</a></td>
-			</tr>	
+				<td>${dto.cQuantity}</td>
+				<td>가격</td>
+				<td><a href="Delete.do?pCode=${dto.pCode}">X</a></td>
+	</tr>	
 				
-		</c:forEach>	
-					
-					총 주문 금액 sum 
+	</c:forEach>	
+</form>
+				합계 : ?
 				
-		<a href = "payment.do">결제하기</a>		
+		<a href = "payment.do?pCode=${dto.pCode}&pName=${dto.pName}&cQuantity=${dto.cQuantity}">결제하기</a>	
 			
+	
 	<!-- End -->
+
 	
 	<!-- Footer start -->
 	<footer >
