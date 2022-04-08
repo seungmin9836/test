@@ -25,7 +25,17 @@
 <title>홈페이지</title>
 
 </head>
+<style>
 
+.card-title{
+	text-align:center;
+	padding:
+	margin
+}
+img {
+  max-width: 100%;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -98,16 +108,30 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 스툴 / 바 의자 카테고리 Start -->
-	<c:forEach items="${list}" var="dto">
-	
-	<h5>${dto.pCategoryname}</h5>
-	<h4>${dto.pName}</h4>
-	<a href="allDetail.do?pCode=${dto.pCode}">
-	<img src="${dto.pImg_main}" width="300">
-	</a>
-	<h4>재고 : ${dto.pQuantity}</h4>
-	
-	</c:forEach>
+	<div align=center><!-- 화면 가운데 정렬 -->
+		<div class="row row-cols-3 row-cols-md-3 g-4 mb-5"  style="width: 70rem;">
+			<c:forEach items="${list}" var="dto">
+		  		<div class="col">
+		  		<div class="card-header">
+				   <h6>시디즈</h6>
+				</div>
+		   		<div class="card">
+		   			<a href="allDetail.do?pCode=${dto.pCode}">
+		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
+		   			</a>
+		      	<div class="card-body">
+		        	<p class="card-text">${dto.pName}</p>
+			    </div>
+				<div class="card-footer">
+				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
+				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
+				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+				</div>
+			   </div>
+			  </div>
+			</c:forEach>
+		</div>
+	</div>
 	<!-- 스툴 / 바 의자 카테고리 End -->
 	
 	<!-- Footer start -->

@@ -24,7 +24,11 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.listnumber{
+padding : 50px 0 50px 0;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -145,7 +149,7 @@
 					</div>
 				</div>
 				
-				<div class="row" style="margin-top: 5rem; marign-bottom : 5rem;">
+				<div class="listnumber">
 					<nav aria-label="Page navigation example">
 					  <ul class="pagination justify-content-center">
 					    <li class="page-item">
