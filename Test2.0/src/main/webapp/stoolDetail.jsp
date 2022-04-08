@@ -40,7 +40,7 @@
 	<header id="Top">
 		<nav class="navbar navbar-light " style="background-color: #BBBBBB;">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="mainpage.jsp">홈페이지 로고부분</a>
+				<a class="navbar-brand" href="mainpage.jsp"><img src="image/homepageIcon.png" style="padding:5px 0 5px 20px;"></a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
 						<form class="d-flex" >
