@@ -3,7 +3,7 @@ package com.javalec.team.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.javalec.bbs.dao.Dao;
 import com.javalec.team.dao.MPchange_dao;
 
 public class MPchange_Command implements PCommand {
