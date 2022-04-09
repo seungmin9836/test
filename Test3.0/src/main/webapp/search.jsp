@@ -32,7 +32,7 @@
 				<a class="navbar-brand" href="mainpage.jsp"><img src="image/homepageIcon.png" style="padding:5px 0 5px 20px;"></a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
-						<form class="d-flex" >
+						<form class="d-flex">
 							<input class="form-control form-outline-secondary me-3" type="search"
 								placeholder="Search" aria-label="Search" >
 							<button class="btn btn-outline-secondary" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>

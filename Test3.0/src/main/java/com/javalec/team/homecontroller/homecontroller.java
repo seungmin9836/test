@@ -26,6 +26,8 @@ import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
 import com.javalec.team.command.ReviewWritepage_Command;
+import com.javalec.team.command.SearchAllCategory_Command;
+import com.javalec.team.command.SearchAllDetail_Command;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
@@ -80,11 +82,24 @@ public class homecontroller extends HttpServlet {
 //		System.out.println(conPath);
 //		System.out.println(com);
 		switch(com) {
+		//메인페이지
 		case("/mainpage.do"): 
 			command = new Login_Command();
 			command.execute(request, response);
 			viewPage = "infocheck.jsp";
 			break;
+		// 검색하기
+		case("/searchallCategory.do"): 
+			command = new SearchAllCategory_Command();
+			command.execute(request, response);
+			viewPage = "searchallCategory.jsp";
+			break;
+			
+		case("/searchallDetail.do"): 
+			command = new SearchAllDetail_Command();
+			command.execute(request, response);
+			viewPage = "searchalldetail.jsp";
+			break;	
 			
 		//로그인(영진형) 시작	
 		case("/login.do"): 
