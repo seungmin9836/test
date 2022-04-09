@@ -13,7 +13,7 @@ public class ServiceCenter1vs1Write_dao {
 	public ServiceCenter1vs1Write_dao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/inquire"); //java:comp/env는 BListCommand다!
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/1teamp"); //java:comp/env는 BListCommand다!
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

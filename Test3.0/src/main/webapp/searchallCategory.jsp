@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
 <!-- 부트스트랩 css -->
@@ -19,22 +21,21 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 <script type="js/main.js"></script>
-<style type="text/css">
-.cart {
-	
-	background-color: #f8f9fa;
-}
-
-.buynow{
-
-	background-color: #696464;
-}
-</style>
 
 <title>홈페이지</title>
 
 </head>
+<style>
 
+.card-title{
+	text-align:center;
+	padding:
+	margin
+}
+img {
+  max-width: 100%;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -106,39 +107,32 @@
 	</section>
 	<!-- Bread Crumb End -->
 	
-	
-	
-	<!-- 제품정보 Start -->
-	
-	
-	<div class="row" style="padding-left: 500px;">
-		<div class="col-md-6" style="width: 324px;">
-		<img src="${detail.pImg_main }" width="350">
-		<h6>${detail.pCode }</h6>
-		<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
-		</div>
-		<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
-			<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
-			<div style="padding-top: 143px;">
-			<h2>${detail.pPrice }</h2>
-			<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-			<a class="buynow btn btn-default btn-lg" href="#" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
-			</div>
+	<!-- 스툴 / 바 의자 카테고리 Start -->
+	<div align=center><!-- 화면 가운데 정렬 -->
+		<div class="row row-cols-3 row-cols-md-3 g-4 mb-5"  style="width: 70rem;">
+			<c:forEach items="${list}" var="dto">
+		  		<div class="col">
+		  		<div class="card-header">
+				   <h6>시디즈</h6>
+				</div>
+		   		<div class="card">
+		   			<a href="searchallDetail.do?pCode=${dto.pCode}">
+		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
+		   			</a>
+		      	<div class="card-body">
+		        	<p class="card-text">${dto.pName}</p>
+			    </div>
+				<div class="card-footer">
+				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
+				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
+				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+				</div>
+			   </div>
+			  </div>
+			</c:forEach>
 		</div>
 	</div>
-	
-	
-	<!-- 제품정보 End -->
-	
-
-	<!-- 상세정보 Start -->
-	<div style="padding-left: 407px;padding-top: 147px;">
-	<div ><img src="${office.pImg_detail }"></div>
-	</div>
-	<!-- 상세정보 End -->
-	
-	
-	
+	<!-- 스툴 / 바 의자 카테고리 End -->
 	
 	<!-- Footer start -->
 	<footer >
