@@ -123,7 +123,7 @@ public class SelectCategory_dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '�씤�뀒由ъ뼱�슜 �쓽�옄'";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '인테리어용 의자'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -167,7 +167,7 @@ public class SelectCategory_dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '�궗臾댁슜 �쓽�옄'";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '사무용 의자'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -211,7 +211,7 @@ public class SelectCategory_dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '�뒪�댋/醫뚯떇 �쓽�옄'";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '스툴/좌식 의자'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			

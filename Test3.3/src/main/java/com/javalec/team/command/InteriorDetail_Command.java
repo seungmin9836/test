@@ -1,10 +1,13 @@
 package com.javalec.team.command;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.team.dao.SelectDetail_dao;
 import com.javalec.team.dto.ProductDetail_dto;
+import com.javalec.team.dto.ReviewlistDetail_dto;
 
 public class InteriorDetail_Command implements PCommand {
 
@@ -14,9 +17,14 @@ public class InteriorDetail_Command implements PCommand {
 		
 		String spCode = request.getParameter("pCode");
 		SelectDetail_dao dao = new SelectDetail_dao();
-		ProductDetail_dto dto = dao.interior(spCode);
 		
+		//detail page
+		ProductDetail_dto dto = dao.interior(spCode);
 		request.setAttribute("detail", dto);
+		
+		//review list
+		ArrayList<ReviewlistDetail_dto> dtos = dao.allreview(spCode);
+		request.setAttribute("review", dtos);
 	}
 
 }

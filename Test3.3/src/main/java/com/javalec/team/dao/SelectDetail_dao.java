@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import com.javalec.team.dto.ProductDetail_dto;
 import com.javalec.team.dto.ProductReview_dto;
 import com.javalec.team.dto.ReviewDetail_dto;
+import com.javalec.team.dto.ReviewlistDetail_dto;
 
 public class SelectDetail_dao {
 
@@ -69,8 +70,8 @@ public class SelectDetail_dao {
 		return dto;
 	}//
 	
-	public ArrayList<ReviewDetail_dto> allreview (String spCode){
-		ArrayList<ReviewDetail_dto> dtos = new ArrayList<ReviewDetail_dto>();
+	public ArrayList<ReviewlistDetail_dto> allreview (String spCode){
+		ArrayList<ReviewlistDetail_dto> dtos = new ArrayList<ReviewlistDetail_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -79,7 +80,7 @@ public class SelectDetail_dao {
 			connection = dataSource.getConnection();
 			String query = "select r.rTitle, r.user_uId, r.rDate, r.rImg, r.rContent "
 					+ "from user as u, ordering as o, product as p, review as r "
-					+ "where u.uID = r.user_uId and o.oCode = r.order_oCode and p.pCode = r.product_pCode";
+					+ "where pCode = ? and u.uID = r.user_uId and o.oCode = r.ordering_oCode and p.pCode = r.product_pCode";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, spCode);
 			resultSet = preparedStatement.executeQuery();
@@ -91,7 +92,7 @@ public class SelectDetail_dao {
 				String rImg = resultSet.getString("rImg");
 				String rContent = resultSet.getString("rContent");
 				
-				ReviewDetail_dto dto = new ReviewDetail_dto(rTitle, user_uId, rDate, rImg, rContent);
+				ReviewlistDetail_dto dto = new ReviewlistDetail_dto(rTitle, user_uId, rDate, rImg, rContent);
 				
 				dtos.add(dto);
 			}

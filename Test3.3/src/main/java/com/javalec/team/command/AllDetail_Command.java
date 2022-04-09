@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.team.dao.SelectDetail_dao;
 import com.javalec.team.dto.ProductDetail_dto;
-import com.javalec.team.dto.ReviewDetail_dto;
+import com.javalec.team.dto.ReviewlistDetail_dto;
 
 public class AllDetail_Command implements PCommand {
 
@@ -23,7 +23,7 @@ public class AllDetail_Command implements PCommand {
 		request.setAttribute("detail", dto);
 		
 		//review list
-		ArrayList<ReviewDetail_dto> dtos = dao.allreview(spCode);
+		ArrayList<ReviewlistDetail_dto> dtos = dao.allreview(spCode);
 		request.setAttribute("review", dtos);
 		
 		
