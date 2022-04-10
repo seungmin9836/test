@@ -107,9 +107,9 @@ img {
 	</section>
 	<!-- Bread Crumb End -->
 	
-	<!-- 스툴 / 바 의자 카테고리 Start -->
+	<!-- 전체 의자 카테고리 Start -->
 	<div align=center><!-- 화면 가운데 정렬 -->
-		<div class="row row-cols-3 row-cols-md-3 g-4 mb-5"  style="width: 70rem;">
+		<div class="row row-cols-3 row-cols-md-3 g-2 mb-5"  style="width: 70rem;">
 			<c:forEach items="${list}" var="dto">
 		  		<div class="col">
 		  		<div class="card-header">
@@ -132,7 +132,28 @@ img {
 			</c:forEach>
 		</div>
 	</div>
-	<!-- 스툴 / 바 의자 카테고리 End -->
+	<div class="listnumber">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
+	<!-- 전체 의자 카테고리 End -->
 	
 	<!-- Footer start -->
 	<footer >

@@ -134,6 +134,25 @@ img {
 	</div>	
 	<!-- 인테리어 카테고리 End -->
 	
+				<div class="listnumber">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item active"><a class="page-link" href="interiorCategory.do?startNum=1&endNum=6">1</a></li>
+					    <li class="page-item"><a class="page-link" href="interiorCategory.do?startNum=7&endNum=12">2</a></li>
+					    <li class="page-item"><a class="page-link" href="interiorCategory.do?startNum=13&endNum=18">3</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
 	<!-- Footer start -->
 	<footer >
 		<div class="card" style="background-color: #696464; color: #E9E5DD;">

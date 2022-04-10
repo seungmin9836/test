@@ -9,6 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.apache.catalina.connector.Request;
+
 import com.javalec.team.dto.ProductReview_dto;
 
 
@@ -27,15 +29,16 @@ public class SelectCategory_dao {
 	
 	
 	
-	public ArrayList<ProductReview_dto> all(){
+	public ArrayList<ProductReview_dto> all(int startNum, int endNum){
 		ArrayList<ProductReview_dto> dtos = new ArrayList<ProductReview_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		
+		int startNum;
+		int endNum;
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCode " + startNum + " and " + endNum + ";";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -115,15 +118,17 @@ public class SelectCategory_dao {
 	
 	
 	
-	public ArrayList<ProductReview_dto> ilist(){
+	public ArrayList<ProductReview_dto> ilist(String startNum, String endNum){
 		ArrayList<ProductReview_dto> dtos = new ArrayList<ProductReview_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		int startNum = Integer.parseInt(request.  startNum);
+		int endNum = Integer.parseInt(endNum);
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '인테리어용 의자'";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pNum between " + startNum + " and " + endNum + ";";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			

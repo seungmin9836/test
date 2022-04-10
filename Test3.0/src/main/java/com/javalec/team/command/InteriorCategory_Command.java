@@ -13,9 +13,11 @@ public class InteriorCategory_Command implements PCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-
+		String startNum = request.getParameter(startNum);
+		String endNum = request.getParameter(endNum);
+		
 		SelectCategory_dao dao = new SelectCategory_dao();
-		ArrayList<ProductReview_dto> dtos = dao.ilist();
+		ArrayList<ProductReview_dto> dtos = dao.ilist(startNum, endNum);
 		request.setAttribute("list", dtos);
 		
 	}

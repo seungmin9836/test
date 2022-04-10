@@ -14,6 +14,7 @@ public class AllCategory_Command implements PCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
+		
 		SelectCategory_dao dao = new SelectCategory_dao();
 		ArrayList<ProductReview_dto> dtos = dao.all();
 		request.setAttribute("list", dtos);
