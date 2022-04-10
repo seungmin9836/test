@@ -97,11 +97,7 @@
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 	<h1>결제</h1>
-	${detail.pCode }
-	${detail.pName }
-	<img src="${detail.pImg_main }" width="350">
-	${detail.pPrice }
-	
+
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>

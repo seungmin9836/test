@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +19,6 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 <script type="js/main.js"></script>
-<style type="text/css">
-.cart {
-	
-	background-color: #f8f9fa;
-}
-
-.buynow{
-
-	background-color: #696464;
-}
-</style>
 
 <title>홈페이지</title>
 
@@ -107,56 +95,62 @@
 	</section>
 	<!-- Bread Crumb End -->
 	
+	<!-- 여기부터 넣으시면 됩니다 Start -->
+	<h1>결제</h1>
+	${detail.pCode }
+	${detail.pName }
+	<img src="${detail.pImg_main }" width="350">
+	${detail.pPrice }
 	
-	
-	<!-- 제품정보 Start -->
-	
-	
-	<div class="row" style="padding-left: 500px;">
-		<div class="col-md-6" style="width: 324px;">
-		<img src="${detail.pImg_main }" width="350">
-		<h6>${detail.pCode }</h6>
-		<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
-		</div>
-		<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
-			<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
-			<div style="padding-top: 143px;">
-			<h2>${detail.pPrice }</h2>
-			<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-			<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
-			</div>
-		</div>
-	</div>
-	
-	
-	<!-- 제품정보 End -->
-	
-	<!-- 리뷰 Start -->
-   <div class="row" style="padding-left: 500px;">
-      <div class="col-md-6" style="width: 324px;">
-         <table>
-         <c:forEach items="${review}" var="dto">
-               <tr>
-                  <td>${dto.rTitle}</td>
-                  <td>${dto.user_uId}</td>
-                  <td>${dto.rDate}</td>
-                  <td>${dto.rImg}</td>
-                  <td>${dto.rContent}</td>
-               </tr>
-            </c:forEach>
-         </table>
-      </div>
-   </div>
-   <!-- 리뷰 End -->
+<h2>배송과 수령방법</h2>
 
-	<!-- 상세정보 Start -->
-	<div style="padding-left: 407px;padding-top: 147px;">
-	<div ><img src="${detail.pImg_detail }"></div>
-	</div>
-	<!-- 상세정보 End -->
-	
-	
-	
+<p>어디로 배송할까요?</p>
+<form action="form" id="form" method="post">
+<div id="list"></div>
+<div id="callBackDiv"></div>	
+														<!-- value="" -->
+<div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
+<div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
+<div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
+<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
+<button type="button" onClick="goPopup();"> 주소찾기</button></div>
+ <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="주소를 입력해주세요."/></div>
+</div>			
+<p>배송지 유형이 어떻게 되나요?</p>
+
+<div><input type="radio" name="delivery" value= "door">문 앞</div>
+<div><input type="radio" name="delivery" value="security">경비실</div>
+<div><input type="radio" name="delivery" value="mailbox">택배함</div>
+<div><input type="radio" name="delivery" value="ect">기타사항</div>
+<div style="padding-left: 1.2em"><div><textarea rows="5" cols="20">간략하게 입력하세요.</textarea></div></div>
+</form>
+
+
+
+<form action="paymentmethod.jsp" method="post">
+<div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
+
+</form>
+
+<script>
+
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	 
+}
+
+function jusoCallBack(zipNo,roadFullAddr){
+			var zipNoEl = document.querySelector("#zipNo");
+			var addressEl = document.querySelector("#address");
+			zipNoEl.value=zipNo;
+			addressEl.value=roadFullAddr;
+		
+}
+
+</script>
+	<!-- End -->
 	
 	<!-- Footer start -->
 	<footer >
