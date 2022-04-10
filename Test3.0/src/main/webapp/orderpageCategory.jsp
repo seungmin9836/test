@@ -23,7 +23,12 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -86,13 +91,16 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">주문조회</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->

@@ -24,7 +24,30 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.cart {
+padding : 20px 0 0 30px;
+}
+.wishlist{
+padding : 50px 0 0 150px;
+}
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
+.uId {
+margin : 0 10px 10px 0;
+}
+.uPw {
+margin : 0 10px 20px 0;
+}
+.loginbutton {
+margin : 0 10px 20px 10px;
+}
+#naver_id_login {
+margin : 10px 0 20px 0;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -87,17 +110,21 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">장바구니</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-		<h1 class="cart">장바구니</h1>
+		<h1 class="cart">장바구니</h1><br><hr class="dropdown-divider"><br>
+	<div class="wishlist">
 	
 <script>
 	
@@ -136,7 +163,8 @@
 				
 		<a href = "payment.do?pCode=${dto.pCode}&pName=${dto.pName}&cQuantity=${dto.cQuantity}">결제하기</a>	
 			
-	
+
+</div>	
 	<!-- End -->
 
 	

@@ -35,6 +35,10 @@
 img {
   max-width: 100%;
 }
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 <body>
 	<!-- Header start -->
@@ -98,13 +102,16 @@ img {
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">검색 의자</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 스툴 / 바 의자 카테고리 Start -->

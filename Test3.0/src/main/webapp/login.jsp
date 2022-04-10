@@ -19,9 +19,30 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 <script type="js/main.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<title>로그인</title>
 
-<title>홈페이지</title>
-
+<style>
+.login {
+padding : 100px 0 100px 0;
+}
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
+.uId {
+margin : 0 10px 10px 0;
+}
+.uPw {
+margin : 0 10px 20px 0;
+}
+.loginbutton {
+margin : 0 10px 20px 10px;
+}
+#naver_id_login {
+margin : 10px 0 20px 0;
+}
+</style>
 </head>
 
 <body>
@@ -86,45 +107,66 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">로그인</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	<H1>회원 로그인</H1>
+	<div class = "login" align ="center">
+	<H1>회원 로그인</H1><br><hr class="dropdown-divider"><br>
 	<form action="mainpage.do">
 		<table>
 			<tr>
 				<td>
-					<div>
-						<input type="text" name="uId" placeholder="ID">
+					<div class="uId">
+						<input  class="form-control form-control-md" type="text" name="uId" placeholder="  ID">
 
 					</div>
 				</td>
-				<td rowspan="2"><input type="submit" value="로그인"></td>
+				<td rowspan="2">
+					<div class = "loginbutton">
+						<input type="submit" class="btn btn-secondary btn-lg" value="로그인">
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>
-					<div>
-						<input type="password" name="uPw" placeholder="Password">
+					<div class="uPw">
+						<input  class="form-control form-control-md" type="password" name="uPw" placeholder="  Password">
 					</div>
 				</td>
 			</tr>
 		</table>
 	</form>
-
-	<p>
-		<a href="finduser.do"><input type="button" value="아이디/비밀번호 찾기"></a>
-	</p>
-
-	<p>
-		<a href="adduser.do"><input type="button" value="회원가입"></a>
-	</p>
+	  <!-- 네이버 로그인 버튼 노출 영역 -->
+	  <div id="naver_id_login"></div>
+	  <!-- //네이버 로그인 버튼 노출 영역 -->
+	  <script type="text/javascript">
+	  	var naver_id_login = new naver_id_login("o6FcncP1tGhBECam_m_E", "http://localhost:8080/Test/naver_callback.jsp");
+	  	var state = naver_id_login.getUniqState();
+	  	naver_id_login.setButton("", 5,50);
+	  	naver_id_login.setDomain("http://localhost:8080/Test/naver_login.jsp");
+	  	naver_id_login.setState(state);
+	  	naver_id_login.setPopup();
+	  	naver_id_login.init_naver_id_login();
+	  </script>
+	  
+	  <table>
+		  <tr>
+		  <td><p><a href="finduser.do"><input type="button" class="btn btn-secondary" value="아이디/비밀번호 찾기"></a></p></td>
+		  <td></td><td></td>
+		  <td><p><a href="adduser.do"><input type="button" class="btn btn-dark" value="회원가입"></a></p></td>
+		  </tr>
+	  </table>
+	</div>
 	<!-- End -->
 	
 	<!-- Footer start -->

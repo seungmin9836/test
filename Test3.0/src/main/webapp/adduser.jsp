@@ -20,7 +20,19 @@
 	crossorigin="anonymous"></script>
 <script type="js/main.js"></script>
 
-<title>홈페이지</title>
+<title>회원가입</title>
+
+<style>
+.adduser{
+padding : 100px 0 100px 0;
+}
+.BreadCrumb{
+padding : 30px 0 0 40px;
+text-decoration: none;
+font-style : none;
+font-size: 1.2rem;
+}
+</style>
 
 </head>
 
@@ -86,17 +98,21 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">회원가입</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	<h2>회원가입</h2>
+	<div class="adduser" align="center">
+	<h1>회원가입</h1><br><hr class="dropdown-divider"><br>
 	<form action="addfinish.do" method="get">
 
 		<table>
@@ -177,7 +193,7 @@
 				<td colspan="4"><hr /></td>
 			</tr>
 			<tr>
-			<td><input type="submit" value="가입하기" onclick="checkAddfinish"></td>
+			<td><input type="submit" class="btn btn-secondary" value=" 가입하기 " onclick="checkAddfinish"></td>
 			</tr>
 		</table>
 	</form>
@@ -192,7 +208,7 @@
 </div>         
 
 </form> 
-
+</div>
 
 <script type="text/javascript">
 var isCheckConfirmPasswd = false;

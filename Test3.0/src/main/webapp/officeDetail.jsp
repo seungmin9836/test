@@ -30,6 +30,10 @@
 
 	background-color: #696464;
 }
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 
 <title>홈페이지</title>
@@ -98,13 +102,17 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item"><a href="officeCategory.do">오피스 의자</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">오피스 의자 상세화면</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	

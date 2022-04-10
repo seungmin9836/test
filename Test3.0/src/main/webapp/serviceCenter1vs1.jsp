@@ -28,6 +28,10 @@
 .listnumber{
 padding : 50px 0 50px 0;
 }
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 <body>
 	<!-- Header start -->
@@ -91,15 +95,17 @@ padding : 50px 0 50px 0;
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-		    <li class="breadcrumb-item"><a href="serviceCenter.do" style="text-decoration : none;">고객센터</a></li>
-		    <li class="breadcrumb-item active" aria-current="page">1대1 문의/확인</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item"><a href="serviceCenter.jsp">고객센터</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">1:1 문의/확인</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- table Start -->

@@ -27,6 +27,10 @@ padding : 0 0 50px 0;
 #detaillist{
 padding : 15px 0 15px 0;
 }
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 <title>홈페이지</title>
 

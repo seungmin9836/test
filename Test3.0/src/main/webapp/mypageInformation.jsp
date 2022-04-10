@@ -23,7 +23,24 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.mypage {
+padding : 20px 0 0 30px;
+}
+.wishlist{
+padding : 50px 0 0 150px;
+}
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
+#detaillist {
+text-align:right;
+}
+.container1{
+margin : 0 0 100px 0;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -86,64 +103,143 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">마이페이지</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+	<br><br>
+	<h1 align="center">마이페이지</h1><br><hr class="dropdown-divider"><br>
 	
-	<form action="mpchange.do" method="post">
-	<table>
-	<tr align="right">
-		<td><h2>나의 정보</h2> </td>
-		<td></td></tr>
-	<tr align="left">
-		<td> 사용자ID : </td>
-		<td> <input type="text" name="uId" size="12" value="${content_view.uId }" readonly="readonly"></td></tr>
-		<tr align="left">
-		<td>성명 : </td>
-		<td> <input type="text" name="uName" size="12" value="${content_view.uName }"readonly="readonly" ></td></tr>
-		<tr align="left">
-		<td>이메일 : </td>
-		<td><input type="text" name="uEmail" size="20" value="${content_view.uEmail }" ></td>></tr>
-		<tr align="left">
-		<td>휴대폰 번호 :</td> 
-		<td>010-<input type="text" name="uPhone1" size="4" value="${content_view.uPhone1 }" >-<input type="text" name="uPhone2" size="4" value="${content_view.uPhone2 }" ></td></tr>
-		<tr align="left">
-		<td>주소 :</td> 
-		<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" ></td></tr>
-		<tr align="left">
-		<td>계좌 :</td> 
-		<td>
-		<select name="uBank">
-		<option  selected="selected">${content_view.uBank }</option>
-		<option>국민</option>
-		<option>신한</option>
-		<option>농협</option>
-		<option>하나</option>
-		<option>기업</option>
-		</select>
-		<input type="text" name="uAccount" size="20" value="${content_view.uAccount }" ></td></tr>
-		<tr align="left">
-		<td>비밀번호 :</td> 
-		<td><input type="text" name="uPw" size="20" value="${content_view.uPw }" ></td></tr>
-		<tr><td></td>
-		<td><input type="submit" value="변경하기"></td></tr>
-	</table>
+<%-- 		<form action="mpchange.do" method="post">
+			<table>
+				<tr align="right">
+					<td><h3>나의 정보</h3></td>
+					<td></td>
+				</tr>
+				<tr align="left">
+				<td>사용자ID : </td>
+				<td> <input type="text" name="uId" size="12" value="${content_view.uId }" readonly="readonly"></td></tr>
+				<tr align="left">
+				<td>성명 : </td>
+				<td> <input type="text" name="uName" size="12" value="${content_view.uName }"readonly="readonly" ></td></tr>
+				<tr align="left">
+				<td>이메일 : </td>
+				<td><input type="text" name="uEmail" size="20" value="${content_view.uEmail }" ></td></tr>
+				<tr align="left">
+				<td>휴대폰 번호 :</td> 
+				<td>010-<input type="text" name="uPhone1" size="4" value="${content_view.uPhone1 }" >-<input type="text" name="uPhone2" size="4" value="${content_view.uPhone2 }" ></td></tr>
+				<tr align="left">
+				<td>주소 :</td> 
+				<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" ></td></tr>
+				<tr align="left">
+				<td>계좌 :</td> 
+				<td>
+				<select name="uBank">
+				<option  selected="selected">${content_view.uBank }</option>
+				<option>국민</option>
+				<option>신한</option>
+				<option>농협</option>
+				<option>하나</option>
+				<option>기업</option>
+				</select>
+				<input type="text" name="uAccount" size="20" value="${content_view.uAccount }" ></td></tr>
+				<tr align="left">
+				<td>비밀번호 :</td> 
+				<td><input type="text" name="uPw" size="20" value="${content_view.uPw }" ></td></tr>
+				<tr><td></td>
+				<td><input type="submit" value="변경하기"></td></tr>
+		</table>
 	</form>
 	<form action="mpdelete.do" method="post">
 	<input type="hidden" name="uId" size="12" value="${content_view.uId }">
 		<table><tr><td><input type="submit" value="탈퇴하기"></td>
 	</tr></table>
-	</form>
+	</form> --%>
 	
-	
-
+	<div class = "container1">
+	<div class="container">
+		<div class="row justify-content-md-center">
+		    <div class="col col-lg-7 ">
+		      	<form action="mpchange.do" method="post">
+		      		<table class="table table-bordered align-middle" style="text-align:center">
+		      		 <thead>
+			      		 <tr>
+			      		 <td class="table-secondary"><h4>구분</h4></td>
+			      		 <td class="table-secondary"><h4>나의 정보</h4></td>
+  					 </thead>
+ 					 <tbody>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light" >사용자 ID : </th>
+		      				<td><input type="text" name="uId" size="30" value="${content_view.uId }" readonly="readonly"></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">성명 : </th>
+		      				<td><input type="text" name="uName" size="30" value="${content_view.uName }"readonly="readonly" ></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">이메일 : </th>
+		      				<td><input type="text" name="uEmail" size="30" value="${content_view.uEmail }" ></td>
+		      			</tr>	
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">휴대폰 번호 : </th>
+		      				<td>010 - <input type="text" name="uPhone1" size="8" value="${content_view.uPhone1 }" > - <input type="text" name="uPhone2" size="8" value="${content_view.uPhone2 }" ></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">주소 : </th>
+		      				<td><input type="text" name="uAddress" size="30" value="${content_view.uAddress }" ></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">계좌 : </th>
+		      				<td><select name="uBank">
+									<option  selected="selected">${content_view.uBank }</option>
+									<option>국민</option>
+									<option>신한</option>
+									<option>농협</option>
+									<option>하나</option>
+									<option>기업</option>
+								</select>
+								<input type="text" name="uAccount" size="20" value="${content_view.uAccount }" ></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">비밀번호 : </th>
+		      				<td><input type="text" name="uPw" size="30" value="${content_view.uPw }" ></td>
+		      			</tr>
+		      			<tr>
+		      				<th scope="col" id="detaillist" class="table-light">비밀번호 : </th>
+		      				<td><input type="text" name="uPw" size="30" value="${content_view.uPw }" ></td>
+		      			</tr>
+		      			</tbody>
+		      			
+		      		</table>
+		      		<div align="right">
+			      		<input type="submit" class="btn btn-secondary" value="나의 정보 변경하기">
+		      		</div>
+		      	</form>
+		      	<br>
+		      	<form action="mpdelete.do" method="post">
+		      	<div align="right">
+					<input type="hidden" name="uId" size="12" value="${content_view.uId }">
+					<table>
+						<tr>
+							<td><input type="submit"  class="btn btn-secondary" value="탈퇴하기"></td>
+						</tr>
+					</table>
+		      	</div>
+				</form>
+				
+		    </div>
+		</div>
+ 	</div>
+</div>
 	
 	<!-- End -->
 	
