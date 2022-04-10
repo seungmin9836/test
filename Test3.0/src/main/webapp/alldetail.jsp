@@ -123,7 +123,7 @@
 			<div style="padding-top: 143px;">
 			<h2>${detail.pPrice }</h2>
 			<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-			<a class="buynow btn btn-default btn-lg" href="#" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
+			<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
 			</div>
 		</div>
 	</div>

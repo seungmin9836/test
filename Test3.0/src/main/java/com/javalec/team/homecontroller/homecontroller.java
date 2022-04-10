@@ -26,6 +26,7 @@ import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
 import com.javalec.team.command.ReviewWritepage_Command;
+import com.javalec.team.command.RightPayment_Command;
 import com.javalec.team.command.SearchAllCategory_Command;
 import com.javalec.team.command.SearchAllDetail_Command;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
@@ -279,6 +280,12 @@ public class homecontroller extends HttpServlet {
 					command.execute(request, response);
 					viewPage = "wishlist.do";
 					break;
+					//detail page -> rightPayment
+	            case("/rightPayment.do")://寃곗젣 뿉 꽌 臾쇳뭹  닔 젙 븯湲 
+	               command = new RightPayment_Command();
+	               command.execute(request, response);
+	               viewPage = "payment.jsp";
+	               break;
 		//제품(가슬)끝
 		
 		//장바구니(은애누나) 시작
