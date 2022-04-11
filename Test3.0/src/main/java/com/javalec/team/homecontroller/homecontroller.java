@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.team.command.Adduser_Command;
 import com.javalec.team.command.AllCategory_Command;
@@ -72,6 +73,8 @@ public class homecontroller extends HttpServlet {
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("actionDo");
 		request.setCharacterEncoding("utf-8"); //한글처리를 줘야되기때문에 써줘야됨
+		
+		HttpSession session = request.getSession(); //컨트롤러와 커맨드에 써주기!!
 		
 		String viewPage = null; // viewPage는 사용자가 보는 화면을 뜻함. switch를 통해 이줄밑에는 viewPage의 종류를 정의해주면됨
 		PCommand command =null;

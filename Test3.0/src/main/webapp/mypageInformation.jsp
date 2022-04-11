@@ -116,55 +116,26 @@ margin : 0 0 100px 0;
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+	<script>
+
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	 
+}
+
+function jusoCallBack(zipNo,roadFullAddr){
+			var zipNoEl = document.querySelector("#zipNo");
+			var addressEl = document.querySelector("#address");
+			zipNoEl.value=zipNo;
+			addressEl.value=roadFullAddr;
+		
+}
+
+</script>
 	<br><br>
 	<h1 align="center">마이페이지</h1><br><hr class="dropdown-divider"><br>
-	
-<%-- 		<form action="mpchange.do" method="post">
-			<table>
-				<tr align="right">
-					<td><h3>나의 정보</h3></td>
-					<td></td>
-				</tr>
-				<tr align="left">
-				<td>사용자ID : </td>
-				<td> <input type="text" name="uId" size="12" value="${content_view.uId }" readonly="readonly"></td></tr>
-				<tr align="left">
-				<td>성명 : </td>
-				<td> <input type="text" name="uName" size="12" value="${content_view.uName }"readonly="readonly" ></td></tr>
-				<tr align="left">
-				<td>이메일 : </td>
-				<td><input type="text" name="uEmail" size="20" value="${content_view.uEmail }" ></td></tr>
-				<tr align="left">
-				<td>휴대폰 번호 :</td> 
-				<td>010-<input type="text" name="uPhone1" size="4" value="${content_view.uPhone1 }" >-<input type="text" name="uPhone2" size="4" value="${content_view.uPhone2 }" ></td></tr>
-				<tr align="left">
-				<td>주소 :</td> 
-				<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" ></td></tr>
-				<tr align="left">
-				<td>계좌 :</td> 
-				<td>
-				<select name="uBank">
-				<option  selected="selected">${content_view.uBank }</option>
-				<option>국민</option>
-				<option>신한</option>
-				<option>농협</option>
-				<option>하나</option>
-				<option>기업</option>
-				</select>
-				<input type="text" name="uAccount" size="20" value="${content_view.uAccount }" ></td></tr>
-				<tr align="left">
-				<td>비밀번호 :</td> 
-				<td><input type="text" name="uPw" size="20" value="${content_view.uPw }" ></td></tr>
-				<tr><td></td>
-				<td><input type="submit" value="변경하기"></td></tr>
-		</table>
-	</form>
-	<form action="mpdelete.do" method="post">
-	<input type="hidden" name="uId" size="12" value="${content_view.uId }">
-		<table><tr><td><input type="submit" value="탈퇴하기"></td>
-	</tr></table>
-	</form> --%>
-	
 	<div class = "container1">
 	<div class="container">
 		<div class="row justify-content-md-center">
@@ -195,7 +166,9 @@ margin : 0 0 100px 0;
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">주소 : </th>
-		      				<td><input type="text" name="uAddress" size="30" value="${content_view.uAddress }" ></td>
+							<td><input type="text" style="width:50px;" id="zipNo"  name="zipNo" />
+					         <button type="button" onClick="goPopup();"> 주소찾기</button>
+							<input type="text"  style="width:300px;" id="address"  name="uAddress" placeholder="${content_view.uAddress}"/></td>
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">계좌 : </th>

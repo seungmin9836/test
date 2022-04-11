@@ -104,14 +104,14 @@
 	<form action="reviewWrite.do" method="get">
 	<table border="0">
 
-	<tr><td><input name="oCode" type="text" value="<%=oCode%>"></td></tr>
+	<tr><td><input name="oCode" type="hidden" value="<%=oCode%>"></td></tr>
 	<tr>
     <td>상품명 : </td>
    	<td><%=pName%></td>
     </tr>
     <tr>
    <td>작성자 : </td>
-   <td><%=session.getAttribute("UID")%></td>
+   <td><%=(String)session.getAttribute("uId")%></td>
     </tr>   
     <tr>
    <td>리뷰제목 : </td>
@@ -124,7 +124,6 @@
 		<tr>
 		<td><input type="file" id="inp"></td>
 		<td><input type="text" id="imgTxt" name="imgFile" ></td>
-		<td><input type="submit" value="Upload"></td>
 		</tr>
 		<tr>
 		<td>
