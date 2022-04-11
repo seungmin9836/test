@@ -299,7 +299,7 @@ margin : 10px 10px 10px 10px;
 		            <option>하나</option>
 		            <option>기업</option>
 	            </select>
-            	<input type="text" size ="20" id="inputACCOUNT" name="uAccount" placeholder="  123456789">
+            	<input type="text" size ="18" id="inputACCOUNT" name="uAccount" placeholder="  123456789">
             	</div>
             </td>
             <td>
