@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
 <!-- 부트스트랩 css -->
@@ -21,23 +19,22 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 <script type="js/main.js"></script>
-
+<script type="text/javascript">
+		let alertT = '<%=request.getAttribute("alertTxt")%>';
+		
+		if (alertT !== "null"){
+		alert(alertT);	
+		}
+		
+		</script>
 <title>홈페이지</title>
 
 </head>
 <style>
-
-.card-title{
-	text-align:center;
-	padding:
-	margin
-}
-img {
+	.mainfont { font-size: 5rem; }
+	.subfont { font-size: 3rem; }
+	img {
   max-width: 100%;
-}
-.BreadCrumb {
-padding : 30px 0 0 40px;
-font-size: 1.2rem;
 }
 </style>
 <body>
@@ -55,7 +52,7 @@ font-size: 1.2rem;
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-to-bracket"></i></a> 
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -76,7 +73,7 @@ font-size: 1.2rem;
 						<li class="nav-item"><a class="nav-link active"
 							aria-current="page" href="mainpage.do">Home</a></li>
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#"
+							class="nav-link dropdown-toggle"
 							id="navbarScrollingDropdown" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> 전체 카테고리 </a>
 							<ul class="dropdown-menu"
@@ -101,66 +98,87 @@ font-size: 1.2rem;
 	</header>
 	<!-- Header End -->
 	
-	<!-- Bread Crumb Start -->
-	<div class = "BreadCrumb">
-		<section class="breadCrumb">
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">전체 의자</li>
-			  </ol>
-			</nav>
-		</section>
+	<!-- image slide Start -->
+	<div id="carouselExampleFade" class="carousel slide carousel-fade"
+		data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="image/slide1.gif" class="d-block w-100 h-50" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="image/slide2.jpg" class="d-block w-100 h-50" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="image/slide3.gif" class="d-block w-100 h-50" alt="...">
+			</div>
+		</div>
+		<button class="carousel-control-prev" type="button"
+			data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button"
+			data-bs-target="#carouselExampleFade" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Next</span>
+		</button>
 	</div>
-	<!-- Bread Crumb End -->
+	<!-- image slide End -->
 	
-	<!-- 전체 의자 카테고리 Start -->
-	<div align=center><!-- 화면 가운데 정렬 -->
-		<div class="row row-cols-3 row-cols-md-3 g-2 mb-5"  style="width: 70rem;">
-			<c:forEach items="${list}" var="dto">
-		  		<div class="col">
-		  		<div class="card-header">
-				   <h6>시디즈</h6>
+	<!-- Card group Start -->
+	
+	<br><br>
+	<div align=center>
+	<p class="mainfont"><b>SIDIZ BRAND CHAIR</b></p><br><br>
+	<p class="subfont"><b>OFFICE CHAIR</b></p>
+	<br><br><br>
+		<div class ="container">
+			<div class="row">
+			    <div class="col-4">
+				    <div>
+					  <a href="officeCategory.do"><img src="img/homepageimage1.JPG"></a>
+				    </div>
 				</div>
-		   		<div class="card">
-		   			<a href="allDetail.do?pCode=${dto.pCode}">
-		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
-		   			</a>
-		      	<div class="card-body">
-		        	<p class="card-text">${dto.pName}</p>
+			    <div class="col-4">
+			      <div style="background-color:#BBBBBB;">
+					  <br><br><br><br><div ><h1 style="color:white;"><b>SIDIZ에<br><br> 오신것을<br><br> 환영합니다.</b></h1></div><br><br><br>
+				    </div>
 			    </div>
-				<div class="card-footer">
-				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
-				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
-				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+			    <div class="col-4">
+			      <div>
+					 	<a href="officeCategory.do"><img src="img/homepageimage2.JPG"></a>
+				    </div>
+			    </div>
+	  		</div>
+		</div>
+	
+	<br><br><br>
+	<p class="subfont"><b>INTERIOR CHAIR</b></p>
+	<br><br><br>
+	<div class ="container">
+			<div class="row">
+			    <div class="col-4">
+				    <div>
+					  <a href="interiorCategory.do"><img src="img/homepageimage3.JPG"></a>
+				    </div>
 				</div>
-			   </div>
-			  </div>
-			</c:forEach>
+			    <div class="col-4">
+			      <div style="background-color:#AAAAAA;">
+					  <br><br><br><br><div ><h1 style="color:white;"><b>SIDIZ에서<br><br>멋진 의자들을<br><br>만나보세요.</b></h1></div><br><br><br>
+				    </div>
+			    </div>
+			    <div class="col-4">
+			      <div>
+					 	<a href="interiorCategory.do"><img src="img/homepageimage4.JPG"></a>
+				    </div>
+			    </div>
+	  		</div>
 		</div>
 	</div>
-	<div class="listnumber">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination justify-content-center">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item"><a class="page-link" href="#">5</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>
-				</div>
-	<!-- 전체 의자 카테고리 End -->
+	</div>
+	<br><br><br><br><br>
+	<!-- Card group End -->
+	
 	
 	<!-- Footer start -->
 	<footer >

@@ -313,7 +313,7 @@ public class homecontroller extends HttpServlet {
 		//			command.execute(request, response);
 					viewPage = "payment.jsp";
 					break;
-				case("/rightpaymentmethod.do")://결제에서 물품 수정하기
+				case("/rightpaymentmethod.do")://바로결제하기
 					command = new InsertRightPayment_Command();
 					command.execute(request, response);
 					viewPage = "paymentmethod.jsp";
