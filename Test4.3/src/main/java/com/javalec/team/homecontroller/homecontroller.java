@@ -224,7 +224,6 @@ public class homecontroller extends HttpServlet {
 					viewPage = "allCategory.jsp";
 					break;
 					
-					
 				case("/studentCategory.do"): 
 					command = new StudentCategory_Command();
 					command.execute(request, response);

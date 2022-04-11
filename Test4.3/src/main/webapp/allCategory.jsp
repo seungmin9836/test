@@ -159,7 +159,7 @@ img {
 	for(int i = 1 ; i <=9 ; i++){
 			
 	%>
-	<a href= "allCategoryPage?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
+	<a href= "allCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
 	<%} %>
 	
 	<!-- Footer start -->
