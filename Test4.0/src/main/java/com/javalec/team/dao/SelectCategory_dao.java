@@ -29,16 +29,14 @@ public class SelectCategory_dao {
 	
 	
 	
-	public ArrayList<ProductReview_dto> all(int startNum, int endNum){
+	public ArrayList<ProductReview_dto> all(){
 		ArrayList<ProductReview_dto> dtos = new ArrayList<ProductReview_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int startNum;
-		int endNum;
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCode " + startNum + " and " + endNum + ";";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -118,17 +116,15 @@ public class SelectCategory_dao {
 	
 	
 	
-	public ArrayList<ProductReview_dto> ilist(String startNum, String endNum){
+	public ArrayList<ProductReview_dto> ilist(){
 		ArrayList<ProductReview_dto> dtos = new ArrayList<ProductReview_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int startNum = Integer.parseInt(request.  startNum);
-		int endNum = Integer.parseInt(endNum);
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pNum between " + startNum + " and " + endNum + ";";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product where pCategoryname = '인테리어용 의자'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			

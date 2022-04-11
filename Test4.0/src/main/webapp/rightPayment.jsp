@@ -102,20 +102,28 @@
 	<img src="${detail.pImg_main }" width="350">
 	${detail.pPrice }
 	
+<form action="rightpaymentmethod.do" method="post">
+
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>
-<form action="form" id="form" method="post">
 <div id="list"></div>
 <div id="callBackDiv"></div>	
-														<!-- value="" -->
+<input type="hidden" name="oPrice" value="${detail.pPrice }">
+<input type="hidden" name="product_pCode" value="${detail.pCode }">
+<input type="hidden" name="user_uId" value="aaaaa">
+											
 <div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
 <div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
 <div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
 <div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
 <button type="button" onClick="goPopup();"> 주소찾기</button></div>
- <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="주소를 입력해주세요."/></div>
+ <div style="padding-left: 2.9em">
+ <div><input type="text"  style="width:300px;" id="address"  name="oAddress" placeholder="주소를 입력해주세요."/></div>
 </div>			
+
+
+
 <p>배송지 유형이 어떻게 되나요?</p>
 
 <div><input type="radio" name="delivery" value= "door">문 앞</div>
@@ -123,15 +131,11 @@
 <div><input type="radio" name="delivery" value="mailbox">택배함</div>
 <div><input type="radio" name="delivery" value="ect">기타사항</div>
 <div style="padding-left: 1.2em"><div><textarea rows="5" cols="20">간략하게 입력하세요.</textarea></div></div>
-</form>
 
 
-
-<form action="paymentmethod.jsp" method="post">
 <div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
 
 </form>
-
 <script>
 
 function goPopup(){

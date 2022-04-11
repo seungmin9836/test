@@ -30,7 +30,13 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+	.mainfont { font-size: 5rem; }
+	.subfont { font-size: 3rem; }
+	img {
+  max-width: 100%;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -120,78 +126,59 @@
 	<!-- image slide End -->
 	
 	<!-- Card group Start -->
-	<div class="card-group mt-5 mb-5">
-	  <div class="card">
-	    <img src="img/img_main/main_img1.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">155,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img2.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">65,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img3.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">55,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img4.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">105,000</small></p>
-	    </div>
-	  </div>
-	  </div>
-	  <div class="card-group mt-5 mb-5">
-	  <div class="card">
-	    <img src="img/img_main/main_img1.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">155,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img2.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">65,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img3.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">55,000</small></p>
-	    </div>
-	  </div>
-	  <div class="card">
-	    <img src="img/img_main/main_img4.jpg" class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <h5 class="card-title">DK 073W 학생의자</h5>
-	      <p class="card-text"><small class="text-muted">105,000</small></p>
-	    </div>
-	  </div>
-	</div>
 	
+	<br><br>
+	<div align=center>
+	<p class="mainfont"><b>SIDIZ BRAND CHAIR</b></p><br><br>
+	<p class="subfont"><b>OFFICE CHAIR</b></p>
+	<br><br><br>
+		<div class ="container">
+			<div class="row">
+			    <div class="col-4">
+				    <div>
+					  <a href="officeCategory.do"><img src="img/homepageimage1.JPG"></a>
+				    </div>
+				</div>
+			    <div class="col-4">
+			      <div style="background-color:#BBBBBB;">
+					  <br><br><br><br><div ><h1 style="color:white;"><b>SIDIZ에<br><br> 오신것을<br><br> 환영합니다.</b></h1></div><br><br><br>
+				    </div>
+			    </div>
+			    <div class="col-4">
+			      <div>
+					 	<a href="officeCategory.do"><img src="img/homepageimage2.JPG"></a>
+				    </div>
+			    </div>
+	  		</div>
+		</div>
+	
+	<br><br><br>
+	<p class="subfont"><b>INTERIOR CHAIR</b></p>
+	<br><br><br>
+	<div class ="container">
+			<div class="row">
+			    <div class="col-4">
+				    <div>
+					  <a href="interiorCategory.do"><img src="img/homepageimage3.JPG"></a>
+				    </div>
+				</div>
+			    <div class="col-4">
+			      <div style="background-color:#AAAAAA;">
+					  <br><br><br><br><div ><h1 style="color:white;"><b>SIDIZ에서<br><br>멋진 의자들을<br><br>만나보세요.</b></h1></div><br><br><br>
+				    </div>
+			    </div>
+			    <div class="col-4">
+			      <div>
+					 	<a href="interiorCategory.do"><img src="img/homepageimage4.JPG"></a>
+				    </div>
+			    </div>
+	  		</div>
+		</div>
+	</div>
+	</div>
+	<br><br><br><br><br>
 	<!-- Card group End -->
 	
-	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
-		  </ol>
-		</nav>
-	</section>
-	<!-- Bread Crumb End -->
 	
 	<!-- Footer start -->
 	<footer >

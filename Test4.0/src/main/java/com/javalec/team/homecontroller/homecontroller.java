@@ -16,6 +16,7 @@ import com.javalec.team.command.Finduserid_Command;
 import com.javalec.team.command.Finduserpw_Command;
 import com.javalec.team.command.IdCheck_Command;
 import com.javalec.team.command.InsertCart_Command;
+import com.javalec.team.command.InsertRightPayment_Command;
 import com.javalec.team.command.InteriorCategory_Command;
 import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.Login_Command;
@@ -286,7 +287,7 @@ public class homecontroller extends HttpServlet {
 	            case("/rightPayment.do")://寃곗젣 뿉 꽌 臾쇳뭹  닔 젙 븯湲 
 	               command = new RightPayment_Command();
 	               command.execute(request, response);
-	               viewPage = "payment.jsp";
+	               viewPage = "rightPayment.jsp";
 	               break;
 		//제품(가슬)끝
 		
@@ -311,6 +312,11 @@ public class homecontroller extends HttpServlet {
 		//			command = new Paymentrevise_Command();
 		//			command.execute(request, response);
 					viewPage = "payment.jsp";
+					break;
+				case("/rightpaymentmethod.do")://결제에서 물품 수정하기
+					command = new InsertRightPayment_Command();
+					command.execute(request, response);
+					viewPage = "paymentmethod.jsp";
 					break;
 				//장바구니(은애누나) 끝
 					

@@ -23,7 +23,11 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.payment{
+margin : 0 0 100px 0;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -128,6 +132,10 @@ IMP.request_pay({
     alert(msg);
 });
 </script>
+<div class="payment" align="center">
+<br><br>
+<h1>결제가 완료되었습니다.</h1>
+</div>
 	<!-- End -->
 	
 	<!-- Footer start -->
