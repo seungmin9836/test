@@ -41,6 +41,9 @@ img {
 }
 </style>
 <body>
+<% String uId = null; 
+	if(session.getAttribute("uId") != null){
+		uId = (String)session.getAttribute("uId"); } %>
 	<!-- Header start -->
 	<header id="Top">
 		<nav class="navbar navbar-light " style="background-color: #BBBBBB;">
@@ -48,14 +51,23 @@ img {
 				<a class="navbar-brand" href="mainpage.jsp"><img src="image/homepageIcon.png" style="padding:5px 0 5px 20px;"></a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
-						<form class="d-flex" >
-							<input class="form-control form-outline-secondary me-3" type="search"
-								placeholder="Search" aria-label="Search" >
+						<form class="d-flex" action="searchallCategory.do">
+							<input class="form-control form-outline-secondary me-3" type="text" name="content"
+								placeholder="상품이름을 검색하세요." aria-label="Search" >
 							<button class="btn btn-outline-secondary" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<% 
+				if(uId == null){ %>
+				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a>
+				<%
+			} else{
+		%> 
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
+		<%
+				}
+			%> 
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>

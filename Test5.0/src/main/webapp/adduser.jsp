@@ -44,6 +44,9 @@ margin : 0 0 100px 0;
 </head>
 
 <body>
+<% String uId = null; 
+	if(session.getAttribute("uId") != null){
+		uId = (String)session.getAttribute("uId"); } %>
 	<!-- Header start -->
 	<header id="Top">
 		<nav class="navbar navbar-light " style="background-color: #BBBBBB;">
@@ -58,7 +61,16 @@ margin : 0 0 100px 0;
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<% 
+				if(uId == null){ %>
+				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a>
+				<%
+			} else{
+		%> 
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
+		<%
+				}
+			%> 
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -458,6 +470,6 @@ function jusoCallBack(zipNo,roadFullAddr){
 	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
       integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
       crossorigin="anonymous"></script>
-      <%session.invalidate(); %>
+      <%-- <%session.invalidate(); %> --%>
 </body>
 </html>

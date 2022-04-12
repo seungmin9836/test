@@ -61,7 +61,7 @@
 				<%
 			} else{
 		%> 
-				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></i></a>
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
 		<%
 				}
 			%>
