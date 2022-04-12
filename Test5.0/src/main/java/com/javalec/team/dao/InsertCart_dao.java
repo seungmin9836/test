@@ -22,16 +22,17 @@ public class InsertCart_dao {
 	}/////
 	
 	
-	public void insertCart(String pCode) {
+	public void insertCart(String pCode, int pQuantity, String uid) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into cart ( product_pCode, cDate, user_uId) values (?,now(),?) ";
+			String query = "insert into cart ( cQuantity, product_pCode, cDate, user_uId) values (?,?,now(),?) ";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, pCode);
-			preparedStatement.setString(2, "aaaaa");
+			preparedStatement.setInt(1, pQuantity);
+			preparedStatement.setString(2, pCode);
+			preparedStatement.setString(3, uid);
 			
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {

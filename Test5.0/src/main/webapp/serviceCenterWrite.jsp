@@ -169,7 +169,7 @@ font-size: 1.2rem;
 		      			<tr>
 		      				<td>작성자 : </td>
 		      				<td>
-		      				<input type="text" name="user_uId" value="" size="62">
+		      				<input type="text" name="user_uId" value="<%=session.getAttribute("uId") %>" size="62">
 		      				</td>
 		      			</tr>	
 		      			<tr>

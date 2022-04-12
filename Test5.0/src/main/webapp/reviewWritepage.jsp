@@ -111,7 +111,7 @@
     </tr>
     <tr>
    <td>작성자 : </td>
-   <td><%=session.getAttribute("UID")%></td>
+   <td><%=session.getAttribute("uId")%></td>
     </tr>   
     <tr>
    <td>리뷰제목 : </td>
