@@ -1,3 +1,94 @@
+/*
+ * package com.javalec.team.dao;
+ * 
+ * import java.sql.Connection; import java.sql.PreparedStatement; import
+ * java.sql.ResultSet; import java.sql.Timestamp; import java.util.ArrayList;
+ * 
+ * import javax.naming.Context; import javax.naming.InitialContext; import
+ * javax.sql.DataSource;
+ * 
+ * import com.javalec.team.dto.Wishlist_dto;
+ * 
+ * public class Wishlist_dao {
+ * 
+ * DataSource dataSource; // Servers-context.xml을 가져올거임
+ * 
+ * public Wishlist_dao() { try { Context context = new InitialContext();
+ * dataSource = (DataSource) context.lookup("java:comp/env/jdbc/1teamp"); }
+ * catch (Exception e) { e.printStackTrace(); }
+ * 
+ * }
+ * 
+ * public ArrayList<Wishlist_dto> list() {
+ * 
+ * ArrayList<Wishlist_dto> dtos = new ArrayList<Wishlist_dto>();
+ * 
+ * Connection connection = null;
+ * 
+ * PreparedStatement preparedStatement = null;
+ * 
+ * ResultSet resultSet = null;
+ * 
+ * try {
+ * 
+ * connection = dataSource.getConnection();
+ * 
+ * String query = "select p.pName, p.pImg_main, c.cQuantity, c.cDate, p.pCode "
+ * +"from product as p, cart as c " +"where p.pCode = c.product_pCode";
+ * 
+ * preparedStatement = connection.prepareStatement(query);
+ * 
+ * resultSet = preparedStatement.executeQuery();
+ * 
+ * while (resultSet.next()) {
+ * 
+ * String pName = resultSet.getString("pName");
+ * 
+ * String pImg_main = resultSet.getString("pImg_main");
+ * 
+ * int cQuantity = resultSet.getInt("cQuantity");
+ * 
+ * Timestamp cDate = resultSet.getTimestamp("cDate");
+ * 
+ * String pCode = resultSet.getString("pCode");
+ * 
+ * Wishlist_dto dto = new Wishlist_dto(pName, pImg_main, cQuantity, cDate,
+ * pCode);
+ * 
+ * dtos.add(dto);
+ * 
+ * }
+ * 
+ * } catch (Exception e) {
+ * 
+ * e.printStackTrace();
+ * 
+ * } finally { // 이상이 있거나 없거나 온다.
+ * 
+ * try {
+ * 
+ * if (resultSet != null)
+ * 
+ * resultSet.close();
+ * 
+ * if (preparedStatement != null)
+ * 
+ * preparedStatement.close();
+ * 
+ * if (connection != null)
+ * 
+ * connection.close();
+ * 
+ * } catch (Exception e) {
+ * 
+ * e.printStackTrace();
+ * 
+ * }
+ * 
+ * }
+ * 
+ * return dtos; } }
+ */
 package com.javalec.team.dao;
 
 import java.sql.Connection;
@@ -14,86 +105,90 @@ import com.javalec.team.dto.Wishlist_dto;
 
 public class Wishlist_dao {
 
-	DataSource dataSource; // Servers-context.xml을 가져올거임
-	
-	public Wishlist_dao() {
-		try {
-			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/1teamp");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+   DataSource dataSource; // Servers-context.xml을 가져올거임
+   
+   public Wishlist_dao() {
+      try {
+         Context context = new InitialContext();
+         dataSource = (DataSource) context.lookup("java:comp/env/jdbc/1teamp");
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
 
-		}
-	
-	public ArrayList<Wishlist_dto> list() {
+      }
+   
+   public ArrayList<Wishlist_dto> list() {
 
-		ArrayList<Wishlist_dto> dtos = new ArrayList<Wishlist_dto>();
+      ArrayList<Wishlist_dto> dtos = new ArrayList<Wishlist_dto>();
 
-		Connection connection = null;
+      Connection connection = null;
 
-		PreparedStatement preparedStatement = null;
+      PreparedStatement preparedStatement = null;
 
-		ResultSet resultSet = null;
+      ResultSet resultSet = null;
 
-		try {
+      try {
 
-		connection = dataSource.getConnection();
+      connection = dataSource.getConnection();
 
-		String query = "select p.pName, p.pImg_main, c.cQuantity, c.cDate, p.pCode "
-				+"from product as p, cart as c "
-				+"where p.pCode = c.product_pCode";
-		
-		preparedStatement = connection.prepareStatement(query);
+      String query = "select p.pName, p.pImg_main, c.cQuantity, c.cDate, p.pCode, p.pPrice, c.product_pCode "
+            +"from product as p, cart as c "
+            +"where p.pCode = c.product_pCode";
+      
+      preparedStatement = connection.prepareStatement(query);
 
-		resultSet = preparedStatement.executeQuery();
+      resultSet = preparedStatement.executeQuery();
 
-		while (resultSet.next()) {
+      while (resultSet.next()) {
 
-		String pName = resultSet.getString("pName");
-		
-		String pImg_main = resultSet.getString("pImg_main");
-		
-		int cQuantity = resultSet.getInt("cQuantity");
-		
-		Timestamp cDate = resultSet.getTimestamp("cDate");
-		
-		String pCode = resultSet.getString("pCode");
+      String pName = resultSet.getString("pName");
+      
+      String pImg_main = resultSet.getString("pImg_main");
+      
+      int cQuantity = resultSet.getInt("cQuantity");
+      
+      Timestamp cDate = resultSet.getTimestamp("cDate");
+      
+      String pCode = resultSet.getString("pCode");
+      
+      int pPrice = resultSet.getInt("pPrice");
+      
+      String product_pCode = resultSet.getString("product_pCode");
 
-		Wishlist_dto dto = new Wishlist_dto(pName, pImg_main, cQuantity, cDate, pCode);
+      Wishlist_dto dto = new Wishlist_dto(pName, pImg_main, cQuantity, cDate, pCode, pPrice, product_pCode);
 
-		dtos.add(dto);
+      dtos.add(dto);
 
-		}
+      }
 
-		} catch (Exception e) {
+      } catch (Exception e) {
 
-		e.printStackTrace();
+      e.printStackTrace();
 
-		} finally { // 이상이 있거나 없거나 온다.
+      } finally { // 이상이 있거나 없거나 온다.
 
-		try {
+      try {
 
-		if (resultSet != null)
+      if (resultSet != null)
 
-		resultSet.close();
+      resultSet.close();
 
-		if (preparedStatement != null)
+      if (preparedStatement != null)
 
-		preparedStatement.close();
+      preparedStatement.close();
 
-		if (connection != null)
+      if (connection != null)
 
-		connection.close();
+      connection.close();
 
-		} catch (Exception e) {
+      } catch (Exception e) {
 
-		e.printStackTrace();
+      e.printStackTrace();
 
-		}
+      }
 
-		}
+      }
 
-		return dtos;
+      return dtos;
 }
 }

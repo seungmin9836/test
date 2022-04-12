@@ -123,48 +123,61 @@ margin : 10px 0 20px 0;
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-		<h1 class="cart">장바구니</h1><br><hr class="dropdown-divider"><br>
-	<div class="wishlist">
-	
-<script>
-	
-	var checkflag = "false";
-	function check(field) {
-	if (checkflag == "false") {
-	for (i = 0; i < field.length; i++) {
-	field[i].checked = true;}
-	checkflag = "true";
-	return "Uncheck All"; }
-	else {
-	for (i = 0; i < field.length; i++) {
-	field[i].checked = false; }
-	checkflag = "false";
-	return "Check All"; }
-	}
+<h1 class="cart">장바구니</h1>
 
-</script> 
 
-<form name="form">
-	<table>
-	<c:forEach items="${list }" var="dto">	
-	<tr>
-	<td><input type="button" name="button" value="전체 선택" onClick="this.value=check(this.form.checkbox)"></td>
-	<td><input name="checkbox" type="checkbox" value=""><img src="${dto.pImg_main}" width="300"></td>
-				<td>${dto.pName }</td>
-				<td>${dto.cQuantity}</td>
-				<td>가격</td>
-				<td><a href="Delete.do?pCode=${dto.pCode}">X</a></td>
-	</tr>	
-	</c:forEach>	
-	</table>
-				
-</form>
-				합계 : ?
-				
-		<a href = "payment.do?pCode=${dto.pCode}&pName=${dto.pName}&cQuantity=${dto.cQuantity}">결제하기</a>	
-			
+   <script>
+      function del(product_pCode) {
+         alert("삭제하시겠습니까?")
+      }
+   </script>
+   <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"></script>
 
-</div>	
+   <form action="updatecart.do" method="get">
+      <table>
+         
+         <c:forEach items="${list}" var="dto">
+            <tr>
+               <td><input type="hidden" name =img value="${dto.pImg_main}"></td>
+               <td><img src="${dto.pImg_main}" width="300"></td>
+               
+               <td><input type="hidden" name =pName value="${dto.pName }"></td>
+               <td>${dto.pName }</td>
+               
+               
+                 <td><input type="text" name ="count" ></td>
+               <td><select class="countSelect" name="N1">
+                     <%
+                     for (int i = 0; i <= 100; i++) {
+                     %>
+                     <option value="<%=i%>"><%=i%></option>
+                     <%
+                     }
+                     %>
+               </select></td>
+               
+               <td><input type="hidden" value="${dto.pPrice}"></td>
+               <td class="countPrice">${dto.pPrice}</td>
+               <td><input type="hidden" value="${dto.product_pCode}" name="product_pCode"></td>
+               <td><a href="deletecart.do?product_pCode=${dto.product_pCode}">X</a></td>
+               
+               
+               <td class="itemPrice"></td>
+               <td><input type="hidden" class="hiddenPrice"></td>
+               
+               
+            </tr>
+         </c:forEach>
+         <tr><td>총 합: <span id="totalPrice" ></span>
+         <input type="hidden" id="totalPriceInput" name="total">
+         </td></tr>
+         
+      <tr><td><input type = "submit" value = "결제하기"></td></tr>
+         
+      </table>
+      </form>
 	<!-- End -->
 
 	
@@ -202,5 +215,20 @@ margin : 10px 0 20px 0;
 	<!-- Footer End -->
 
 </body>
-
+<script type="text/javascript">
+   $(".countSelect").change(function(){
+      let count = ($(this).val()*1);
+      let price = $(this).parent().parent().find(".countPrice").html()*1;
+      $(this).parent().parent().find(".itemPrice").html((count*price).toLocaleString() + "원")
+      $(this).parent().parent().find(".hiddenPrice").val(count*price);
+      let total = 0;
+      for (let i = 0; i<$(".hiddenPrice").length; i++){
+         if($(".hiddenPrice").eq(i).val()){
+            total += $(".hiddenPrice").eq(i).val()*1;
+         }
+      }
+      $("#totalPrice").html(total.toLocaleString() + "원")
+      $("#totalPriceInput").val(total);
+   })
+</script>
 </html>
