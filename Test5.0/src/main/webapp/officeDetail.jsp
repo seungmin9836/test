@@ -118,53 +118,62 @@ font-size: 1.2rem;
 	
 	
 	<!-- 제품정보 Start -->
-	
-	
-	<div class="row" style="padding-left: 500px;">
-		<div class="col-md-6" style="width: 324px;">
-		<img src="${detail.pImg_main }" width="350">
-		<h6>${detail.pCode }</h6>
-		<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
-		</div>
-		<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
-			<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
-			<div style="padding-top: 143px;">
-			<h2>${detail.pPrice }</h2>
-			<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-			<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
+	<div class="container">
+		<div class="row">
+    	<div class="col-2"></div>
+    	<div class="col-8">
+  	
+			<div class="row">
+				<div class="col-md-6" style="width: 324px;">
+				<img src="${detail.pImg_main }" width="350">
+				<h6>${detail.pCode }</h6>
+				<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
+				</div>
+				<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
+					<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
+					<div style="padding-top: 143px;">
+					<h2>${detail.pPrice }</h2>
+					<!-- 여기서부터 -->
+					<form action="cartin.do" method="post">
+						<input type="text" name="pCode" value="${detail.pCode }">
+					 	수량 : <input type="text" name="pQuantity" size="2" >개 <br>
+						<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
+					</form>
+					<!-- 여기까지 -->
+					<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	
-	
 	<!-- 제품정보 End -->
 	
+	
 	<!-- 리뷰 Start -->
-   <div class="row" style="padding-left: 500px;">
-      <div class="col-md-6" style="width: 324px;">
-         <table>
-         <c:forEach items="${review}" var="dto">
-               <tr>
-                  <td>${dto.rTitle}</td>
-                  <td>${dto.user_uId}</td>
-                  <td>${dto.rDate}</td>
-                  <td>${dto.rImg}</td>
-                  <td>${dto.rContent}</td>
-               </tr>
-            </c:forEach>
-         </table>
-      </div>
-   </div>
+	      <div style="width: 324px;">
+	         <table>
+	         <c:forEach items="${review}" var="dto">
+	               <tr>
+	                  <td>${dto.rTitle}</td>
+	                  <td>${dto.user_uId}</td>
+	                  <td>${dto.rDate}</td>
+	                  <td>${dto.rImg}</td>
+	                  <td>${dto.rContent}</td>
+	               </tr>
+	            </c:forEach>
+	         </table>
+	      </div>
    <!-- 리뷰 End -->
 
 	<!-- 상세정보 Start -->
-	<div style="padding-left: 407px;padding-top: 147px;">
-	<div ><img src="${office.pImg_detail }"></div>
-	</div>
+	<div ><img src="${detail.pImg_detail }"></div>
 	<!-- 상세정보 End -->
 	
-	
-	
+	<!-- 상품 안내문 Start -->
+	<div><img src="./img/information.jpg"></div>
+	<!-- 상품 안내문 End -->
+	</div>
+	</div>
+  	</div>
+	<!-- 여기까지 입니다. -->
 	
 	<!-- Footer start -->
 	<footer >

@@ -140,6 +140,13 @@ display: flex;
 					<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
 					<div style="padding-top: 143px;">
 					<h2>${detail.pPrice }</h2>
+					<!-- 여기서부터 -->
+					<form action="cartin.do" method="post">
+						<input type="text" name="pCode" value="${detail.pCode }">
+					 	수량 : <input type="text" name="pQuantity" size="2" >개 <br>
+						<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
+					</form>
+					<!-- 여기까지 -->
 					<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
 					<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
 					</div>
