@@ -541,92 +541,127 @@ function jusoCallBack(zipNo,roadFullAddr){
    
    
    </script>
+   <div align="center">
    
    <h2  align="center">회원가입</h2>
-<!--    <form action="addfinish.do" method="get" onsubmit="return checkAll()"> -->
       <form action="addfinish.do" name = "member" method="get">
       <input type="hidden" name="chk" value="0">
-      <table   align="center">
+      <table>
          <tr height="7">
             <td colspan="4"><hr /></td>
          </tr>
          <tr>
-            <td >아이디</td>
-            <td><input type="text" placeholder=" 공백없는 5~12자리 영문/숫자 조합" size="32" id="inputID" name="uId"  value="${sessionScope.userid }"></td>
+            <td>
+            	<div class = "adduser_table">아이디</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="text" placeholder=" 공백없는 5~12자리 영문/숫자 조합" size="32" id="inputID" name="uId"  value="${sessionScope.userid }"></div>
+            
+            </td>
 <!--             <td><a href="idcheck.do"><input type="button" name="check" value="중복체크" size="5"></a> -->
-            <td><a href="idcheck.do"><button type="button" onclick="fn_idcheck()">중복아이디체크</button></a></td>
+            <td>
+            	<div class = "adduser_table"><a href="idcheck.do"><button type="button" class="btn btn-secondary" onclick="fn_idcheck()">중복아이디체크</button></a></div>
+            </td>
          <tr>
-            <td></td>
-            <td id="idTxt"><%=session.getAttribute("idtxt")%></td>
+            <td id="idTxt">
+           		<div class = "adduser_table"><%=session.getAttribute("idtxt")%></div>
+           	</td>
          </tr>
          <tr>
-            <td >비밀번호</td>
-            <td><input type="password" size="32" placeholder=" 공백없는 5~12자리 영문/숫자 조합" id="inputPW" name="uPw">
-            <td></td>
-            <td></td>
+            <td>
+            	<div class = "adduser_table">비밀번호</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="password" size="32" placeholder=" 공백없는 5~12자리 영문/숫자 조합" id="inputPW" name="uPw"></div>
+            </td>
          <tr>
             <td id="error-pw"></td>
          </tr>
          <tr>
-            <td >비밀번호 확인   </td>
-            <td><input type="password" placeholder=" 동일한 비밀번호를 입력해 주세요" size="32" id="inputPW2" name="uPw2">
-         <tr>
-            <td></td>
+            <td>
+            	<div class = "adduser_table">비밀번호 확인</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="password" placeholder=" 동일한 비밀번호를 입력해 주세요" size="32" id="inputPW2" name="uPw2"></div>
+            </td>
          </tr>
          <tr>
-            <td >이름</td>
-            <td><input type="text" placeholder=" 홍길동" size="32" id="inputNAME" name="uName"></td>
+            <td>
+            	<div class = "adduser_table">이름</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="text" placeholder=" 홍길동" size="32" id="inputNAME" name="uName"></div>
+            </td>
          <tr>
             <td id="error-name"></td>
          </tr>
-         
          <tr>
-            <td >이메일</td>
-            <td><input type="text" id="inputEMAIL" size="32" name="uEmail" placeholder=" abc@naver.com"></td>
+            <td>
+            	<div class = "adduser_table">이메일</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="text" id="inputEMAIL" size="32" name="uEmail" placeholder=" abc@naver.com"></div>
+            </td>
          <tr>
             <td id="error-email"></td>
          </tr>
-         
          <tr>
-            <td >휴대폰번호</td>
-            <td>010-<input type="text" placeholder=" 1234" id="inputPHONE1" name="uPhone1" size="5">-<input type="text" id="inputPHONE2" name="uPhone2" placeholder=" 5678" size="5"></td>
+            <td>
+            	<div class = "adduser_table">휴대폰번호</div>
+            </td>
+            <td>
+            	<div class = "adduser_table">010-<input type="text" placeholder=" 1234" id="inputPHONE1" name="uPhone1" size="5">-<input type="text" id="inputPHONE2" name="uPhone2" placeholder=" 5678" size="5"></div>
+            </td>
          <tr>   
             <td id="error-phone1" ></td>
             <td id="error-phone2" ></td>
          </tr>
-          
          <tr>
-            <td >본인계좌</td>
             <td>
-            <select name="uBank">
-            <option  selected="selected">국민</option>
-            <option>신한</option>
-            <option>농협</option>
-            <option>하나</option>
-            <option>기업</option>
-            </select>
-         
-            <input type="text" id="inputACCOUNT" name="uAccount"
-               placeholder=" - 없이 숫자만 입력해주세요" size="24"></td>
-            <td></td>
-            <td></td>
+            	<div class = "adduser_table">본인계좌</div>
+            </td>
+            <td>
+            	<div class = "adduser_table">
+	            <select name="uBank">
+		            <option  selected="selected">국민</option>
+		            <option>신한</option>
+		            <option>농협</option>
+		            <option>하나</option>
+		            <option>기업</option>
+	            </select>
+	            <input type="text" id="inputACCOUNT" name="uAccount"
+	               placeholder=" - 없이 숫자만 입력해주세요" size="24">
+         		</div>
+            </td>
          <tr>
             <td id="error-account"></td>
          </tr>
-   
          <tr>
-            <td>우편번호</td> 
-            <td><input type="text" id="postcode" placeholder=" 우편번호" size="32" name="zipcode"></td>
-            <td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ></td>
+            <td>
+            	<div class = "adduser_table">우편번호</div>
+            </td> 
+            <td>
+            	<div class = "adduser_table"><input type="text" id="postcode" placeholder=" 우편번호" size="32" name="zipcode"></div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="button" class="btn btn-secondary" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ></div>
+            </td>
          </tr>
-         
          <tr>   
-            <td>도로명 주소</td>
-            <td><input type="text" id="roadAddress" size="32" placeholder=" 도로명주소" name="uAddress"></td>
+            <td>
+            	<div class = "adduser_table">도로명 주소</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="text" id="roadAddress" size="32" placeholder=" 도로명주소" name="uAddress"></div>
+            </td>
          </tr>
          <tr>   
-            <td>상세 주소</td>
-            <td><input type="text" id="detailAddress" size="32" placeholder=" 상세주소" name="detailaddress"></td>
+            <td>
+            	<div class = "adduser_table">상세 주소</div>
+            </td>
+            <td>
+            	<div class = "adduser_table"><input type="text" id="detailAddress" size="32" placeholder=" 상세주소" name="detailaddress"></div>	
+            </td>
          </tr>
          
 <!-- <form action="form" id="form" method="post">
@@ -644,8 +679,8 @@ function jusoCallBack(zipNo,roadFullAddr){
          </tr>
          <tr>
          <td></td>
-         <td align="right"><input type="button" value="가입하기" onclick="checkMember()"></td>
-         <td align="center"><input type="reset" name="reset" value="다시 입력"></td>
+         <td align="right"><input type="button" class="btn btn-secondary" value="가입하기" onclick="checkMember()"></td>
+         <td align="center"><input type="reset" class="btn btn-secondary" name="reset" value="다시 입력"></td>
           </tr>
           <tr><td> </td></tr>
           <tr><td> </td></tr>
@@ -658,7 +693,7 @@ function jusoCallBack(zipNo,roadFullAddr){
       </table>
     </form>
 
-
+</div>
 <script type="text/javascript">
       let alertT = '<%=request.getAttribute("idtxt")%>';
       

@@ -29,11 +29,12 @@
 
 .card-title{
 	text-align:center;
-	padding:
-	margin
 }
 img {
   max-width: 100%;
+}
+.pagination{
+	padding : 50px 0 100px 0;
 }
 </style>
 <body>
@@ -151,9 +152,17 @@ img {
 	
 	
 	<!-- pagination start -->
-	<a href="allCategory.do?">1</a>
-	
-	<%	
+	<div class="listnumber">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item"><a class="page-link"  href="allCategory.do?">1</a></li>
+					    
+	<%
 	
 	int contentNum = 6;
 	
@@ -161,8 +170,16 @@ img {
 	for(int i = 1 ; i <=8 ; i++){
 			
 	%>
-	<a href= "allCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
-	<%} %>
+					    <li class="page-item"><a class="page-link" href= "allCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a></li>
+					    <%} %>
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
 	<!-- pagination End -->
 	
 	

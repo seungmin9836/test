@@ -138,9 +138,17 @@ img {
 	
 	
 	<!-- pagination start -->
-	<a href="interiorCategory.do?">1</a>
-	
-	<%	
+	<div class="listnumber">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item"><a class="page-link"  href="interiorCategory.do?">1</a></li>
+					    
+	<%
 	
 	int contentNum = 6;
 	
@@ -148,10 +156,17 @@ img {
 	for(int i = 1 ; i <=2 ; i++){
 			
 	%>
-	<a href= "interiorCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
-	<%} %>
+					    <li class="page-item"><a class="page-link" href= "interiorCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a></li>
+					    <%} %>
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
 	<!-- pagination End -->
-	
 	
 	<!-- Footer start -->
 	<footer >

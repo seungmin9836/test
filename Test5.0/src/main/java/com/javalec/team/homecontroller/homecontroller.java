@@ -113,6 +113,10 @@ public class homecontroller extends HttpServlet {
 			break;	
 			
 			//로그인(영진형) 시작   
+		case("/login.do"): 
+	         viewPage = "login.jsp";
+	         break;
+	         
 	      case("/idcheck.do"): 
 	         viewPage = "idcheck.jsp";
 	         break;
