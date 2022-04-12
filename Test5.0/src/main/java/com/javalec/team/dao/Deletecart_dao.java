@@ -20,7 +20,7 @@ public class Deletecart_dao {
    }
    }
 
-   public void deletecart(String pCode, int cQuantity) {
+   public void deletecart(String pCode, int cQuantity, String uid) {
 
       Connection connection = null;
       PreparedStatement preparedStatement = null;
@@ -28,10 +28,11 @@ public class Deletecart_dao {
 
       try {
       connection = dataSource.getConnection();
-      String query = "delete from cart where product_pCode = ? and cQuantity=?";
+      String query = "delete from cart where product_pCode = ? and cQuantity=? and user_uId=?";
       preparedStatement = connection.prepareStatement(query);
       preparedStatement.setString(1, pCode);
       preparedStatement.setInt(2, cQuantity);
+      preparedStatement.setString(3, uid);
       preparedStatement.executeUpdate();
    
       } catch (Exception e) {
