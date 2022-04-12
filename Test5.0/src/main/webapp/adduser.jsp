@@ -35,6 +35,10 @@ font-size: 1.2rem;
 .adduser_table{
 margin : 10px 10px 10px 10px;
 }
+.adduserform {
+padding : 50px 0 0 0;
+margin : 0 0 100px 0;
+}
 </style>
 
 </head>
@@ -113,275 +117,6 @@ margin : 10px 10px 10px 10px;
 	</div>
 	<!-- Bread Crumb End -->
 	
-	<!-- <!-- 여기부터 넣으시면 됩니다 Start
-	<div class="adduser" align="center">
-<script type="text/javascript">
-   function checkMember() {
-      
-      
-      var form = document.member
-      
-      var regExpuId = /^[A-Za-z0-9+]{5,12}$/
-      var uId = form.uId.value
-      if(!regExpuId.test(uId)){
-         alert("아이디는 5~12자리 영문과 숫자로만 입력해주세요.")
-         form.uId.select()
-         return
-      }
-      
-      /* var regExpuPw = /^[A-Za-z0-9+]{5,12}$/
-      var uPw =form.uPw.value
-      if(!regExpuPw.test(uPw)){
-         
-         alert("비밀번호는 5~12자리 영문과 숫자로만 입력해주세요.")
-         form.uPw.select()
-         return
-      } */
-      
-          //비밀번호와 비밀번호 확인이 맞지 않다면..
-         /*  if (uPw != uPw2) {
-              alert("두 비밀번호가 맞지 않습니다.");
-              form.uPw.focus();
-              return false;
-          }  */
-
-          var regExpuPw = /^[A-Za-z0-9+]{5,12}$/
-          var uPw =form.uPw.value
-         var uPw2 =form.uPw2.value
-         
-         if(!regExpuPw.test(uPw)){
-            
-            alert("비밀번호는 5~12자리 영문과 숫자로만 입력해주세요.")
-            form.uPw.select()
-            return
-         }
-            
-         if (uPw != uPw2) {
-                 alert("입력하신 두 비밀번호가 맞지 않습니다.");
-                 form.uPw.focus();
-                 return 
-         }
-           
-          //아이디와 비밀번호가 같을 때..
-/*           if (uId == uPw) {
-              alert("아이디와 비밀번호는 같을 수 없습니다!");
-              form.uPw.value = "";
-              form.uPw2.value = "";
-              form.uPw.focus();
-              return false;
-          } */
-/*           return true; //확인이 완료되었을 때
-      }  */
-      
-      
-      var regExpuName = /^[가-힣]{2,10}$/
-      var uName =form.uName.value
-      if(!regExpuName.test(uName)){
-         
-         alert("이름은 필수 입력사항 입니다. 이름은 한글로 입력해주세요.")
-         form.uName.select()
-         return
-      }
-      
-      var regExpuEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
-      var uEmail = form.uEmail.value 
-      if(!regExpuEmail.test(uEmail)){
-         
-         alert("이메일은 필수 입력사항 입니다. 이메일을 확인해주세요.")
-         form.uEmail.select()
-         return
-      }
-      
-      var regExpuPhone1 = /^[0-9]{3,4}$/
-         var uPhone1 = form.uPhone1.value 
-         if(!regExpuPhone1.test(uPhone1)){
-            
-            alert("전화번호 앞자리를 확인해주세요.")
-            form.uPhone1.select()
-            return
-      }
-      
-      var regExpuPhone2 = /^[0-9]{4}$/
-         var uPhone2 = form.uPhone2.value 
-         if(!regExpuPhone2.test(uPhone2)){
-            
-            alert("전화번호 뒷자리를 확인해주세요.")
-            form.uPhone2.select()
-            return
-         }
-      
-      var regExpuAccount = /^[0-9]{10,25}$/
-         var uAccount = form.uAccount.value 
-         if(!regExpuAccount.test(uAccount)){
-            
-            alert("본인계좌는 필수 입력사항 입니다. 본인계좌를 확인해주세요.")
-            form.uAccount.select()
-            return
-         }
-      
-      form.submit()
-      
-      
-      
-   }
-   </script>
-   <h1>회원가입</h1><br><hr class="dropdown-divider"><br>
-   <form action="addfinish.do" method="get" onsubmit="return checkAll()">
-      <form action="addfinish.do" name = "member" method="get">
-      <table>
-         <tr height="7">
-            <td colspan="4"><hr /></td>
-         </tr>
-         <tr>
-            <td>
-            	<div class = "adduser_table">아이디</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="text" size ="27" placeholder=" 공백없는 5~12자리 영문/숫자 조합" id="inputID" name="uId" onkeydown="inputIdChk()"></div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><a href="idcheck.do"><input type="button" class="btn btn-secondary" name="check" value="중복체크" size="5"></a></div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-            	<div class = "adduser_table">비밀번호</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="password" size ="27" placeholder=" ******" id="inputPW" name="uPw"></div>
-            </td>
-            <td>
-            	<div class = "adduser_table">공백없는 5~12자리 영문/숫자 조합</div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-           		<div class = "adduser_table">비밀번호 확인</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="password" size ="27" placeholder=" ******" id="inputPW2" name="uPw2"></div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-            	<div class = "adduser_table">이름</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="text" size ="27" placeholder=" 홍길동" id="inputNAME" name="uName"></div>
-            </td>
-         </tr>
-          <tr>
-            <td>
-            	<div class = "adduser_table">이메일</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="text" size ="27" id="inputEMAIL" name="uEmail" placeholder=" abc@naver.com"></div>
-            </td>
-         </tr>
-          <tr>
-            <td>
-            	<div class = "adduser_table">휴대폰번호</div>
-            </td>
-            <td>
-            	<div class = "adduser_table">010-<input type="text" placeholder=" 1234" id="inputPHONE1" name="uPhone1" size="5">-<input type="text" id="inputPHONE2" name="uPhone2" placeholder=" 5678" size="5"></div>
-            </td>
-         </tr>
-          <tr>
-            <td>
-             <div class = "adduser_table">본인계좌</div>
-            </td>
-            <td>
-            	<div class = "adduser_table">
-	            <select name="uBank">
-		            <option  selected="selected">국민</option>
-		            <option>신한</option>
-		            <option>농협</option>
-		            <option>하나</option>
-		            <option>기업</option>
-	            </select>
-            	<input type="text" size ="18" id="inputACCOUNT" name="uAccount" placeholder="  123456789">
-            	</div>
-            </td>
-            <td>
-            	<div class = "adduser_table">계좌번호 입력시 - 없이 숫자만 입력해주세요</div>
-            </td>
-   		 </tr>
-          <tr>
-            <td>
-            	<div class = "adduser_table">주소</div>
-            </td>
-            <td>
-            	<div class = "adduser_table"><input type="text" size ="27" name="uAddress" placeholder="  서울특별시 강남구..."></div>
-            </td>
-         </tr>
-         
-    <form action="form" id="form" method="post">
-<div id="list"></div>
-<div id="callBackDiv"></div>   
-<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
-<button type="button" onClick="goPopup();"> 주소찾기</button></div>
- <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="위에 주소찾기 버튼을 눌러주세요."/></div>
-</div>         
-
-</form> 
-         
-         <tr>
-	         <td></td>
-	         <td><input type="button" class="btn btn-secondary" value="가입하기" onclick="checkMember()"></td>
-	         <td><input type="reset" class="btn btn-secondary" name="reset" value="다시 입력"></td>
-          </tr>
-      </table>
-    </form>
-</div>
-
-<script type="text/javascript">
-var isCheckConfirmPasswd = false;
-
-function checkConfirmPasswd(confirmPasswd) {
-	var passwd = document.fr.passwd.value;
-	
-	var span_checkConfirmPasswdResult = document.getElementById("checkConfirmPasswdResult");
-	
-	if(passwd == confirmPasswd) {
-		span_checkConfirmPasswdResult.innerHTML = "비밀번호 일치";
-		span_checkConfirmPasswdResult.style.color = "BLUE";
-		
-		isCheckConfirmPasswd = true;
-	} else {
-		span_checkConfirmPasswdResult.innerHTML = "비밀번호 불일치";
-		span_checkConfirmPasswdResult.style.color = "RED";
-
-		isCheckConfirmPasswd = false;
-	}
-}
-
-
-
-
-</script>
-
-
-
-<script>
-
-function goPopup(){
-   // 주소검색을 수행할 팝업 페이지를 호출합니다.
-   // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-   var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
-    
-}
-
-function jusoCallBack(zipNo,roadFullAddr){
-         var zipNoEl = document.querySelector("#zipNo");
-         var addressEl = document.querySelector("#address");
-         zipNoEl.value=zipNo;
-         addressEl.value=roadFullAddr;
-      
-}
-
-</script>
-	
-	End -->
 	   <!-- 여기부터 넣으시면 됩니다 Start -->
    
    <script> 
@@ -541,9 +276,9 @@ function jusoCallBack(zipNo,roadFullAddr){
    
    
    </script>
-   <div align="center">
-   
-   <h2  align="center">회원가입</h2>
+<div class="adduserform" align="center">
+   <br><br>
+   <h1 align="center">회원가입</h1><br><br>
       <form action="addfinish.do" name = "member" method="get">
       <input type="hidden" name="chk" value="0">
       <table>
@@ -663,33 +398,14 @@ function jusoCallBack(zipNo,roadFullAddr){
             	<div class = "adduser_table"><input type="text" id="detailAddress" size="32" placeholder=" 상세주소" name="detailaddress"></div>	
             </td>
          </tr>
-         
-<!-- <form action="form" id="form" method="post">
-<div id="list"></div>
-<div id="callBackDiv"></div>   
-<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
-<button type="button" onClick="goPopup();"> 주소찾기</button></div>
- <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="위에 주소찾기 버튼을 눌러주세요."/></div>
-</div>         
-
-</form>  -->
-         
          <tr height="7">
             <td colspan="4"><hr /></td>
          </tr>
          <tr>
          <td></td>
-         <td align="right"><input type="button" class="btn btn-secondary" value="가입하기" onclick="checkMember()"></td>
-         <td align="center"><input type="reset" class="btn btn-secondary" name="reset" value="다시 입력"></td>
-          </tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
-          <tr><td> </td></tr>
+         <td style="padding : 30px 0 0 0;" align="right"><input type="button" class="btn btn-secondary" value="가입하기" onclick="checkMember()"></td>
+         <td style="padding : 30px 0 0 0;" align="center"><input type="reset" class="btn btn-secondary" name="reset" value="다시 입력"></td>
+         </tr>
       </table>
     </form>
 

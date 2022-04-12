@@ -121,9 +121,12 @@ margin : 10px 0 20px 0;
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 	<div class = "login" align ="center">
-	<H1>회원 로그인</H1><br><hr class="dropdown-divider"><br>
+	<H1>회원 로그인</H1><br><br>
 	<form action="mainpage.do">
 		<table>
+			<tr>
+				<td colspan="3"><hr class="dropdown-divider"><br><br></td>
+			</tr>
 			<tr>
 				<td>
 					<div class="uId">
@@ -144,6 +147,9 @@ margin : 10px 0 20px 0;
 					</div>
 				</td>
 			</tr>
+			<tr>
+			<td colspan="3"><br><hr class="dropdown-divider"><br></td>
+			</tr>
 		</table>
 	</form>
 	  <!-- 네이버 로그인 버튼 노출 영역 -->
@@ -158,12 +164,14 @@ margin : 10px 0 20px 0;
 	  	naver_id_login.setPopup();
 	  	naver_id_login.init_naver_id_login();
 	  </script>
-	  
 	  <table>
+	  		<tr>
+				<td colspan="3"><hr class="dropdown-divider"></td>
+			</tr>
 		  <tr>
-		  <td><p><a href="finduser.do"><input type="button" class="btn btn-secondary" value="아이디/비밀번호 찾기"></a></p></td>
-		  <td></td><td></td>
-		  <td><p><a href="adduser.do"><input type="button" class="btn btn-dark" value="회원가입"></a></p></td>
+			  <td style="padding : 30px 10px 0 0;"><p><a href="finduser.do"><input type="button" class="btn btn-secondary" value="아이디/비밀번호 찾기"></a></p></td>
+			  <td style="padding : 30px 10px 0 0;"></td>
+			  <td style="padding : 30px 0 0 0;"><p><a href="adduser.do"><input type="button" class="btn btn-dark" value="회원가입"></a></p></td>
 		  </tr>
 	  </table>
 	</div>

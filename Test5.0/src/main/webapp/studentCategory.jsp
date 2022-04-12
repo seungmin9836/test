@@ -36,6 +36,9 @@
 img {
   max-width: 100%;
 }
+.pagination{
+	padding : 50px 0 100px 0;
+}
 </style>
 <body>
 	<!-- Header start -->
