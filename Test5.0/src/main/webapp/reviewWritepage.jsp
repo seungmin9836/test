@@ -100,18 +100,19 @@
 	<%String oCode=request.getParameter("oCode"); 
 	String pName=request.getParameter("pName"); 
 	%>
-	
+	<div>
+	</div>
 	<form action="reviewWrite.do" method="get">
 	<table border="0">
 
-	<tr><td><input name="oCode" type="text" value="<%=oCode%>"></td></tr>
+	<tr><td><input name="oCode" type="hidden" value="<%=oCode%>"></td></tr>
 	<tr>
     <td>상품명 : </td>
    	<td><%=pName%></td>
     </tr>
     <tr>
-   <td>작성자 : </td>
-   <td><%=session.getAttribute("uId")%></td>
+   	<td>작성자 : </td>
+   	<td><%=session.getAttribute("uId")%></td>
     </tr>   
     <tr>
    <td>리뷰제목 : </td>

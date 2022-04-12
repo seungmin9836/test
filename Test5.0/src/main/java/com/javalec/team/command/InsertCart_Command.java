@@ -11,14 +11,15 @@ public class InsertCart_Command implements PCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String pCode = request.getParameter("pCode");
-		int pQuantity = Integer.parseInt(request.getParameter("pQuantity"));
-		HttpSession session = request.getSession();
-	      String uid =(String)session.getAttribute("uId");
-		
-		System.out.println(pCode);
+			String pCode = request.getParameter("pCode") ;
+		    int pQuantity = Integer.parseInt(request.getParameter("pQuantity")) ;
+		    String cDecision = request.getParameter("cDecision") ;
+		    int pPrice = Integer.parseInt(request.getParameter("pPrice"))*pQuantity ;
+		   
+		    HttpSession session = request.getSession();
+		      String uid =(String)session.getAttribute("uId");
 		InsertCart_dao dao = new InsertCart_dao();
-		dao.insertCart(pCode, pQuantity, uid);
+		dao.insertCart(pCode,pQuantity,cDecision,pPrice,uid);
 	}
 
 }

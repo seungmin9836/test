@@ -134,12 +134,19 @@ font-size: 1.2rem;
 					<h2>${detail.pPrice }</h2>
 					<!-- 여기서부터 -->
 					<form action="cartin.do" method="post">
-						<input type="text" name="pCode" value="${detail.pCode }">
-					 	수량 : <input type="text" name="pQuantity" size="2" >개 <br>
-						<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-					</form>
+						<input type="hidden" name="pCode" value="${detail.pCode }">
+		 				수량 : <input type="text" name="pQuantity" size="2" >개 <br>
+		 				<input type="hidden" name="cDecision" value="장바구니">
+		 				<input type="hidden" name="pPrice" value="${detail.pPrice }">		 				
+		 				<input type="submit"  class="btn btn-secondary" value="장바구니">
+		 			</form>
+		 			
+		 			
+					<form action="rightPayment.do" method="get">
+						<input type="hidden" name="pCode" value="${detail.pCode }">
+		 				<input type="submit"  class="btn btn-secondary" value="바로결제">
+		 			</form>
 					<!-- 여기까지 -->
-					<a class="buynow btn btn-default btn-lg" href="rightPayment.do?pCode=${detail.pCode }" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
 					</div>
 				</div>
 			</div>
