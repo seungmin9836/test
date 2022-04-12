@@ -24,8 +24,16 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.payment { 
+	padding : 150px 0 0 600px;
+	text-align: left;
+}
+</style>
 <body>
+<% String uId = null; 
+	if(session.getAttribute("uId") != null){
+		uId = (String)session.getAttribute("uId"); } %>
 	<!-- Header start -->
 	<header id="Top">
 		<nav class="navbar navbar-light " style="background-color: #BBBBBB;">
@@ -40,7 +48,16 @@
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<% 
+				if(uId == null){ %>
+				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a>
+				<%
+			} else{
+		%> 
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
+		<%
+				}
+			%> 
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -116,7 +133,7 @@
 	}
 
 </script>
-
+<div class="payment" align="center">
 	<table>
 	<tr>
 	<td>이미지</td>
@@ -148,22 +165,22 @@
 	
 	
 	</table>
-				
+	<br><br><br>			
 
 				합계 : <c:out value="${sum }"/>
 				
-	
+	<br><br><br>
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>
 <form action="insertordering.do" method="post">
 						
-<div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
-<div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
-<div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
-<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
+<div>수령자명 : <input type="text" name="name" size="20"></div>
+<div>전화번호 : <input type="text" name="phonenumber" size="20" placeholder="전화번호를 입력해주세요."></div>
+<div>이메일 : <input type="email" name="email" size="20" placeholder="이메일을 입력해주세요."></div>
+<div>주소 : <input type="text"  size="20" id="zipNo"  name="zipNo" />
 <button type="button" onClick="goPopup();"> 주소찾기</button></div>
- <div style="padding-left: 2.9em"><div><input type="text"  style="width:300px;" id="address"  name="address" placeholder="주소를 입력해주세요."/></div>
+ <div style="padding-left: 2.9em"><div><input type="text"  size="25" id="address"  name="address" placeholder="주소를 입력해주세요."/></div>
 </div>			
 <p>배송지 유형이 어떻게 되나요?</p>
 
@@ -176,10 +193,10 @@
 
 
 
-<div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
+<div style="padding : 30px 0 100px 0"><input type="submit" value="결제하기" class="btn btn-secondary btn-lg"></div>
 
 </form>
-
+</div>
 <script>
 
 function goPopup(){

@@ -23,7 +23,12 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.rightpayment{
+	padding : 100px 150px 100px 150px;
+	margin : 100px 150px 100px 150px;
+}
+</style>
 <body>
 <% String uId = null; 
 	if(session.getAttribute("uId") != null){
@@ -108,35 +113,63 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+	<div class="rightpayment"> 
 <form action="rightpaymentmethod.do" method="post">
-	<h1>결제</h1>
-	${detail.pCode }
-	${detail.pName }
-	<img src="${detail.pImg_main }" width="350">
-	${detail.pPrice }<br>
-	수량을 입력해주세요.<br>
-	수량 : <input type ="text" name ="cQuantity" size="2" >개
+	<h1>결제</h1><br><br>
+	<hr class="dropdown-divider">
+	<br><br>
+	<table>
+		<tr>
+			<td>상품코드</td>
+			<td>상품이름</td>
+			<td>상품 이미지</td>
+			<td>금액</td>
+			<td>상품수량</td>
+		</tr>
+		<tr>
+			<td>${detail.pCode }</td>
+			<td>${detail.pName }</td>
+			<td><img src="${detail.pImg_main }" width="350"></td>
+			<td>${detail.pPrice }</td>
+			<td>구매하시려는<br>수량을 입력해주세요.<br><br>
+			수량 : <input type ="text" name ="cQuantity" size="2" >개</td>
+		</tr>
+	</table>
+	<br><br><br>
 	<input type="hidden" name="uId" value="<%=session.getAttribute("uId") %>">
-<h2>배송과 수령방법</h2>
-
+<h2>배송과 수령방법</h2><br><br>
+<hr class="dropdown-divider">
 <p>어디로 배송할까요?</p>
 <div id="list"></div>
 <div id="callBackDiv"></div>	
 <input type="hidden" name="cPrice" value="${detail.pPrice }">
 <input type="hidden" name="product_pCode" value="${detail.pCode }">
 <input type="hidden" name="user_uId" value="aaaaa">
-											
-<div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
-<div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
-<div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
-<div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
-<button type="button" onClick="goPopup();"> 주소찾기</button></div>
+<table>
+	<tr>
+	<td>수령자명 :</td><td><input type="text" name="name" size="20"></td>
+	</tr>
+	<tr>
+	<td>전화번호 :</td><td><input type="text" name="phonenumber" size="20" placeholder="전화번호를 입력해주세요."></td>
+	</tr>
+	<tr>
+		<td>이메일 :</td><td><input type="email" name="email" size="20" placeholder="이메일을 입력해주세요."></td>
+	</tr>
+	<tr>
+		<td>주소 :</td><td></td>
+	</tr>
+	<tr>
+		<td>수령자명 :</td><td><div><input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
+		<button type="button" class="btn btn-secondary btn-md" onClick="goPopup();"> 주소찾기</button></div></td>
+	</tr>
+</table>											
  <div style="padding-left: 2.9em">
  <div><input type="text"  style="width:300px;" id="address"  name="cAddress" placeholder="주소를 입력해주세요."/></div>
 </div>			
 
 
-
+<br>
+<hr class="dropdown-divider"><br>
 <p>배송지 유형이 어떻게 되나요?</p>
 
 <div><input type="radio" name="delivery" value= "door">문 앞</div>
@@ -146,9 +179,10 @@
 <div style="padding-left: 1.2em"><div><textarea rows="5" cols="20">간략하게 입력하세요.</textarea></div></div>
 
 
-<div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
+<div style="padding : 30px 0 100px 0" align="center"><input type="submit" value="결제하기" class="btn btn-secondary btn-lg"></div>
 
 </form>
+</div>
 <script>
 
 function goPopup(){
