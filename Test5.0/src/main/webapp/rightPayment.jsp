@@ -104,7 +104,7 @@
 	${detail.pPrice }<br>
 	수량을 입력해주세요.<br>
 	수량 : <input type ="text" name ="cQuantity" size="2" >개
-
+	<input type="hidden" name="uId" value="<%=session.getAttribute("uId") %>">
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>

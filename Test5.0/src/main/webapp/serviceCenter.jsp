@@ -191,7 +191,41 @@ font-size: 1.2rem;
 	  						</div>
   						</td>
 				    </tr>
-				   
+				   	<tr>
+				      <td colspan="3">
+					      <div class="accordion-item">
+						    <h2 class="accordion-header" id="flush-headingTwo">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+						        4 | 배송관련 | 배송기간은 얼마나 걸리나요?
+						      </button>
+						    </h2>
+							    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+							      <div class="accordion-body">
+							      	주문 결제 후 수도권 지역은 3~5일 이내, 지방은 3~9일 이내 배송이 가능합니다.<br>
+									지방의 경우 [지역별 배송 요일] 에 따라 배송 되고 있으니 구매 시 상품 상세 페이지에서 배송 정보를 확인 부탁드립니다.<br>
+									부득이하게 기본 배송일보다 배송 기간이 더 소요되는 경우 쇼핑몰에 공지 또는 고객님께 개별적으로 안내드립니다.
+							      </div>
+							    </div>
+	  						</div>
+  						</td>
+				    </tr>
+				    <tr>
+				      <td colspan="3">
+					      <div class="accordion-item">
+						    <h2 class="accordion-header" id="flush-headingThree">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+						        5 | 배송관련 | 배송지가 바뀌었는데 어떻게 해야되나요?
+						      </button>
+						    </h2>
+							    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+							      <div class="accordion-body">
+							      	주문하신 상품의 배송 정보를 확인 후 상품 발송 이전의 경우 변동 사항을 [1:1 문의 게시판- 배송 문의]로 접수하시면 즉시 수정 가능합니다.<br>
+									단, 상품 발송 이후에는 배송지 변경이 불가능합니다.<br>
+							      </div>
+							    </div>
+	  						</div>
+  						</td>
+				    </tr>
 				  </tbody>
 			</table>
 			</div>

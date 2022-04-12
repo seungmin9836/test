@@ -15,8 +15,8 @@ public class InsertRightPayment_Command implements PCommand {
 		String cPrice = request.getParameter("cPrice");
 		String cAddress = request.getParameter("cAddress");
 		String product_pCode = request.getParameter("product_pCode");
-		HttpSession session = request.getSession();
-	    String uid =(String)session.getAttribute("uId");
+		String uid = request.getParameter("uId");
+	    System.out.println(uid);
 	    int cQuantity = Integer.parseInt(request.getParameter("cQuantity")); 
 		
 		InsertRightPayment_dao dao = new InsertRightPayment_dao();
