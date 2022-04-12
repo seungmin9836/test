@@ -35,10 +35,6 @@
 img {
   max-width: 100%;
 }
-.BreadCrumb {
-padding : 30px 0 0 40px;
-font-size: 1.2rem;
-}
 </style>
 <body>
 	<!-- Header start -->
@@ -48,9 +44,9 @@ font-size: 1.2rem;
 				<a class="navbar-brand" href="mainpage.jsp"><img src="image/homepageIcon.png" style="padding:5px 0 5px 20px;"></a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
-						<form class="d-flex" action="searchallCategory.do">
-							<input class="form-control form-outline-secondary me-3" type="text" name="content"
-								placeholder="상품이름을 검색하세요." aria-label="Search" >
+						<form class="d-flex" >
+							<input class="form-control form-outline-secondary me-3" type="search"
+								placeholder="Search" aria-label="Search" >
 							<button class="btn btn-outline-secondary" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
 						</form>
 					</div>
@@ -102,65 +98,74 @@ font-size: 1.2rem;
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<div class = "BreadCrumb">
-		<section class="breadCrumb">
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">전체 의자</li>
-			  </ol>
-			</nav>
-		</section>
-	</div>
+	<section class="breadCrumb">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		  </ol>
+		</nav>
+	</section>
 	<!-- Bread Crumb End -->
 	
-	<!-- 전체 의자 카테고리 Start -->
+	
+	<!-- pagnation start-->
+   
+	<!-- pagnation End-->
+	
+	
+	<!-- 정렬하기 start -->
+	
+	
+	<!-- 정렬하기 End -->
+	
+	
+	
+	
+	<!-- all category Start -->
 	<div align=center><!-- 화면 가운데 정렬 -->
-		<div class="row row-cols-3 row-cols-md-3 g-2 mb-5"  style="width: 70rem;">
-			<c:forEach items="${list}" var="dto">
+		<div class="row row-cols-3 row-cols-md-3 g-4 mb-5"  style="width: 70rem;">
+			<c:forEach items="${list}" var="dto" varStatus="status">
 		  		<div class="col">
 		  		<div class="card-header">
 				   <h6>시디즈</h6>
 				</div>
 		   		<div class="card">
-		   			<a href="allDetail.do?pCode=${dto.pCode}">
+		   			<a href="allDetail.do?pCode=${dto.pCode}&pClick=${dto.pClick}">
 		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
 		   			</a>
 		      	<div class="card-body">
 		        	<p class="card-text">${dto.pName}</p>
 			    </div>
 				<div class="card-footer">
-				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
-				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
-				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>${dto.pPrice}</small><br>
+				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small><br>
+				  <small class="text"  style="text-align:right;">조회수 : ${dto.pClick}</small>
 				</div>
 			   </div>
 			  </div>
 			</c:forEach>
 		</div>
 	</div>
-	<div class="listnumber">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination justify-content-center">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item"><a class="page-link" href="#">5</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>
-				</div>
-	<!-- 전체 의자 카테고리 End -->
+	 
+	<!--all category End -->
+	
+	
+	<!-- pagination start -->
+	<a href="allCategory.do?">1</a>
+	
+	<%	
+	
+	int contentNum = 6;
+	
+	
+	for(int i = 1 ; i <=8 ; i++){
+			
+	%>
+	<a href= "allCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
+	<%} %>
+	<!-- pagination End -->
+	
+	
 	
 	<!-- Footer start -->
 	<footer >

@@ -35,10 +35,6 @@
 img {
   max-width: 100%;
 }
-.BreadCrumb {
-padding : 30px 0 0 40px;
-font-size: 1.2rem;
-}
 </style>
 <body>
 	<!-- Header start -->
@@ -48,9 +44,9 @@ font-size: 1.2rem;
 				<a class="navbar-brand" href="mainpage.jsp">홈페이지 로고부분</a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
-						<form class="d-flex" action="searchallCategory.do">
-							<input class="form-control form-outline-secondary me-3" type="text" name="content"
-								placeholder="상품이름을 검색하세요." aria-label="Search" >
+						<form class="d-flex" >
+							<input class="form-control form-outline-secondary me-3" type="search"
+								placeholder="Search" aria-label="Search" >
 							<button class="btn btn-outline-secondary" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
 						</form>
 					</div>
@@ -101,18 +97,17 @@ font-size: 1.2rem;
 	</header>
 	<!-- Header End -->
 	
+	
 	<!-- Bread Crumb Start -->
-	<div class = "BreadCrumb">
-		<section class="breadCrumb">
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">인테리어 의자</li>
-			  </ol>
-			</nav>
-		</section>
-	</div>
+	<section class="breadCrumb">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		  </ol>
+		</nav>
+	</section>
 	<!-- Bread Crumb End -->
+	
 	
 	<!-- 인테리어 의자 카테고리 Start -->
 	<div align=center><!-- 화면 가운데 정렬 -->
@@ -123,16 +118,16 @@ font-size: 1.2rem;
 				   <h6>시디즈</h6>
 				</div>
 		   		<div class="card">
-		   			<a href="interiorDetail.do?pCode=${dto.pCode}">
+		   			<a href="interiorDetail.do?pCode=${dto.pCode}&pClick=${dto.pClick}">
 		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
 		   			</a>
 		      	<div class="card-body">
 		        	<p class="card-text">${dto.pName}</p>
 			    </div>
 				<div class="card-footer">
-				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
-				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
-				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>${dto.pPrice}</small><br>
+				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small><br>
+				  <small class="text"  style="text-align:right;">조회수 : ${dto.pClick}</small>
 				</div>
 			   </div>
 			  </div>
@@ -141,25 +136,23 @@ font-size: 1.2rem;
 	</div>	
 	<!-- 인테리어 카테고리 End -->
 	
-				<div class="listnumber">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination justify-content-center">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item active"><a class="page-link" href="interiorCategory.do?startNum=1&endNum=6">1</a></li>
-					    <li class="page-item"><a class="page-link" href="interiorCategory.do?startNum=7&endNum=12">2</a></li>
-					    <li class="page-item"><a class="page-link" href="interiorCategory.do?startNum=13&endNum=18">3</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>
-				</div>
+	
+	<!-- pagination start -->
+	<a href="interiorCategory.do?">1</a>
+	
+	<%	
+	
+	int contentNum = 6;
+	
+	
+	for(int i = 1 ; i <=2 ; i++){
+			
+	%>
+	<a href= "interiorCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
+	<%} %>
+	<!-- pagination End -->
+	
+	
 	<!-- Footer start -->
 	<footer >
 		<div class="card" style="background-color: #696464; color: #E9E5DD;">

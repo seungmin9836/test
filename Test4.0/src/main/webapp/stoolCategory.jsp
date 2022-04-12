@@ -35,10 +35,6 @@
 img {
   max-width: 100%;
 }
-.BreadCrumb {
-padding : 30px 0 0 40px;
-font-size: 1.2rem;
-}
 </style>
 <body>
 	<!-- Header start -->
@@ -48,9 +44,9 @@ font-size: 1.2rem;
 				<a class="navbar-brand" href="mainpage.jsp"><img src="image/homepageIcon.png" style="padding:5px 0 5px 20px;"></a>
 				<nav class="navbar navbar-light bg-#BBBBBB">
 					<div class="container-fluid" >
-						<form class="d-flex" action="searchallCategory.do">
-							<input class="form-control form-outline-secondary me-3" type="text" name="content"
-								placeholder="상품이름을 검색하세요." aria-label="Search" >
+						<form class="d-flex" >
+							<input class="form-control form-outline-secondary me-3" type="search"
+								placeholder="Search" aria-label="Search" >
 							<button class="btn btn-outline-secondary" type="submit" ><i class="fa-solid fa-magnifying-glass"></i></button>
 						</form>
 					</div>
@@ -102,16 +98,13 @@ font-size: 1.2rem;
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<div class = "BreadCrumb">
-		<section class="breadCrumb">
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">스툴/좌식용 의자</li>
-			  </ol>
-			</nav>
-		</section>
-	</div>
+	<section class="breadCrumb">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		  </ol>
+		</nav>
+	</section>
 	<!-- Bread Crumb End -->
 	
 	<!-- 스툴 / 바 의자 카테고리 Start -->
@@ -123,16 +116,16 @@ font-size: 1.2rem;
 				   <h6>시디즈</h6>
 				</div>
 		   		<div class="card">
-		   			<a href="stoolDetail.do?pCode=${dto.pCode}">
+		   			<a href="stoolDetail.do?pCode=${dto.pCode}&pClick=${dto.pClick}">
 		      		<img src="${dto.pImg_main}" class="rounded" class="card-img-top" style="">
 		   			</a>
 		      	<div class="card-body">
 		        	<p class="card-text">${dto.pName}</p>
 			    </div>
 				<div class="card-footer">
-				  <small class="text-muted" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>112,000</small><br>
-				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>96,000</small><br>
-				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small>
+				  <small class="text" style="text-align:right;"><i class="fa-solid fa-won-sign"></i>${dto.pPrice}</small><br>
+				  <small class="text"  style="text-align:right;">재고 : ${dto.pQuantity}</small><br>
+				   <small class="text"  style="text-align:right;">조회수 : ${dto.pClick}</small>
 				</div>
 			   </div>
 			  </div>
@@ -140,6 +133,25 @@ font-size: 1.2rem;
 		</div>
 	</div>	
 	<!-- 스툴 / 바 의자 카테고리 End -->
+	
+	
+	
+	!-- pagination start -->
+	<a href="stoolCategory.do?">1</a>
+	
+	<%	
+	
+	int contentNum = 6;
+	
+	
+	int i = 1 ;
+			
+	%>
+	<a href= "stoolCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
+	
+	<!-- pagination End -->
+	
+	
 	
 	<!-- Footer start -->
 	<footer >
