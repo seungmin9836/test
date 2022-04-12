@@ -21,18 +21,20 @@ DataSource dataSource;
 	}/////
 	
 	
-	public void insertRightPayment(String oPrice, String oAddress, String product_pCode, String user_uId) {
+	public void insertRightPayment(String cPrice, String cAddress, String product_pCode, String uid, int cQuantity) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into ordering ( oPrice, oDate, oAddress, oQuantity, oDecision, product_pCode, user_uId) values ( ?, now(), ?, 1, '배송중', ?, ? ) ";
+			String query = "insert into cart ( cPrice, cDate, cAddress, cQuantity, cDecision, product_pCode, user_uId) values ( ?, now(), ?, ?, ?, ?, ? ) ";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, oPrice);
-			preparedStatement.setString(2, oAddress);
-			preparedStatement.setString(3, product_pCode);
-			preparedStatement.setString(4, user_uId);
+			preparedStatement.setString(1, cPrice);
+			preparedStatement.setString(2, cAddress);
+			preparedStatement.setInt(3, cQuantity);
+			preparedStatement.setString(4, "결재완료");
+			preparedStatement.setString(5, product_pCode);
+			preparedStatement.setString(6, uid);
 			
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {

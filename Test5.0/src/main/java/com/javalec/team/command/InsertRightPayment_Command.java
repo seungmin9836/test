@@ -12,17 +12,15 @@ public class InsertRightPayment_Command implements PCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String oPrice = request.getParameter("oPrice");
-		String oAddress = request.getParameter("oAddress");
+		String cPrice = request.getParameter("cPrice");
+		String cAddress = request.getParameter("cAddress");
 		String product_pCode = request.getParameter("product_pCode");
 		HttpSession session = request.getSession();
 	    String uid =(String)session.getAttribute("uId");
-	      
-		System.out.println(oPrice);
-		System.out.println(oAddress);
-		System.out.println(product_pCode);
+	    int cQuantity = Integer.parseInt(request.getParameter("cQuantity")); 
+		
 		InsertRightPayment_dao dao = new InsertRightPayment_dao();
-		dao.insertRightPayment(oPrice, oAddress, product_pCode, uid);
+		dao.insertRightPayment(cPrice, cAddress, product_pCode, uid, cQuantity);
 	}
 
 }

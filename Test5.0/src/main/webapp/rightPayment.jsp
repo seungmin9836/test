@@ -96,20 +96,21 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+<form action="rightpaymentmethod.do" method="post">
 	<h1>결제</h1>
 	${detail.pCode }
 	${detail.pName }
 	<img src="${detail.pImg_main }" width="350">
-	${detail.pPrice }
-	
-<form action="rightpaymentmethod.do" method="post">
+	${detail.pPrice }<br>
+	수량을 입력해주세요.<br>
+	수량 : <input type ="text" name ="cQuantity" size="2" >개
 
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>
 <div id="list"></div>
 <div id="callBackDiv"></div>	
-<input type="hidden" name="oPrice" value="${detail.pPrice }">
+<input type="hidden" name="cPrice" value="${detail.pPrice }">
 <input type="hidden" name="product_pCode" value="${detail.pCode }">
 <input type="hidden" name="user_uId" value="aaaaa">
 											
@@ -119,7 +120,7 @@
 <div>주소 : <input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
 <button type="button" onClick="goPopup();"> 주소찾기</button></div>
  <div style="padding-left: 2.9em">
- <div><input type="text"  style="width:300px;" id="address"  name="oAddress" placeholder="주소를 입력해주세요."/></div>
+ <div><input type="text"  style="width:300px;" id="address"  name="cAddress" placeholder="주소를 입력해주세요."/></div>
 </div>			
 
 
