@@ -25,6 +25,7 @@ import com.javalec.team.command.InteriorCategory_Command;
 import com.javalec.team.command.InteriorCategoryyPage_Command;
 import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.Login_Command;
+import com.javalec.team.command.Logout_Command;
 import com.javalec.team.command.MPchange_Command;
 import com.javalec.team.command.MPdelete_Command;
 import com.javalec.team.command.MPinformation_Command;
@@ -115,7 +116,11 @@ public class homecontroller extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "searchalldetail.jsp";
 			break;	
-			
+		case("/logout.do"): 
+			command = new Logout_Command();
+			command.execute(request, response);
+	        viewPage = "login.jsp";
+	        break;	
 			//로그인(영진형) 시작   
 		case("/login.do"): 
 	         viewPage = "login.jsp";
