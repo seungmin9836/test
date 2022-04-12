@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,15 +97,67 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
-	<h1>결제</h1>
 
+	
+<script>
+	
+	var checkflag = "false";
+	function check(field) {
+	if (checkflag == "false") {
+	for (i = 0; i < field.length; i++) {
+	field[i].checked = true;}
+	checkflag = "true";
+	return "Uncheck All"; }
+	else {
+	for (i = 0; i < field.length; i++) {
+	field[i].checked = false; }
+	checkflag = "false";
+	return "Check All"; }
+	}
+
+</script>
+
+	<table>
+	<tr>
+	<td>이미지</td>
+	<td>상품이름</td>
+	<td>상품코드</td>
+	 <td>상품수량</td>
+	 <td>금액</td>
+	  <td>총액</td>
+</tr>
+	<c:set var="sum" value="0"/>
+	<c:forEach items="${list }" var="dto">	
+	<tr>
+	
+	<td> <img src="${dto.pImg_main}" width="200"></td>
+	
+	 <td>${dto.pName}  </td>
+	
+	 <td>${dto.pCode}  </td>
+	 
+	 <td> ${dto.cQuantity }</td>
+	
+	  <td> ${dto.pPrice }</td>
+	 
+	
+	  <td> ${dto.pPrice*dto.cQuantity }</td>
+	</tr>	
+	<c:set var="sum" value="${sum+dto.pPrice*dto.cQuantity}"/>
+	</c:forEach >	
+	
+	
+	</table>
+				
+
+				합계 : <c:out value="${sum }"/>
+				
+	
 <h2>배송과 수령방법</h2>
 
 <p>어디로 배송할까요?</p>
-<form action="form" id="form" method="post">
-<div id="list"></div>
-<div id="callBackDiv"></div>	
-														<!-- value="" -->
+<form action="insertordering.do" method="post">
+						
 <div>수령자명 : <input type="text" name="name" style="width:50px;"></div>
 <div>전화번호 : <input type="text" name="phonenumber" style="width:100px;" placeholder="전화번호를 입력해주세요."></div>
 <div>이메일 : <input type="email" name="email" style="width:100px;" placeholder="이메일을 입력해주세요."></div>
@@ -119,11 +172,10 @@
 <div><input type="radio" name="delivery" value="mailbox">택배함</div>
 <div><input type="radio" name="delivery" value="ect">기타사항</div>
 <div style="padding-left: 1.2em"><div><textarea rows="5" cols="20">간략하게 입력하세요.</textarea></div></div>
-</form>
 
 
 
-<form action="paymentmethod.jsp" method="post">
+
 <div style="text-align:center"><input type="submit" value="결제하기" style="width:550;height:500;"></div>
 
 </form>

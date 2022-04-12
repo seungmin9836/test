@@ -26,7 +26,7 @@ public class Wishlist_dao {
 
 		}
 	
-	public ArrayList<Wishlist_dto> list() {
+	public ArrayList<Wishlist_dto> list(String uId) {
 
 		ArrayList<Wishlist_dto> dtos = new ArrayList<Wishlist_dto>();
 
@@ -40,9 +40,9 @@ public class Wishlist_dao {
 
 		connection = dataSource.getConnection();
 
-		String query = "select p.pName, p.pImg_main, c.cQuantity, c.cDate, p.pCode "
+		String query = "select p.pName, p.pImg_main, c.cQuantity, c.cDate, p.pCode, p.pPrice "
 				+"from product as p, cart as c "
-				+"where p.pCode = c.product_pCode";
+				+"where p.pCode = c.product_pCode and c.cDecision='장바구니' and c.user_uId= '"+uId+"'";
 		
 		preparedStatement = connection.prepareStatement(query);
 
@@ -60,7 +60,9 @@ public class Wishlist_dao {
 		
 		String pCode = resultSet.getString("pCode");
 
-		Wishlist_dto dto = new Wishlist_dto(pName, pImg_main, cQuantity, cDate, pCode);
+		int pPrice = resultSet.getInt("pPrice");
+		
+		Wishlist_dto dto = new Wishlist_dto(pName, pImg_main, cQuantity, cDate, pCode,pPrice);
 
 		dtos.add(dto);
 
@@ -95,5 +97,7 @@ public class Wishlist_dao {
 		}
 
 		return dtos;
+		
+	
 }
 }

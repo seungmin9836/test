@@ -8,25 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.team.command.Adduser_Command;
-import com.javalec.team.command.AllCategoryPage_Command;
 import com.javalec.team.command.AllCategory_Command;
 import com.javalec.team.command.AllDetail_Command;
 import com.javalec.team.command.Finduserid_Command;
 import com.javalec.team.command.Finduserpw_Command;
 import com.javalec.team.command.IdCheck_Command;
 import com.javalec.team.command.InsertCart_Command;
-import com.javalec.team.command.InsertRightPayment_Command;
 import com.javalec.team.command.InteriorCategory_Command;
-import com.javalec.team.command.InteriorCategoryyPage_Command;
 import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.Login_Command;
 import com.javalec.team.command.MPchange_Command;
 import com.javalec.team.command.MPdelete_Command;
 import com.javalec.team.command.MPinformation_Command;
 import com.javalec.team.command.OfficeCategory_Command;
-import com.javalec.team.command.OfficeCategoryyPage_Command;
 import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
@@ -38,20 +35,16 @@ import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
 import com.javalec.team.command.StoolCategory_Command;
-import com.javalec.team.command.StoolCategoryyPage_Command;
 import com.javalec.team.command.StoolDetail_Command;
 import com.javalec.team.command.StudentCategory_Command;
-import com.javalec.team.command.StudentCategoryyPage_Command;
 import com.javalec.team.command.StudentDetail_Command;
 import com.javalec.team.command.Wishlist_Command;
 
-/**
- * Servlet implementation class homecontroller
- */
+
 @WebServlet("*.do")
 public class homecontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+ 
 
     public homecontroller() {
         super();
@@ -78,6 +71,7 @@ public class homecontroller extends HttpServlet {
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("actionDo");
 		request.setCharacterEncoding("utf-8"); //한글처리를 줘야되기때문에 써줘야됨
+		HttpSession session = request.getSession();//세션!!!
 		
 		String viewPage = null; // viewPage는 사용자가 보는 화면을 뜻함. switch를 통해 이줄밑에는 viewPage의 종류를 정의해주면됨
 		PCommand command =null;
@@ -214,75 +208,41 @@ public class homecontroller extends HttpServlet {
 		//마이페이지(수연누나) 끝
 		
 		//제품(가슬)시작
-			// allcategory - gaseul
-			
-		case("/allCategory.do"): 
-			command = new AllCategory_Command();
-			command.execute(request, response);
-			viewPage = "allCategory.jsp";
-			break;
+		// allcategory.do
 		
-		case("/allCategoryPage.do"): //pagination
-			command = new AllCategoryPage_Command();
-			command.execute(request, response);
-			viewPage = "allCategory.jsp";
-			break;
-			
-			
-			case("/interiorCategory.do"): 
-			command = new InteriorCategory_Command();
-			command.execute(request, response);
-			viewPage = "interiorCategory.jsp";
-			break;
-			
-		case("/interiorCategoryPage.do"): //pagination
-			command = new InteriorCategoryyPage_Command();
-			command.execute(request, response);
-			viewPage = "interiorCategory.jsp";
-			break;
-		
-		
-			
-		case("/officeCategory.do"): 
-			command = new OfficeCategory_Command();
-			command.execute(request, response);
-			viewPage = "officeCategory.jsp";
-			break;
-			
-		case("/officeCategoryPage.do"): //pagination
-			command = new OfficeCategoryyPage_Command();
-			command.execute(request, response);
-			viewPage = "officeCategory.jsp";
-			break;
-				
-		
-			
-		case("/stoolCategory.do"): 
-			command = new StoolCategory_Command();
-			command.execute(request, response);
-			viewPage = "stoolCategory.jsp";
-			break;
-			
-		case("/stoolCategoryPage.do"): //pagination
-			command = new StoolCategoryyPage_Command();
-			command.execute(request, response);
-			viewPage = "stoolCategory.jsp";
-			break;
-		
-			
-			
-		case("/studentCategory.do"): 
-			command = new StudentCategory_Command();
-			command.execute(request, response);
-			viewPage = "studentCategory.jsp";
-			break;
-			
-		case("/studentCategoryPage.do"): //pagination
-			command = new StudentCategoryyPage_Command();
-		command.execute(request, response);
-		viewPage = "studentCategory.jsp";
-		break;
-			//category.do - end
+				case("/allCategory.do"): 
+					command = new AllCategory_Command();
+					command.execute(request, response);
+					viewPage = "allCategory.jsp";
+					break;
+					
+					
+					
+				case("/studentCategory.do"): 
+					command = new StudentCategory_Command();
+					command.execute(request, response);
+					viewPage = "studentCategory.jsp";
+					break;
+					
+					
+				case("/officeCategory.do"): 
+					command = new OfficeCategory_Command();
+					command.execute(request, response);
+					viewPage = "officeCategory.jsp";
+					break;
+					
+				case("/interiorCategory.do"): 
+					command = new InteriorCategory_Command();
+					command.execute(request, response);
+					viewPage = "interiorCategory.jsp";
+					break;
+					
+				case("/stoolCategory.do"): 
+					command = new StoolCategory_Command();
+					command.execute(request, response);
+					viewPage = "stoolCategory.jsp";
+					break;
+					//category.do - end
 					
 					//DetailPage.do
 					
@@ -326,7 +286,7 @@ public class homecontroller extends HttpServlet {
 	            case("/rightPayment.do")://寃곗젣 뿉 꽌 臾쇳뭹  닔 젙 븯湲 
 	               command = new RightPayment_Command();
 	               command.execute(request, response);
-	               viewPage = "rightPayment.jsp";
+	               viewPage = "payment.jsp";
 	               break;
 		//제품(가슬)끝
 		
@@ -351,11 +311,6 @@ public class homecontroller extends HttpServlet {
 		//			command = new Paymentrevise_Command();
 		//			command.execute(request, response);
 					viewPage = "payment.jsp";
-					break;
-				case("/rightpaymentmethod.do")://바로결제하기
-					command = new InsertRightPayment_Command();
-					command.execute(request, response);
-					viewPage = "paymentmethod.jsp";
 					break;
 				//장바구니(은애누나) 끝
 					

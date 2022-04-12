@@ -146,22 +146,44 @@ margin : 10px 0 20px 0;
 
 <form name="form">
 	<table>
+	<tr>
+	<td>이미지</td>
+	<td>상품이름</td>
+	<td>상품코드</td>
+	 <td>상품수량</td>
+	 <td>금액</td>
+	  <td>총액</td>
+	  <td>삭제</td>
+	  </tr>
+	<c:set var="sum" value="0" />	
 	<c:forEach items="${list }" var="dto">	
 	<tr>
-	<td><input type="button" name="button" value="전체 선택" onClick="this.value=check(this.form.checkbox)"></td>
-	<td><input name="checkbox" type="checkbox" value=""><img src="${dto.pImg_main}" width="300"></td>
-				<td>${dto.pName }</td>
-				<td>${dto.cQuantity}</td>
-				<td>가격</td>
-				<td><a href="Delete.do?pCode=${dto.pCode}">X</a></td>
+	
+	<td> <img src="${dto.pImg_main}" width="200"></td>
+	
+	 <td>${dto.pName}  </td>
+	
+	 <td>${dto.pCode}  </td>
+	 
+	 <td> ${dto.cQuantity }</td>
+	
+	  <td> ${dto.pPrice }</td>
+	 
+	
+	  <td> ${dto.pPrice*dto.cQuantity }</td>
+	
+	<td><a href="delete.do?pCode=${dto.pCode}&cQuantity=${dto.cQuantity}">X</a></td>
 	</tr>	
-	</c:forEach>	
+	<c:set var="sum" value="${sum+dto.pPrice*dto.cQuantity}"/>
+	</c:forEach >	
+	
+	
 	</table>
 				
 </form>
-				합계 : ?
+				합계 : <c:out value="${sum }"/>
 				
-		<a href = "payment.do?pCode=${dto.pCode}&pName=${dto.pName}&cQuantity=${dto.cQuantity}">결제하기</a>	
+		<a href = "payment.do?">결제하기</a>	
 			
 
 </div>	
