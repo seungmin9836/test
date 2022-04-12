@@ -136,7 +136,7 @@ img {
 	
 	
 	
-	!-- pagination start -->
+	<!-- pagination start -->
 	<a href="stoolCategory.do?">1</a>
 	
 	<%	

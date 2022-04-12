@@ -34,7 +34,7 @@ public class SearchSelectCategory_dao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice from product";
+			String query = "select pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice, pClick from product";
 			
 			if(queryContent != null) {
 	            query += " where pName like '%" + queryContent + "%'";
@@ -50,8 +50,9 @@ public class SearchSelectCategory_dao {
 				String pImg_main = resultSet.getString("pImg_main");
 				String pQuantity = resultSet.getString("pQuantity");
 				String pPrice = resultSet.getString("pPrice");
+				int pClick = resultSet.getInt("pClick");
 				
-				ProductReview_dto dto = new ProductReview_dto(pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice);
+				ProductReview_dto dto = new ProductReview_dto(pCode, pCategoryname, pName, pImg_main, pQuantity, pPrice, pClick);
 				
 				dtos.add(dto);
 			}

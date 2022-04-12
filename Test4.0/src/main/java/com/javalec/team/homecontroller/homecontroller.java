@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.team.command.Adduser_Command;
+import com.javalec.team.command.AllCategoryPage_Command;
 import com.javalec.team.command.AllCategory_Command;
 import com.javalec.team.command.AllDetail_Command;
 import com.javalec.team.command.Finduserid_Command;
@@ -18,12 +19,14 @@ import com.javalec.team.command.IdCheck_Command;
 import com.javalec.team.command.InsertCart_Command;
 import com.javalec.team.command.InsertRightPayment_Command;
 import com.javalec.team.command.InteriorCategory_Command;
+import com.javalec.team.command.InteriorCategoryyPage_Command;
 import com.javalec.team.command.InteriorDetail_Command;
 import com.javalec.team.command.Login_Command;
 import com.javalec.team.command.MPchange_Command;
 import com.javalec.team.command.MPdelete_Command;
 import com.javalec.team.command.MPinformation_Command;
 import com.javalec.team.command.OfficeCategory_Command;
+import com.javalec.team.command.OfficeCategoryyPage_Command;
 import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
@@ -35,8 +38,10 @@ import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
 import com.javalec.team.command.StoolCategory_Command;
+import com.javalec.team.command.StoolCategoryyPage_Command;
 import com.javalec.team.command.StoolDetail_Command;
 import com.javalec.team.command.StudentCategory_Command;
+import com.javalec.team.command.StudentCategoryyPage_Command;
 import com.javalec.team.command.StudentDetail_Command;
 import com.javalec.team.command.Wishlist_Command;
 
@@ -209,41 +214,75 @@ public class homecontroller extends HttpServlet {
 		//마이페이지(수연누나) 끝
 		
 		//제품(가슬)시작
-		// allcategory.do
+			// allcategory - gaseul
+			
+		case("/allCategory.do"): 
+			command = new AllCategory_Command();
+			command.execute(request, response);
+			viewPage = "allCategory.jsp";
+			break;
 		
-				case("/allCategory.do"): 
-					command = new AllCategory_Command();
-					command.execute(request, response);
-					viewPage = "allCategory.jsp";
-					break;
-					
-					
-					
-				case("/studentCategory.do"): 
-					command = new StudentCategory_Command();
-					command.execute(request, response);
-					viewPage = "studentCategory.jsp";
-					break;
-					
-					
-				case("/officeCategory.do"): 
-					command = new OfficeCategory_Command();
-					command.execute(request, response);
-					viewPage = "officeCategory.jsp";
-					break;
-					
-				case("/interiorCategory.do"): 
-					command = new InteriorCategory_Command();
-					command.execute(request, response);
-					viewPage = "interiorCategory.jsp";
-					break;
-					
-				case("/stoolCategory.do"): 
-					command = new StoolCategory_Command();
-					command.execute(request, response);
-					viewPage = "stoolCategory.jsp";
-					break;
-					//category.do - end
+		case("/allCategoryPage.do"): //pagination
+			command = new AllCategoryPage_Command();
+			command.execute(request, response);
+			viewPage = "allCategory.jsp";
+			break;
+			
+			
+			case("/interiorCategory.do"): 
+			command = new InteriorCategory_Command();
+			command.execute(request, response);
+			viewPage = "interiorCategory.jsp";
+			break;
+			
+		case("/interiorCategoryPage.do"): //pagination
+			command = new InteriorCategoryyPage_Command();
+			command.execute(request, response);
+			viewPage = "interiorCategory.jsp";
+			break;
+		
+		
+			
+		case("/officeCategory.do"): 
+			command = new OfficeCategory_Command();
+			command.execute(request, response);
+			viewPage = "officeCategory.jsp";
+			break;
+			
+		case("/officeCategoryPage.do"): //pagination
+			command = new OfficeCategoryyPage_Command();
+			command.execute(request, response);
+			viewPage = "officeCategory.jsp";
+			break;
+				
+		
+			
+		case("/stoolCategory.do"): 
+			command = new StoolCategory_Command();
+			command.execute(request, response);
+			viewPage = "stoolCategory.jsp";
+			break;
+			
+		case("/stoolCategoryPage.do"): //pagination
+			command = new StoolCategoryyPage_Command();
+			command.execute(request, response);
+			viewPage = "stoolCategory.jsp";
+			break;
+		
+			
+			
+		case("/studentCategory.do"): 
+			command = new StudentCategory_Command();
+			command.execute(request, response);
+			viewPage = "studentCategory.jsp";
+			break;
+			
+		case("/studentCategoryPage.do"): //pagination
+			command = new StudentCategoryyPage_Command();
+		command.execute(request, response);
+		viewPage = "studentCategory.jsp";
+		break;
+			//category.do - end
 					
 					//DetailPage.do
 					

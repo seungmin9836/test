@@ -110,6 +110,37 @@ public class SelectDetail_dao {
       return dtos;
    } //list end
    
+   public void clickadd(String id, int sclick) {
+		
+		
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		
+		try {
+			connection = dataSource.getConnection();	
+			String query = "update product set pClick= " + sclick +" where pCode = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1,id);
+			preparedStatement.executeUpdate();
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {   //finally는 이상이 없었을때나 있었을때나  메모리 정리를 해주는 것 
+			
+		try {
+			if(preparedStatement != null) preparedStatement.close();
+			if(connection != null) connection.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		}
+
+			
+}
    
    public ProductDetail_dto student (String spCode) {
       ProductDetail_dto dto = null;
