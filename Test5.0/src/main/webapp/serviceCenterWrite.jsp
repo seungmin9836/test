@@ -23,7 +23,12 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
+</style>
 <body>
 	<!-- Header start -->
 	<header id="Top">
@@ -87,16 +92,18 @@
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 		<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item"><a href="#">Home</a></li>
-		    <li class="breadcrumb-item"><a href="serviceCenter.do" style="text-decoration : none;">고객센터</a></li>
-		    <li class="breadcrumb-item"><a href="serviceCenter1vs1.do" style="text-decoration : none;">1대1 문의/확인</a></li>
-		    <li class="breadcrumb-item active" aria-current="page">글작성</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class="BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="#">Home</a></li>
+			    <li class="breadcrumb-item"><a href="serviceCenter.do" style="text-decoration : none;">고객센터</a></li>
+			    <li class="breadcrumb-item"><a href="serviceCenter1vs1.do" style="text-decoration : none;">1대1 문의/확인</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">글작성</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<div align="center">
@@ -205,9 +212,9 @@
 		    </div>
 		</div>
 		<div>
-			<div class="row justify-content-md-center mt-5">
-			   <div class="col col-lg-2">
-			      <input class="btn btn-dark btn-lg" type="submit" value="문의하다">
+			<div class="row justify-content-md-center mt-5" >
+			   <div class="col col-lg-2 mt-5" style="padding : 0 0 100px 0;">
+			      <input class="btn btn-dark btn-lg" type="submit" value="문의하다" >
 			   </div>
 			</div>
 		</div>

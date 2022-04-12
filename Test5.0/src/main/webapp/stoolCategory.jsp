@@ -35,6 +35,9 @@
 img {
   max-width: 100%;
 }
+.pagination{
+	padding : 50px 0 100px 0;
+}
 </style>
 <body>
 	<!-- Header start -->
@@ -137,20 +140,33 @@ img {
 	
 	
 	<!-- pagination start -->
-	<a href="stoolCategory.do?">1</a>
-	
-	<%	
+	<div class="listnumber">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item"><a class="page-link"  href="stoolCategory.do?">1</a></li>
+					    
+	<%
 	
 	int contentNum = 6;
 	
-	
 	int i = 1 ;
-			
+	
 	%>
-	<a href= "stoolCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a>
-	
+					    <li class="page-item"><a class="page-link" href= "stoolCategoryPage.do?startnum=<%=contentNum*i%>&endnum=<%=contentNum%>"><%=i+1 %></a></li>
+					    <li class="page-item">
+					      <a class="page-link" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
 	<!-- pagination End -->
-	
 	
 	
 	<!-- Footer start -->

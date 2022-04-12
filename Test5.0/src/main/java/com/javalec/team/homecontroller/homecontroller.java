@@ -36,6 +36,7 @@ import com.javalec.team.command.RightPayment_Command;
 import com.javalec.team.command.SearchAllCategory_Command;
 import com.javalec.team.command.SearchAllDetail_Command;
 import com.javalec.team.command.ServiceCenter1vs1Detail_Command;
+import com.javalec.team.command.ServiceCenter1vs1Page_Command;
 import com.javalec.team.command.ServiceCenter1vs1_Command;
 import com.javalec.team.command.ServiceCenterWrite_Command;
 import com.javalec.team.command.StoolCategory_Command;
@@ -113,6 +114,10 @@ public class homecontroller extends HttpServlet {
 			break;	
 			
 			//로그인(영진형) 시작   
+		case("/login.do"): 
+	         viewPage = "login.jsp";
+	         break;
+	         
 	      case("/idcheck.do"): 
 	         viewPage = "idcheck.jsp";
 	         break;
@@ -158,6 +163,12 @@ public class homecontroller extends HttpServlet {
 		
 		case("/serviceCenter1vs1.do"): //1:1 문의로 가기
 			command = new ServiceCenter1vs1_Command();
+			command.execute(request, response);
+			viewPage = "serviceCenter1vs1.jsp";
+			break;
+			
+		case("/serviceCenter1vs1Page.do"): //1:1 문의로 가기
+			command = new ServiceCenter1vs1Page_Command();
 			command.execute(request, response);
 			viewPage = "serviceCenter1vs1.jsp";
 			break;
