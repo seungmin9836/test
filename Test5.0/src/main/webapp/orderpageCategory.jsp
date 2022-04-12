@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,21 +134,17 @@ font-size: 1.2rem;
       
          <td><img src="${dto.pImg_main}" width="200"></td><!-- 상품사진 -->
          
-         <td>${dto.pName}  </td><!— 상품명 —>
+         <td>${dto.pName}  </td><!-- 상품명 -->
          
-         <td> ${dto.oQuantity }</td><!— 상품수량 —>
+         <td> ${dto.oQuantity }</td><!-- 상품수량  -->
       
-         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.oPrice } </h5></td><!— 상품가격 —>
+         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.oPrice } </h5></td><!-- 상품가격 -->
          
-         <td><h5>${dto.oDecision }</h5></td><!— 구매확정 —>
+         <td><h5>${dto.oDecision }</h5></td><!-- 구매확정  -->
          <td><a href="reviewWritepage.do?oCode=${dto.oCode}&pName=${dto.pName}">리뷰작성</a></td>
    
          </tr>
-     <%
- 
-     String uId ="c";
-     session.setAttribute("UID",uId);
-     %>
+     
  
          </c:forEach> 
       

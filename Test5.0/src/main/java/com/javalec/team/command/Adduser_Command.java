@@ -13,6 +13,7 @@ public class Adduser_Command implements PCommand {
 		String uId = request.getParameter("uId");
 		String uName = request.getParameter("uName");
 		String uEmail = request.getParameter("uEmail");
+		String uPw = request.getParameter("uPw");
 		String uPhone1 = request.getParameter("uPhone1");
 		String uPhone2 = request.getParameter("uPhone2");
 		String uBank = request.getParameter("uBank");
@@ -20,7 +21,7 @@ public class Adduser_Command implements PCommand {
 		String uAddress = request.getParameter("uAddress");
 		
 		Login_dao dao = new Login_dao ();
-		dao.adduser(uId, uName, uEmail, uPhone1, uPhone2, uBank, uAccount, uAddress);
+		dao.adduser(uId, uName, uEmail, uPw, uPhone1, uPhone2, uBank, uAccount, uAddress);
 	}
 
 }

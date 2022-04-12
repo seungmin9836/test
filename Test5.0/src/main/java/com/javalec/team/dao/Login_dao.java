@@ -3,7 +3,6 @@ package com.javalec.team.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -55,7 +54,7 @@ public class Login_dao {
 		return iD;
 	} // login
 
-	public void adduser(String uId, String uName, String uEmail, String uPhone1, String uPhone2, String uBank,
+	public void adduser(String uId, String uName, String uEmail, String uPw, String uPhone1, String uPhone2, String uBank,
 			String uAccount, String uAddress) {
 		// TODO Auto-generated method stub
 		Connection connection = null;
@@ -63,16 +62,17 @@ public class Login_dao {
 
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into user (uId, uName, uEmail, uPhone1, uPhone2, uBank, uAccount, uAddress, uJoin) values(?,?,?,?,?,?,?,?,now())";
+			String query = "insert into user (uId, uName, uEmail, uPw, uPhone1, uPhone2, uBank, uAccount, uAddress, uJoin) values(?,?,?,?,?,?,?,?,?,now())";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, uId);
 			preparedStatement.setString(2, uName);
 			preparedStatement.setString(3, uEmail);
-			preparedStatement.setString(4, uPhone1);
-			preparedStatement.setString(5, uPhone2);
-			preparedStatement.setString(6, uBank);
-			preparedStatement.setString(7, uAccount);
-			preparedStatement.setString(8, uAddress);
+			preparedStatement.setString(4, uPw);
+			preparedStatement.setString(5, uPhone1);
+			preparedStatement.setString(6, uPhone2);
+			preparedStatement.setString(7, uBank);
+			preparedStatement.setString(8, uAccount);
+			preparedStatement.setString(9, uAddress);
 
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {

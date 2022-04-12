@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.team.command.Adduser_Command;
 import com.javalec.team.command.AllCategoryPage_Command;
@@ -79,6 +80,8 @@ public class homecontroller extends HttpServlet {
 		System.out.println("actionDo");
 		request.setCharacterEncoding("utf-8"); //한글처리를 줘야되기때문에 써줘야됨
 		
+		HttpSession session = request.getSession();
+		
 		String viewPage = null; // viewPage는 사용자가 보는 화면을 뜻함. switch를 통해 이줄밑에는 viewPage의 종류를 정의해주면됨
 		PCommand command =null;
 		
@@ -109,15 +112,15 @@ public class homecontroller extends HttpServlet {
 			viewPage = "searchalldetail.jsp";
 			break;	
 			
-		//로그인(영진형) 시작	
-		case("/login.do"): 
-			viewPage = "login.jsp";
-			break;	
-			
-		case("/idcheck.do"): 
+			//로그인(영진형) 시작   
+	      case("/idcheck.do"): 
+	         viewPage = "idcheck.jsp";
+	         break;
+	         
+	      case("/idcheckuser.do"): 
 	         command = new IdCheck_Command();
 	         command.execute(request, response);
-	         viewPage = "idchk.jsp";
+	         viewPage = "adduser.jsp";
 	         break;
 	         
 	      case("/adduser.do"): 
@@ -144,10 +147,9 @@ public class homecontroller extends HttpServlet {
 	         command = new Finduserpw_Command();
 	         command.execute(request, response);
 	         viewPage = "findpwcheck.jsp";
-	         break;	
-			
-		
-		//로그인(영진형) 끝
+	         break;
+	      
+	      //로그인(영진형) 끝
 			
 		//고객센터 시작(승민)
 		case("/serviceCenter.do"): //전체 내용 보여주기
