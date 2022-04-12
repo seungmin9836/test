@@ -14,11 +14,13 @@ import com.javalec.team.command.Adduser_Command;
 import com.javalec.team.command.AllCategoryPage_Command;
 import com.javalec.team.command.AllCategory_Command;
 import com.javalec.team.command.AllDetail_Command;
+import com.javalec.team.command.Deletecart_Command;
 import com.javalec.team.command.Finduserid_Command;
 import com.javalec.team.command.Finduserpw_Command;
 import com.javalec.team.command.IdCheck_Command;
 import com.javalec.team.command.InsertCart_Command;
 import com.javalec.team.command.InsertRightPayment_Command;
+import com.javalec.team.command.Insertordering_Command;
 import com.javalec.team.command.InteriorCategory_Command;
 import com.javalec.team.command.InteriorCategoryyPage_Command;
 import com.javalec.team.command.InteriorDetail_Command;
@@ -31,6 +33,7 @@ import com.javalec.team.command.OfficeCategoryyPage_Command;
 import com.javalec.team.command.OfficeDetail_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
+import com.javalec.team.command.Payment_Command;
 import com.javalec.team.command.ReviewWritepage_Command;
 import com.javalec.team.command.RightPayment_Command;
 import com.javalec.team.command.SearchAllCategory_Command;
@@ -351,19 +354,19 @@ public class homecontroller extends HttpServlet {
 					break;									
 				
 				case("/delete.do")://장바구니삭제
-		//			command = new Delete_Command();
-		//			command.execute(request, response);
+				command = new Deletecart_Command();
+				command.execute(request, response);
 					viewPage = "wishlist.do";
 					break;
-				case("/payment.do")://결제
-		//			command = new Payment_Command();
-		//			command.execute(request, response);
+				case("/payment.do")://결제화면으로 넘어가기
+					command = new Payment_Command();
+					command.execute(request, response);
 					viewPage = "payment.jsp";
 					break;
-				case("/paymentrevise.do")://결제에서 물품 수정하기
-		//			command = new Paymentrevise_Command();
-		//			command.execute(request, response);
-					viewPage = "payment.jsp";
+				case("/insertordering.do")://결제테이블저장동시에 결제창
+					command = new Insertordering_Command();
+					command.execute(request, response);
+					viewPage = "paymentmethod.jsp";
 					break;
 				case("/rightpaymentmethod.do")://바로결제하기
 					command = new InsertRightPayment_Command();
