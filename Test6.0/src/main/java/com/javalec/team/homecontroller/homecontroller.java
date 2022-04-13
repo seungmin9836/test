@@ -14,6 +14,7 @@ import com.javalec.team.command.Adduser_Command;
 import com.javalec.team.command.AllCategoryPage_Command;
 import com.javalec.team.command.AllCategory_Command;
 import com.javalec.team.command.AllDetail_Command;
+import com.javalec.team.command.Click_Command;
 import com.javalec.team.command.Deletecart_Command;
 import com.javalec.team.command.Finduserid_Command;
 import com.javalec.team.command.Finduserpw_Command;
@@ -305,39 +306,54 @@ public class homecontroller extends HttpServlet {
 		break;
 			//category.do - end
 					
-					//DetailPage.do
-					
-				case("/allDetail.do"): 
-					command = new AllDetail_Command();
-					command.execute(request, response);
-					viewPage = "alldetail.jsp";
-					break;
-					
-				case("/studentDetail.do"): 
-					command = new StudentDetail_Command();
-					command.execute(request, response);
-					viewPage = "studentDetail.jsp";
-					break;
-					
-					
-				case("/officeDetail.do"): 
-					command = new OfficeDetail_Command();
-					command.execute(request, response);
-					viewPage = "officeDetail.jsp";
-					break;
-					
-				case("/interiorDetail.do"): 
-					command = new InteriorDetail_Command();
-					command.execute(request, response);
-					viewPage = "interiorDetail.jsp";
-					break;
-					
-				case("/stoolDetail.do"): 
-					command = new StoolDetail_Command();
-					command.execute(request, response);
-					viewPage = "stoolDetail.jsp";
-					break;
-					//DetailPage.do - end
+		//DetailPage.do
+		
+		case("/allDetail.do"): 
+			command = new Click_Command();
+			command.execute(request, response);
+			
+		
+			command = new AllDetail_Command();
+			command.execute(request, response);
+			viewPage = "alldetail.jsp";
+			break;
+			
+		case("/studentDetail.do"): 
+			command = new Click_Command();
+			command.execute(request, response);
+			
+			command = new StudentDetail_Command();
+			command.execute(request, response);
+			viewPage = "studentDetail.jsp";
+			break;
+			
+			
+		case("/officeDetail.do"): 
+			command = new Click_Command();
+			command.execute(request, response);
+			
+			command = new OfficeDetail_Command();
+			command.execute(request, response);
+			viewPage = "officeDetail.jsp";
+			break;
+			
+		case("/interiorDetail.do"): 
+			command = new Click_Command();
+			command.execute(request, response);
+			
+			command = new InteriorDetail_Command();
+			command.execute(request, response);
+			viewPage = "interiorDetail.jsp";
+			break;
+			
+		case("/stoolDetail.do"): 
+			command = new Click_Command();
+			command.execute(request, response);
+		
+			command = new StoolDetail_Command();
+			command.execute(request, response);
+			viewPage = "stoolDetail.jsp";
+			break;
 				case("/cartin.do"): 
 					command = new InsertCart_Command();
 					command.execute(request, response);

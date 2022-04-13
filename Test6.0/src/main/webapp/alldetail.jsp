@@ -167,18 +167,29 @@ font-size: 1.2rem;
 	
 	
 	<!-- 리뷰 Start -->
-	      <div style="width: 800px;">
+	      <div style="width: 1000px;">
+	     	<h3>REVIEW VOICE</h3><br>
+	     	<hr class="dropdown-divider"><br>
 	         <table>
+	         		<tr>
+		         		<th>작성자</th><td></td><td></td><td></td>
+		         		<th>리뷰 날짜</th><td></td><td></td><td></td>
+		         		<th>리뷰 제목</th><td></td><td></td><td></td>
+		         		<th>리뷰 내용</th><td></td><td></td><td></td>
+		         		<th>리뷰 이미지<th><td></td>
+	         		</tr>
 	         <c:forEach items="${review}" var="dto">
 	               <tr>
-	                  <td>${dto.rTitle}</td>
-	                  <td>${dto.user_uId}</td>
-	                  <td>${dto.rDate}</td>
+	                  <td>${dto.user_uId}</td><td></td><td></td><td></td>
+	                  <td>${dto.rDate}</td><td></td><td></td><td></td>
+	                  <td>${dto.rTitle}</td><td></td><td></td><td></td>
+	                  <td>${dto.rContent}</td><td></td><td></td><td></td>
 	                  <td><img src="${dto.rImg}" width="100"></td>
-	                  <td>${dto.rContent}</td>
 	               </tr>
 	            </c:forEach>
 	         </table>
+	         <br>
+	     	<hr class="dropdown-divider"><br>
 	      </div>
    	<!-- 리뷰 End  -->
 

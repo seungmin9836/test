@@ -76,13 +76,13 @@ public class SelectDetail_dao {
 	      
 	      try {
 	         connection = dataSource.getConnection();
-	         String query = "select r.rTitle, r.user_uId, r.rDate, r.rImg, r.rContent "
-	               + "from user as u, cart as c, product as p, review as r "
-	               + "where p.pCode = ? and c.cDecision = ?"
-	               + " and c.user_uId = r.user_uId and p.pCode = r.product_pCode";
+	         String query = "select r.rTitle, r.user_uId, r.rDate, r.rImg, r.rContent" 
+	        		 +" from user as u, cart as c, product as p, review as r" 
+	        		 +" where r.product_pCode = ? and c.cDecision = ?"
+	        		 +" and u.uId = r.user_uId and r.cart_cCode = c.cCode and p.pCode = r.product_pCode";
 	         preparedStatement = connection.prepareStatement(query);
 	         preparedStatement.setString(1, spCode);
-	         preparedStatement.setString(2, "결재완료");
+	         preparedStatement.setString(2, "결제완료");
 	         
 	         resultSet = preparedStatement.executeQuery();
 	         
