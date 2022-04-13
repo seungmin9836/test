@@ -28,6 +28,10 @@
 	padding : 100px 150px 100px 150px;
 	margin : 100px 150px 100px 150px;
 }
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 <body>
 <% String uId = null; 
@@ -103,13 +107,16 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
+	<div class="BreadCrumb">
 	<section class="breadCrumb">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		  	<li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">결제</li>
 		  </ol>
 		</nav>
 	</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->

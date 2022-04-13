@@ -26,8 +26,13 @@
 </head>
 <style>
 .payment { 
-	padding : 150px 0 0 600px;
+	padding : 100px 150px 100px 150px;
+	margin : 100px 150px 100px 150px;
 	text-align: left;
+}
+.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
 }
 </style>
 <body>
@@ -104,13 +109,16 @@
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
+	<div class="BreadCrumb">
 	<section class="breadCrumb">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		  	<li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">결제</li>
 		  </ol>
 		</nav>
 	</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
@@ -133,7 +141,10 @@
 	}
 
 </script>
-<div class="payment" align="center">
+<div class="payment">
+	<h1>결제</h1><br><br>
+	<hr class="dropdown-divider">
+	<br><br>
 	<table>
 	<tr>
 	<td>이미지</td>
@@ -193,7 +204,7 @@
 
 
 
-<div style="padding : 30px 0 100px 0"><input type="submit" value="결제하기" class="btn btn-secondary btn-lg"></div>
+<div style="padding : 30px 0 100px 0" align="center"><input type="submit" value="결제하기" class="btn btn-secondary btn-lg"></div>
 
 </form>
 </div>
