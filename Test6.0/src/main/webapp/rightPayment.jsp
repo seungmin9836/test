@@ -163,10 +163,7 @@ font-size: 1.2rem;
 		<td>이메일 :</td><td><input type="email" name="email" size="20" placeholder="이메일을 입력해주세요."></td>
 	</tr>
 	<tr>
-		<td>주소 :</td><td></td>
-	</tr>
-	<tr>
-		<td>수령자명 :</td><td><div><input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
+		<td>주소 :</td><td><div><input type="text"  style="width:50px;" id="zipNo"  name="zipNo" />
 		<button type="button" class="btn btn-secondary btn-md" onClick="goPopup();"> 주소찾기</button></div></td>
 	</tr>
 </table>											

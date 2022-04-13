@@ -25,7 +25,7 @@
 </head>
 <style>
 	.review{
-	padding : 100px 0 100px 300px;
+	padding : 100px 400px 100px 400px;
 	}
 	.BreadCrumb {
 padding : 30px 0 0 40px;
@@ -106,13 +106,16 @@ font-size: 1.2rem;
 	<!-- Header End -->
 	
 	<!-- Bread Crumb Start -->
-	<section class="breadCrumb">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">리뷰작성</li>
-		  </ol>
-		</nav>
-	</section>
+	<div class = "BreadCrumb">
+		<section class="breadCrumb">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="mainpage.jsp">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">리뷰작성화면</li>
+			  </ol>
+			</nav>
+		</section>
+	</div>
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
@@ -122,7 +125,9 @@ font-size: 1.2rem;
 	String pName=request.getParameter("pName"); 
 	%>
 	<div class="review">
-	
+	<br>
+	<h2>리뷰작성하기</h2><br><br>
+	<hr class="dropdown-divider"><br><br>
 	<form action="reviewWrite.do" method="post">
 	<table >
 
@@ -147,9 +152,10 @@ font-size: 1.2rem;
 		<tr>
 		<td><input type="file" id="inp"></td>
 		<td><input type="text" id="imgTxt" name="imgFile" ></td>
-
-	<td><input type="submit" value="리뷰등록"></td></tr>
+		</tr>
      </table>
+     <br><br><br><br>
+     <div align="center"><input class="btn btn-secondary" type="submit" value="리뷰등록 하러가기"></div>
 	</form>
 	</div>
 	<script type="text/javascript">
