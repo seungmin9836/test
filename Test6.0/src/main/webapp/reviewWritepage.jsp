@@ -27,6 +27,10 @@
 	.review{
 	padding : 100px 0 100px 300px;
 	}
+	.BreadCrumb {
+padding : 30px 0 0 40px;
+font-size: 1.2rem;
+}
 </style>
 <body>
 <% String uId = null; 

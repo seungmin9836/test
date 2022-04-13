@@ -137,8 +137,8 @@ font-size: 1.2rem;
 			<div class="row">
 				<div class="col-md-6" style="width: 324px;">
 				<img src="${detail.pImg_main }" width="350">
-				<h6>${detail.pCode }</h6>
-				<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
+				상품 코드번호 : <h6>${detail.pCode }</h6>
+				상품 재고 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
 				</div>
 				<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
 					<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
