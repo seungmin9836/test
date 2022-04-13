@@ -2,7 +2,7 @@ package com.javalec.team.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import com.javalec.team.dao.MPdelete_dao;
 
@@ -16,6 +16,10 @@ public class MPdelete_Command implements PCommand {
 		
 		MPdelete_dao dao = new MPdelete_dao();
 		dao.delete(uId);
+		
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
 	}
 
 }
