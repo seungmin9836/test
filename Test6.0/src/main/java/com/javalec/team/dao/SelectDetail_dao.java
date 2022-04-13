@@ -69,46 +69,49 @@ public class SelectDetail_dao {
    }//
    
    public ArrayList<ReviewlistDetail_dto> allreview (String spCode){
-      ArrayList<ReviewlistDetail_dto> dtos = new ArrayList<ReviewlistDetail_dto>();
-      Connection connection = null;
-      PreparedStatement preparedStatement = null;
-      ResultSet resultSet = null;
-      
-      try {
-         connection = dataSource.getConnection();
-         String query = "select r.rTitle, r.user_uId, r.rDate, r.rImg, r.rContent "
-               + "from user as u, ordering as o, product as p, review as r "
-               + "where pCode = ? and u.uID = r.user_uId and o.oCode = r.ordering_oCode and p.pCode = r.product_pCode";
-         preparedStatement = connection.prepareStatement(query);
-         preparedStatement.setString(1, spCode);
-         resultSet = preparedStatement.executeQuery();
-         
-         while(resultSet.next()) {
-            String rTitle = resultSet.getString("rTitle");
-            String user_uId = resultSet.getString("user_uId");
-            String rDate = resultSet.getString("rDate");
-            String rImg = resultSet.getString("rImg");
-            String rContent = resultSet.getString("rContent");
-            
-            ReviewlistDetail_dto dto = new ReviewlistDetail_dto(rTitle, user_uId, rDate, rImg, rContent);
-            
-            dtos.add(dto);
-         }
-         
-      } catch (Exception e) {
-         e.printStackTrace();
-      } finally {
-         //  뵠 湲   뵠   뿳椰    毓얍쳞  簾ル뗀 걟 뵳    젟 뵳    
-         try {
-            if(resultSet != null) resultSet.close();
-            if(preparedStatement != null) preparedStatement.close();
-            if(connection != null) connection.close();
-         } catch (Exception e2) {
-            e2.printStackTrace();
-         }
-      }
-      return dtos;
-   } //list end
+	      ArrayList<ReviewlistDetail_dto> dtos = new ArrayList<ReviewlistDetail_dto>();
+	      Connection connection = null;
+	      PreparedStatement preparedStatement = null;
+	      ResultSet resultSet = null;
+	      
+	      try {
+	         connection = dataSource.getConnection();
+	         String query = "select r.rTitle, r.user_uId, r.rDate, r.rImg, r.rContent "
+	               + "from user as u, cart as c, product as p, review as r "
+	               + "where p.pCode = ? and c.cDecision = ?"
+	               + " and c.user_uId = r.user_uId and p.pCode = r.product_pCode";
+	         preparedStatement = connection.prepareStatement(query);
+	         preparedStatement.setString(1, spCode);
+	         preparedStatement.setString(2, "결재완료");
+	         
+	         resultSet = preparedStatement.executeQuery();
+	         
+	         while(resultSet.next()) {
+	            String rTitle = resultSet.getString("rTitle");
+	            String user_uId = resultSet.getString("user_uId");
+	            String rDate = resultSet.getString("rDate");
+	            String rImg = resultSet.getString("rImg");
+	            String rContent = resultSet.getString("rContent");
+	            
+	            ReviewlistDetail_dto dto = new ReviewlistDetail_dto(rTitle, user_uId, rDate, rImg, rContent);
+	            
+	            dtos.add(dto);
+	         }
+	         
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         //  뵠 湲   뵠   뿳椰    毓얍쳞  簾ル뗀 걟 뵳    젟 뵳    
+	         try {
+	            if(resultSet != null) resultSet.close();
+	            if(preparedStatement != null) preparedStatement.close();
+	            if(connection != null) connection.close();
+	         } catch (Exception e2) {
+	            e2.printStackTrace();
+	         }
+	      }
+	      return dtos;
+	   } //list end
    
    public void clickadd(String id, int sclick) {
 		
