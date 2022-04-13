@@ -142,18 +142,18 @@ font-size: 1.2rem;
 				상품 재고 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
 				</div>
 				<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
-					<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
+					<div><h2 style="padding-top: 27px;">${detail.pName } </h2></div>
 					<div style="padding-top: 143px;">
-					<h2>${detail.pPrice }</h2>
+					<h4>상품 금액 : ${detail.pPrice }</h4><br>
 					<!-- 여기서부터 -->
 					<form action="cartin.do" method="post">
 						<input type="hidden" name="pCode" value="${detail.pCode }">
-		 				수량 : <input type="text" name="pQuantity" size="2" >개 <br>
+		 				수량 : <input type="text" name="pQuantity" size="2" >개 <br><br>
 		 				<input type="hidden" name="cDecision" value="장바구니">
 		 				<input type="hidden" name="pPrice" value="${detail.pPrice }">		 				
 		 				<input type="submit"  class="btn btn-secondary" value="장바구니">
 		 			</form>
-		 			<br><br>
+		 			<br>
 		 			
 					<form action="rightPayment.do" method="get">
 						<input type="hidden" name="pCode" value="${detail.pCode }">
@@ -167,20 +167,20 @@ font-size: 1.2rem;
 	
 	
 	<!-- 리뷰 Start -->
-	      <div style="width: 324px;">
+	      <div style="width: 800px;">
 	         <table>
 	         <c:forEach items="${review}" var="dto">
 	               <tr>
 	                  <td>${dto.rTitle}</td>
 	                  <td>${dto.user_uId}</td>
 	                  <td>${dto.rDate}</td>
-	                  <td>${dto.rImg}</td>
+	                  <td><img src="${dto.rImg}" width="100"></td>
 	                  <td>${dto.rContent}</td>
 	               </tr>
 	            </c:forEach>
 	         </table>
 	      </div>
-   <!-- 리뷰 End -->
+   	<!-- 리뷰 End  -->
 
 	<!-- 상세정보 Start -->
 	<div ><img src="${detail.pImg_detail }"></div>

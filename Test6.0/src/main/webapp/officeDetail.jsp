@@ -167,20 +167,20 @@ font-size: 1.2rem;
 	
 	
 	<!-- 리뷰 Start -->
-	      <div style="width: 324px;">
+	      <div style="width: 800px;">
 	         <table>
 	         <c:forEach items="${review}" var="dto">
 	               <tr>
 	                  <td>${dto.rTitle}</td>
 	                  <td>${dto.user_uId}</td>
 	                  <td>${dto.rDate}</td>
-	                  <td>${dto.rImg}</td>
+	                  <td><img src="${dto.rImg}" width="100"></td>
 	                  <td>${dto.rContent}</td>
 	               </tr>
 	            </c:forEach>
 	         </table>
 	      </div>
-   <!-- 리뷰 End -->
+   	<!-- 리뷰 End  -->
 
 	<!-- 상세정보 Start -->
 	<div ><img src="${detail.pImg_detail }"></div>

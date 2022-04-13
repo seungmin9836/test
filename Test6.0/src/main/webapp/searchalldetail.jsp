@@ -165,22 +165,20 @@ font-size: 1.2rem;
 			</div>	<!-- 제품정보 End -->
 	
 	<!-- 리뷰 Start -->
-   <div class="row" style="padding-left: 500px;">
-      <div class="col-md-6" style="width: 324px;">
-         <table>
-         <c:forEach items="${review}" var="dto">
-               <tr>
-                  <td>${dto.rTitle}</td>
-                  <td>${dto.user_uId}</td>
-                  <td>${dto.rDate}</td>
-                  <td>${dto.rImg}</td>
-                  <td>${dto.rContent}</td>
-               </tr>
-            </c:forEach>
-         </table>
-      </div>
-   </div>
-   <!-- 리뷰 End -->
+	      <div style="width: 800px;">
+	         <table>
+	         <c:forEach items="${review}" var="dto">
+	               <tr>
+	                  <td>${dto.rTitle}</td>
+	                  <td>${dto.user_uId}</td>
+	                  <td>${dto.rDate}</td>
+	                  <td><img src="${dto.rImg}" width="100"></td>
+	                  <td>${dto.rContent}</td>
+	               </tr>
+	            </c:forEach>
+	         </table>
+	      </div>
+   	<!-- 리뷰 End  -->
 
 	<!-- 상세정보 Start -->
 	<div style="padding-left: 407px;padding-top: 147px;">
