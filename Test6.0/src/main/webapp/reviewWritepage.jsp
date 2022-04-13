@@ -23,7 +23,11 @@
 <title>홈페이지</title>
 
 </head>
-
+<style>
+	.review{
+	padding : 100px 0 100px 300px;
+	}
+</style>
 <body>
 <% String uId = null; 
 	if(session.getAttribute("uId") != null){
@@ -101,7 +105,7 @@
 	<section class="breadCrumb">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Home</li>
+		    <li class="breadcrumb-item active" aria-current="page">리뷰작성</li>
 		  </ol>
 		</nav>
 	</section>
@@ -113,13 +117,13 @@
 	String cCode=request.getParameter("cCode"); 
 	String pName=request.getParameter("pName"); 
 	%>
-	<div>
-	</div>
+	<div class="review">
+	
 	<form action="reviewWrite.do" method="post">
 	<table >
 
-	<tr><td><input name="oCode" type="text" value="<%=oCode%>"></td></tr>
-	<tr><td><input name="cCode" type="text" value="<%=cCode%>"></td></tr>
+	<tr><td><input name="oCode" type="hidden" value="<%=oCode%>"></td></tr>
+	<tr><td><input name="cCode" type="hidden" value="<%=cCode%>"></td></tr>
 	<tr>
     <td>상품명 : </td>
    	<td><%=pName%></td>
@@ -143,6 +147,7 @@
 	<td><input type="submit" value="리뷰등록"></td></tr>
      </table>
 	</form>
+	</div>
 	<script type="text/javascript">
 	function readFile() {
 	  

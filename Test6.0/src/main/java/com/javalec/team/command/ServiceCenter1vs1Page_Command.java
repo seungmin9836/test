@@ -18,7 +18,7 @@ public class ServiceCenter1vs1Page_Command implements PCommand {
 		int endnum= Integer.parseInt(request.getParameter("endnum"));
 		ServiceCenter1vs1_dao dao = new ServiceCenter1vs1_dao();
 		ArrayList<ServiceCenter1vs1_dto> dtos = dao.ServiceCenter1vs1Page(startnum,endnum);
-		request.setAttribute("list", dtos);
+		request.setAttribute("Inquire", dtos);
 	}
 
 }

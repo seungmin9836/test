@@ -36,7 +36,7 @@ public class ServiceCenter1vs1_dao {
 				int p2 = 10;
 				try {
 					connection = dataSource.getConnection();
-					String query = "select iNum, iCode, user_uId, iTitle, iContent, iDate, iReply from inquire limit ?, ?"; 
+					String query = "select iNum, iCode, user_uId, iTitle, iContent, iDate, iReply from inquire order by iNum desc limit ?, ?"; 
 					preparedStatement = connection.prepareStatement(query);
 					
 					preparedStatement.setInt(1, p1);
@@ -79,7 +79,7 @@ public class ServiceCenter1vs1_dao {
 							ResultSet resultSet = null;
 							try {
 								connection = dataSource.getConnection();
-								String query = "select iNum, iCode, user_uId, iTitle, iContent, iDate, iReply from inquire limit " + startnum + "," + endnum; 
+								String query = "select iNum, iCode, user_uId, iTitle, iContent, iDate, iReply from inquire order by iNum desc limit " + startnum + "," + endnum; 
 								preparedStatement = connection.prepareStatement(query);
 						         
 								resultSet = preparedStatement.executeQuery();
