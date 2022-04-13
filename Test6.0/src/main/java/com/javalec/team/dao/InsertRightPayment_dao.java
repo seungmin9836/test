@@ -32,7 +32,7 @@ DataSource dataSource;
 			preparedStatement.setString(1, cPrice);
 			preparedStatement.setString(2, cAddress);
 			preparedStatement.setInt(3, cQuantity);
-			preparedStatement.setString(4, "결재완료");
+			preparedStatement.setString(4, "결제완료");
 			preparedStatement.setString(5, product_pCode);
 			preparedStatement.setString(6, uid);
 			

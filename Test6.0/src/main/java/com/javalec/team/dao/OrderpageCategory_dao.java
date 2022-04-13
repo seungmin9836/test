@@ -26,7 +26,7 @@ public class OrderpageCategory_dao {
 	}
 
 	// 전체 검색
-	public ArrayList<OrderpageCategory_dto> list(String uId) {
+	public ArrayList<OrderpageCategory_dto> list(String uid) {
 		ArrayList<OrderpageCategory_dto> dtos = new ArrayList<OrderpageCategory_dto>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -36,7 +36,7 @@ public class OrderpageCategory_dao {
 			connection = dataSource.getConnection();
 			String query ="select c.cCode, c.product_pCode,c.user_uId, p.pImg_main, p.pName , c.cQuantity , c.cPrice from product as p, cart as c where p.pCode=c.product_pCode and c.user_uId=? and c.cDecision='결제완료' ";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1,uId);
+			preparedStatement.setString(1,uid);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
