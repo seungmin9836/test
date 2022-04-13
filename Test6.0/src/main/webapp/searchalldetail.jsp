@@ -130,26 +130,39 @@ font-size: 1.2rem;
 	
 	
 	<!-- 제품정보 Start -->
-	
-	
-	<div class="row" style="padding-left: 500px;">
-		<div class="col-md-6" style="width: 324px;">
-		<img src="${detail.pImg_main }" width="350">
-		<h6>${detail.pCode }</h6>
-		<button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
-		</div>
-		<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
-			<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
-			<div style="padding-top: 143px;">
-			<h2>${detail.pPrice }</h2>
-			<a class="cart btn btn-default btn-lg" href="cartin.do?pCode=${detail.pCode }" role="button">장바구니</a>
-			<a class="buynow btn btn-default btn-lg" href="#" role="button" style="border-left-width: 0px;margin-left: 25px;">바로구매</a>
-			</div>
-		</div>
-	</div>
-	
-	
-	<!-- 제품정보 End -->
+	<div class="container">
+		<div class="row">
+    	<div class="col-2"></div>
+    	<div class="col-8">
+  	
+			<div class="row">
+				<div class="col-md-6" style="width: 324px;">
+				<img src="${detail.pImg_main }" width="350">
+				상품 코드번호 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pCode }</button>
+				상품 재고 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
+				</div>
+				<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
+					<div><h5 style="padding-top: 27px;">${detail.pName } </h5></div>
+					<div style="padding-top: 143px;">
+					<h2>${detail.pPrice }</h2>
+					<!-- 여기서부터 -->
+					<form action="cartin.do" method="post">
+						<input type="hidden" name="pCode" value="${detail.pCode }">
+		 				수량 : <input type="text" name="pQuantity" size="2" >개 <br>
+		 				<input type="hidden" name="cDecision" value="장바구니">
+		 				<input type="hidden" name="pPrice" value="${detail.pPrice }">		 				
+		 				<input type="submit"  class="btn btn-secondary" value="장바구니">
+		 			</form>
+		 			
+		 			
+					<form action="rightPayment.do" method="get">
+						<input type="hidden" name="pCode" value="${detail.pCode }">
+		 				<input type="submit"  class="btn btn-secondary" value="바로결제">
+		 			</form>
+					<!-- 여기까지 -->
+					</div>
+				</div>
+			</div>	<!-- 제품정보 End -->
 	
 	<!-- 리뷰 Start -->
    <div class="row" style="padding-left: 500px;">
@@ -174,7 +187,12 @@ font-size: 1.2rem;
 	<div ><img src="${detail.pImg_detail }"></div>
 	</div>
 	<!-- 상세정보 End -->
-	
+	<!-- 상품 안내문 Start -->
+	<div><img src="./img/information.jpg"></div>
+	<!-- 상품 안내문 End -->
+	</div>
+	</div>
+  	</div>
 	
 	
 	

@@ -137,7 +137,8 @@ font-size: 1.2rem;
 			<div class="row">
 				<div class="col-md-6" style="width: 324px;">
 				<img src="${detail.pImg_main }" width="350">
-				상품 코드번호 : <h6>${detail.pCode }</h6>
+				
+				상품 코드번호 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pCode }</button>
 				상품 재고 : <button type="button" class="btn btn-default btn-xs" disabled="disabled">${detail.pQuantity }</button>
 				</div>
 				<div class="col-md-6" style="padding-bottom: 156px;border-left-width: 0px;padding-left: 67px;">
@@ -152,7 +153,7 @@ font-size: 1.2rem;
 		 				<input type="hidden" name="pPrice" value="${detail.pPrice }">		 				
 		 				<input type="submit"  class="btn btn-secondary" value="장바구니">
 		 			</form>
-		 			
+		 			<br><br>
 		 			
 					<form action="rightPayment.do" method="get">
 						<input type="hidden" name="pCode" value="${detail.pCode }">
