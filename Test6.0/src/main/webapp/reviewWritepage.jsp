@@ -25,6 +25,9 @@
 </head>
 
 <body>
+<% String uId = null; 
+	if(session.getAttribute("uId") != null){
+		uId = (String)session.getAttribute("uId"); } %>
 	<!-- Header start -->
 	<header id="Top">
 		<nav class="navbar navbar-light " style="background-color: #BBBBBB;">
@@ -39,7 +42,16 @@
 						</form>
 					</div>
 				</nav>
-				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a> 
+				<% 
+				if(uId == null){ %>
+				<a class="nav-link" href="login.do" style="color:white;">로그인 <i class="fa-solid fa-right-to-bracket"></i></a>
+				<%
+			} else{
+		%> 
+				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
+		<%
+				}
+			%>  
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -97,15 +109,17 @@
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
  <!-- 여기부터 넣으시면 됩니다 Start -->
-	<%String oCode=request.getParameter("oCode"); 
+	<%String oCode=request.getParameter("pCode"); 
+	String cCode=request.getParameter("cCode"); 
 	String pName=request.getParameter("pName"); 
 	%>
 	<div>
 	</div>
-	<form action="reviewWrite.do" method="get">
-	<table border="0">
+	<form action="reviewWrite.do" method="post">
+	<table >
 
-	<tr><td><input name="oCode" type="hidden" value="<%=oCode%>"></td></tr>
+	<tr><td><input name="oCode" type="text" value="<%=oCode%>"></td></tr>
+	<tr><td><input name="cCode" type="text" value="<%=cCode%>"></td></tr>
 	<tr>
     <td>상품명 : </td>
    	<td><%=pName%></td>
@@ -125,11 +139,8 @@
 		<tr>
 		<td><input type="file" id="inp"></td>
 		<td><input type="text" id="imgTxt" name="imgFile" ></td>
-		<td><input type="submit" value="Upload"></td>
-		</tr>
-		<tr>
-		<td>
-	<input type="submit" value="리뷰등록"></td></tr>
+
+	<td><input type="submit" value="리뷰등록"></td></tr>
      </table>
 	</form>
 	<script type="text/javascript">
@@ -183,7 +194,7 @@
 			</div>
 		</div>
 	</footer>
-	<!-- Footer End -->
+	<!— Footer End —>
 
 </body>
 

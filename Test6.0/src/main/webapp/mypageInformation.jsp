@@ -69,7 +69,7 @@ margin : 0 0 100px 0;
 				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
 		<%
 				}
-			%>
+			%>  
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -140,32 +140,35 @@ margin : 0 0 100px 0;
 		      		 <thead>
 			      		 <tr>
 			      		 <td class="table-secondary"><h4>구분</h4></td>
-			      		 <td class="table-secondary"><h4>나의 정보</h4></td>
+			      		 <td class="table-secondary" colspan="5"><h4>나의 정보</h4></td>
   					 </thead>
  					 <tbody>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light" >사용자 ID : </th>
-		      				<td><input type="text" name="uId" size="30" value="${content_view.uId }" readonly="readonly"></td>
+		      				<td colspan="5"><input type="text" name="uId" size="30" value="${content_view.uId }" readonly="readonly"></td>
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">성명 : </th>
-		      				<td><input type="text" name="uName" size="30" value="${content_view.uName }"readonly="readonly" ></td>
+		      				<td colspan="5"><input type="text" name="uName" size="30" value="${content_view.uName }" ></td>
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">이메일 : </th>
-		      				<td><input type="text" name="uEmail" size="30" value="${content_view.uEmail }" ></td>
+		      				<td colspan="5"><input type="text" name="uEmail" size="30" value="${content_view.uEmail }" ></td>
 		      			</tr>	
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">휴대폰 번호 : </th>
-		      				<td>010 - <input type="text" name="uPhone1" size="8" value="${content_view.uPhone1 }" > - <input type="text" name="uPhone2" size="8" value="${content_view.uPhone2 }" ></td>
+		      				<td colspan="5">010 - <input type="text" name="uPhone1" size="8" value="${content_view.uPhone1 }" > - <input type="text" name="uPhone2" size="8" value="${content_view.uPhone2 }" ></td>
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">주소 : </th>
-		      				<td><input type="text" name="uAddress" size="30" value="${content_view.uAddress }" ></td>
+		      			    <td><input type="text" width="2"  id="zipNo"  name="zipNo" /></td>
+ 					<td><input type="text"  style="width:300px;" id="address"  name="address" placeholder="${content_view.uAddress }"/></td>
+					<td><button type="button"  onClick="goPopup();"> 찾기</button></td>
+				
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">계좌 : </th>
-		      				<td><select name="uBank">
+		      				<td colspan="5"><select name="uBank">
 									<option  selected="selected">${content_view.uBank }</option>
 									<option>국민</option>
 									<option>신한</option>
@@ -177,7 +180,7 @@ margin : 0 0 100px 0;
 		      			</tr>
 		      			<tr>
 		      				<th scope="col" id="detaillist" class="table-light">비밀번호 : </th>
-		      				<td><input type="text" name="uPw" size="30" value="${content_view.uPw }" ></td>
+		      				<td colspan="5"><input type="text" name="uPw" size="30" value="${content_view.uPw }" ></td>
 		      			</tr>
 		      			</tbody>
 		      			
@@ -203,6 +206,24 @@ margin : 0 0 100px 0;
  	</div>
 </div>
 	
+<script>
+
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	 
+}
+
+function jusoCallBack(zipNo,roadFullAddr){
+			var zipNoEl = document.querySelector("#zipNo");
+			var addressEl = document.querySelector("#address");
+			zipNoEl.value=zipNo;
+			addressEl.value=roadFullAddr;
+		
+}
+
+</script>
 	<!-- End -->
 	
 	<!-- Footer start -->
@@ -236,7 +257,7 @@ margin : 0 0 100px 0;
 			</div>
 		</div>
 	</footer>
-	<!-- Footer End -->
+	<!— Footer End —>
 
 </body>
 

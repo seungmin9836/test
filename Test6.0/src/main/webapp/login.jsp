@@ -134,7 +134,7 @@ margin : 10px 0 20px 0;
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 	<div class = "login" align ="center">
 	<H1>회원 로그인</H1><br><br>
-	<form action="mainpage.do">
+	<form action="mainpage.do" method="post">
 		<table>
 			<tr>
 				<td colspan="3"><hr class="dropdown-divider"><br><br></td>

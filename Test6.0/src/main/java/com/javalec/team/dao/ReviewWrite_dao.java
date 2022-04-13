@@ -20,20 +20,21 @@ public class ReviewWrite_dao {
 			e.printStackTrace();
 		}
 	}
-	public void write(String rTitle,String rImg,String rContent, String uId, String oCode) {
+	public void write(String rTitle,String rImg,String rContent, String uId, String oCode, int cCode) {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into review(rTitle,rImg,rDate,rContent,user_uId,order_oCode) values (?,?,now(),?,?,?)";
+			String query = "insert into review(rTitle,rImg,rDate,rContent,user_uId,product_pCode,cart_cCode) values (?,?,now(),?,?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, rTitle);
 			preparedStatement.setString(2, rImg);
 			preparedStatement.setString(3, rContent);
 			preparedStatement.setString(4, uId);
-			preparedStatement.setInt(5, Integer.parseInt(oCode));
+			preparedStatement.setString(5, oCode);
+			preparedStatement.setInt(6, cCode);
 
 			preparedStatement.executeUpdate();
 

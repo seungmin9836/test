@@ -2,7 +2,7 @@ package com.javalec.team.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import com.javalec.team.dao.ReviewWrite_dao;
 
@@ -17,17 +17,15 @@ public class ReviewWritepage_Command implements PCommand {
 		String rTitle = request.getParameter("rTitle");
 		String rImg = request.getParameter("imgFile");
 		String rContent = request.getParameter("rContent");
-		String uId = "c";
+		int cCode=Integer.parseInt(request.getParameter("cCode"));
+		HttpSession session = request.getSession();
 		
-		System.out.println(rTitle);
-		System.out.println(rContent);
-		System.out.println(uId);
-		System.out.println(oCode);
-		System.out.println(rImg);
+		String uid =(String)session.getAttribute("uId");
+		
 	
 		
 		ReviewWrite_dao dao = new ReviewWrite_dao();
-		dao.write(rTitle, rImg, rContent, uId, oCode);
+		dao.write(rTitle, rImg, rContent, uid, oCode, cCode);
 		}
 	}
 

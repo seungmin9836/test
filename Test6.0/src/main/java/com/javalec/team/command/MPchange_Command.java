@@ -18,7 +18,7 @@ public class MPchange_Command implements PCommand {
 		String uPhone2 =request.getParameter("uPhone2");
 		String uBank =request.getParameter("uBank");
 		String uAccount =request.getParameter("uAccount");
-		String uAddress =request.getParameter("uAddress");
+		String uAddress =request.getParameter("address");
 		
 		MPchange_dao dao = new MPchange_dao();
 		dao.modify(uId, uName, uEmail, uPw, uPhone1, uPhone2,uBank,uAccount,uAddress);

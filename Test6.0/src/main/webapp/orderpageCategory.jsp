@@ -57,7 +57,7 @@ font-size: 1.2rem;
 				<a class="nav-link" href="logout.do" style="color:white;">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></a>
 		<%
 				}
-			%>
+			%>  
 				<a class="nav-link" href="adduser.do" style="color:white;">회원가입 <i class="fa-solid fa-user-plus"></i></a>
 				<a class="nav-link" href="wishlist.do" style="color:white;">장바구니 <i class="fa-solid fa-bag-shopping"></i></a> 
 				<a class="nav-link" href="mpInformation.do" style="color:white;">마이페이지 <i class="fa-solid fa-circle-user"></i></a>
@@ -133,7 +133,6 @@ font-size: 1.2rem;
          <th scope="col">상품명</th>
          <th scope="col">상품수량</th>
          <th scope="col">상품가격</th>
-         <th scope="col">배송여부</th>
          <th scope="col">리뷰쓰기</th>
        </tr>
      </thead>
@@ -141,19 +140,18 @@ font-size: 1.2rem;
  		
     
       <c:forEach items="${list}" var="dto">
-         
-         <tr >
+       
+  
       
-         <td><img src="${dto.pImg_main}" width="200"></td><!-- 상품사진 -->
+         <td><img src="${dto.pImg_main}" width="200"></td>
          
-         <td>${dto.pName}  </td><!-- 상품명 -->
+         <td>${dto.pName}  </td>
          
-         <td> ${dto.oQuantity }</td><!-- 상품수량  -->
+         <td> ${dto.cQuantity}</td>
       
-         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.oPrice } </h5></td><!-- 상품가격 -->
+         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.cPrice } </h5></td>
          
-         <td><h5>${dto.oDecision }</h5></td><!-- 구매확정  -->
-         <td><a href="reviewWritepage.do?oCode=${dto.oCode}&pName=${dto.pName}">리뷰작성</a></td>
+         <td><a href="reviewWritepage.do?cCode=${dto.cCode}&pCode=${dto.pCode}&pName=${dto.pName}">리뷰작성</a></td>
    
          </tr>
      
@@ -164,6 +162,28 @@ font-size: 1.2rem;
    </table>
 </div>
 	<!-- 여기부터 넣으시면 됩니다 End -->
+<div class="row" style="margin-top: 5rem; marign-bottom : 5rem;">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination justify-content-center">
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				</div>
+	
 	<!-- End -->
 	
 	<!-- Footer start -->
@@ -197,7 +217,7 @@ font-size: 1.2rem;
 			</div>
 		</div>
 	</footer>
-	<!-- Footer End -->
+	<!— Footer End —>
 
 </body>
 

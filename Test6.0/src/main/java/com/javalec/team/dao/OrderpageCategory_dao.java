@@ -34,22 +34,22 @@ public class OrderpageCategory_dao {
 
 		try {
 			connection = dataSource.getConnection();
-			String query ="select o.oCode,o.user_uId, p.pImg_main, p.pName , o.oQuantity , o.oPrice, o.oDecision from product as p, ordering as o where p.pCode=o.product_pCode and o.user_uId=? ";
+			String query ="select c.cCode, c.product_pCode,c.user_uId, p.pImg_main, p.pName , c.cQuantity , c.cPrice from product as p, cart as c where p.pCode=c.product_pCode and c.user_uId=? and c.cDecision='결제완료' ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1,uId);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
-				String oCode = resultSet.getString("oCode");
+				String cCode = resultSet.getString("cCode");
+				String pCode = resultSet.getString("product_pCode");
 				String user_uId = resultSet.getString("user_uId");
 				String pImg_main = resultSet.getString("pImg_main");
 				String pName = resultSet.getString("pName");
-				String oQuantity = resultSet.getString("oQuantity");
-				String oPrice = resultSet.getString("oPrice");
-				String oDecision = resultSet.getString("oDecision");
+				String cQuantity = resultSet.getString("cQuantity");
+				String cPrice = resultSet.getString("cPrice");
 				
 				// 하나 작은박스로 집어넣을려고 dto 만든것
-				OrderpageCategory_dto dto = new OrderpageCategory_dto(oCode,user_uId,pImg_main,pName,oQuantity,oPrice,oDecision);
+				OrderpageCategory_dto dto = new OrderpageCategory_dto(cCode,pCode,user_uId,pImg_main,pName,cQuantity,cPrice);
 
 				// 이제 큰박스에 하나하나 넣어야 함 dtos 에 하나씩 쌓임
 				dtos.add(dto);
